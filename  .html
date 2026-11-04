@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#11110f" />
+  <meta name="description" content="Akash Lama is a filmmaker, photographer and screenwriter based in Minneapolis, Minnesota. Explore film, photography, screenwriting and journal work." />
+  <meta property="og:title" content="Akash Lama — Filmmaker, Photographer & Screenwriter" />
+  <meta property="og:description" content="A creative portfolio of moving images, still photographs and stories." />
+  <meta property="og:type" content="website" />
+  <title>Akash Lama — Filmmaker, Photographer & Screenwriter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#11110f;--panel:#191916;--paper:#e9e5da;--muted:#aaa69b;--line:rgba(233,229,218,.18);--acid:#d6ed68;--red:#e56c4d;--mono:"DM Mono",monospace;--sans:"DM Sans",sans-serif;--serif:"Playfair Display",serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--paper);font-family:var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
+    .grain{position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.055;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E")}
+    .shell{width:min(1380px,calc(100% - 64px));margin:auto}.mono{font:11px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}.topbar{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.brand{font:600 15px var(--mono);letter-spacing:.04em}.brand span{color:var(--acid)}nav{display:flex;gap:30px}nav a:focus-visible,.nav-contact:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--acid);outline-offset:4px}nav a,.nav-contact{font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .2s}nav a:hover,.nav-contact:hover{color:var(--acid)}.nav-contact{border:1px solid var(--line);padding:12px 16px}.menu-toggle{display:none;background:none;border:0;font:11px var(--mono);letter-spacing:.1em}
+    .hero{min-height:700px;display:grid;grid-template-columns:1fr .88fr;gap:5vw;align-items:center;padding:88px 0 100px;position:relative}.hero-copy{position:relative;z-index:2}.eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:32px}.eyebrow:before{content:"";width:34px;height:1px;background:var(--acid)}h1{font-size:clamp(64px,9.4vw,142px);line-height:.83;letter-spacing:-.085em;margin:0 0 34px;font-weight:500}h1 .italic{font:italic 500 .88em var(--serif);letter-spacing:-.07em;color:var(--acid);display:block;margin-left:10vw}.hero-sub{max-width:470px;font-size:17px;line-height:1.65;color:#c4c0b5}.hero-meta{display:flex;gap:26px;margin-top:44px;flex-wrap:wrap}.hero-meta span{font:10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.hero-meta b{color:var(--paper);font-weight:400}
+    .hero-art{height:530px;position:relative;overflow:hidden;background:#272722}.hero-art img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%) contrast(1.1);opacity:.82}.hero-art:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.58))}.frame-mark{position:absolute;z-index:2;left:22px;top:22px;font:10px var(--mono);letter-spacing:.15em}.frame-caption{position:absolute;z-index:2;bottom:22px;left:24px;right:24px;display:flex;justify-content:space-between;align-items:end}.frame-caption strong{font:italic 24px var(--serif);font-weight:500}.frame-caption span{font:9px var(--mono);letter-spacing:.1em}
+    .vertical-note{position:absolute;right:-35px;top:45%;writing-mode:vertical-rl;font:9px var(--mono);letter-spacing:.18em;color:var(--muted)}
+    .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:17px 0;white-space:nowrap;color:var(--acid);font:11px var(--mono);letter-spacing:.18em;text-transform:uppercase}.ticker-track{display:inline-block;animation:marquee 34s linear infinite}.ticker span{padding:0 28px}.ticker i{font-style:normal;color:var(--red)}@keyframes marquee{to{transform:translateX(-50%)}}
+    section{padding:110px 0}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:44px}.section-head h2{font-size:clamp(42px,6vw,78px);letter-spacing:-.07em;line-height:.9;font-weight:500;margin:14px 0 0}.section-head h2 em{font:italic 500 .9em var(--serif);color:var(--acid)}.section-note{max-width:250px;font-size:12px;line-height:1.6;color:var(--muted)}
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 26px}.filter{border:1px solid var(--line);background:transparent;padding:10px 14px;font:10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);cursor:pointer}.filter.active,.filter:hover{background:var(--acid);border-color:var(--acid);color:#171711}
+    .work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:42px 20px}.work-card{grid-column:span 6;cursor:pointer}.work-card:nth-child(3n+2){grid-column:span 5;margin-left:16.666%}.work-card:nth-child(3n){grid-column:span 7}.work-image{height:clamp(240px,38vw,510px);overflow:hidden;background:#24241f;position:relative}.work-image img{width:100%;height:100%;object-fit:cover;filter:saturate(.65);transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .5s}.work-card:hover .work-image img{transform:scale(1.045);filter:saturate(1)}.work-image:after{content:"VIEW PROJECT ↗";position:absolute;right:16px;bottom:16px;background:var(--acid);color:#171711;padding:10px 12px;font:9px var(--mono);letter-spacing:.1em;opacity:0;transform:translateY(6px);transition:.25s}.work-card:hover .work-image:after{opacity:1;transform:none}.work-info{display:flex;justify-content:space-between;gap:15px;padding-top:15px;border-top:1px solid var(--line);margin-top:12px}.work-info h3{font:500 23px var(--serif);margin:0}.work-info p{font:10px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:6px 0 0}.work-year{font:10px var(--mono);color:var(--muted)}
+    .manifesto{background:var(--paper);color:#171713;padding:100px 0}.manifesto .mono{color:#656357}.manifesto-inner{display:grid;grid-template-columns:1fr 1.5fr;gap:8vw}.manifesto h2{font-size:clamp(44px,6.3vw,88px);letter-spacing:-.075em;line-height:.92;font-weight:500;margin:18px 0}.manifesto h2 em{font:italic 500 .9em var(--serif);color:#66722c}.manifesto-copy{font:clamp(19px,2.1vw,27px)/1.55 var(--serif);max-width:720px;padding-top:32px}.manifesto-copy p{margin:0 0 24px}.manifesto-copy .small{font:11px/1.8 var(--mono);letter-spacing:.03em;color:#656357;max-width:500px}
+    .photo-grid{display:grid;grid-template-columns:1.1fr .75fr 1.1fr;gap:14px;align-items:start}.photo-grid figure{margin:0;position:relative}.photo-grid figure:nth-child(2){margin-top:90px}.photo-grid figure:nth-child(3){margin-top:35px}.photo-grid img{width:100%;height:clamp(220px,34vw,430px);object-fit:cover;filter:grayscale(100%);transition:filter .4s}.photo-grid figure:hover img{filter:grayscale(0)}.photo-grid figcaption{font:9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:10px}
+    .writing{border-top:1px solid var(--line)}.writing-row{display:grid;grid-template-columns:1fr 2fr auto;gap:30px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line)}.writing-row h3{font:italic 500 30px var(--serif);margin:0}.writing-row p{font-size:12px;line-height:1.6;color:var(--muted);max-width:530px;margin:0}.writing-row .status{font:9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--acid);border:1px solid rgba(214,237,104,.4);padding:9px 10px;white-space:nowrap}
+    .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:9vw;align-items:start}.about-stamp{border:1px solid var(--line);aspect-ratio:1;display:flex;flex-direction:column;justify-content:space-between;padding:22px;max-width:330px;background:radial-gradient(circle at 70% 20%,#35352b,transparent 60%)}.about-stamp .big{font:italic 500 clamp(54px,8vw,100px)/.85 var(--serif);color:var(--acid)}.about-stamp .bottom{font:10px var(--mono);letter-spacing:.12em;line-height:1.8;color:var(--muted)}.about-copy h2{font-size:clamp(42px,5.8vw,76px);letter-spacing:-.07em;line-height:.95;font-weight:500;margin:0 0 30px}.about-copy h2 em{font:italic 500 .9em var(--serif);color:var(--acid)}.about-copy p{font:16px/1.8 var(--serif);color:#c6c2b7;max-width:650px}.credits{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:45px;padding-top:24px;border-top:1px solid var(--line)}.credits strong{display:block;font:10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--acid);margin-bottom:8px}.credits span{font-size:12px;color:var(--muted);line-height:1.5}
+    .contact{background:#d6ed68;color:#171711;padding:100px 0}.contact .mono{color:#555b30}.contact h2{font-size:clamp(60px,11vw,150px);letter-spacing:-.09em;line-height:.8;font-weight:500;margin:30px 0 45px}.contact h2 em{font:italic 500 .85em var(--serif)}.contact-bottom{display:flex;justify-content:space-between;align-items:end;gap:30px;border-top:1px solid rgba(23,23,17,.25);padding-top:20px}.email-link{font:clamp(18px,3vw,30px) var(--serif);border-bottom:1px solid #171711;padding-bottom:5px}.contact-small{font:10px var(--mono);line-height:1.8;text-align:right;text-transform:uppercase}
+    footer{padding:24px 0;display:flex;justify-content:space-between;gap:20px;color:var(--muted);font:9px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+    .modal{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;padding:24px}.modal.open{display:flex}.modal-box{max-width:760px;width:100%;background:var(--panel);border:1px solid var(--line);padding:30px;position:relative}.modal-close{position:absolute;right:18px;top:14px;background:none;border:0;font:20px var(--mono);cursor:pointer}.modal-box .mono{margin-bottom:12px}.modal-box h3{font:italic 500 38px var(--serif);margin:0 0 15px}.modal-box p{color:#c4c0b5;line-height:1.7;font-size:14px}.modal-box .note{font:10px var(--mono);color:var(--acid);letter-spacing:.1em;text-transform:uppercase}
+    @media(max-width:800px){.shell{width:min(100% - 36px,650px)}.topbar{height:66px}nav{display:none;position:absolute;top:66px;left:0;right:0;background:var(--bg);padding:22px 20px;border-bottom:1px solid var(--line);z-index:10;flex-direction:column;gap:20px}nav.open{display:flex}.menu-toggle{display:block}.nav-contact{display:none}.hero{grid-template-columns:1fr;padding:70px 0 65px;min-height:auto;gap:36px}.hero-art{height:390px;width:85%;margin-left:auto}.vertical-note{right:-24px}.hero h1{font-size:clamp(62px,16vw,105px)}.section-head{display:block}.section-note{margin-top:20px}.work-grid{display:block}.work-card,.work-card:nth-child(3n+2),.work-card:nth-child(3n){display:block;margin:0 0 36px}.work-image{height:300px}.manifesto-inner,.about{grid-template-columns:1fr;gap:25px}.manifesto{padding:70px 0}.manifesto-copy{padding-top:0}.photo-grid{grid-template-columns:1fr 1fr;gap:12px}.photo-grid figure:nth-child(2),.photo-grid figure:nth-child(3){margin-top:0}.photo-grid figure:nth-child(3){grid-column:span 2;width:72%;margin-left:auto}.photo-grid img{height:270px}.writing-row{grid-template-columns:1fr auto;gap:10px}.writing-row p{grid-column:1/-1;grid-row:2}.writing-row h3{font-size:26px}.about-stamp{max-width:250px}.credits{grid-template-columns:1fr 1fr}.contact{padding:75px 0}.contact-bottom{display:block}.contact-small{text-align:left;margin-top:28px}footer{flex-direction:column}.hero-meta{gap:14px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ticker-track{animation:none}*{transition:none!important}}
+
+    .catalogue-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 20px}.catalogue-card{min-width:0}.catalogue-placeholder{min-height:clamp(230px,32vw,410px);background:linear-gradient(140deg,#292922,#171714);border:1px solid var(--line);padding:20px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}.catalogue-placeholder:before{content:"";position:absolute;width:68%;aspect-ratio:1;border:1px solid rgba(214,237,104,.2);border-radius:50%;right:-15%;top:-25%}.catalogue-placeholder:after{content:"";position:absolute;width:44%;aspect-ratio:1;border:1px solid rgba(214,237,104,.12);border-radius:50%;left:-12%;bottom:-28%}.catalogue-plus{font:100px/1 var(--serif);font-weight:400;color:rgba(214,237,104,.25);align-self:center;z-index:1}.catalogue-label{font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);z-index:1}.catalogue-meta{display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-top:1px solid var(--line);padding-top:13px;margin-top:12px}.catalogue-meta h3{font:500 24px var(--serif);margin:0}.catalogue-meta span{font:9px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:right}.photo-placeholder{background:linear-gradient(145deg,#252923,#181916)}.blog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.blog-card{border:1px solid var(--line);min-height:270px;padding:22px;display:flex;flex-direction:column;align-items:flex-start;position:relative;background:linear-gradient(150deg,rgba(255,255,255,.025),transparent)}.blog-number{font:9px var(--mono);letter-spacing:.13em;color:var(--muted)}.blog-symbol{font:42px var(--serif);color:var(--acid);margin:25px 0 10px}.blog-card h3{font:italic 500 27px var(--serif);margin:0 0 10px}.blog-card p{font-size:12px;line-height:1.7;color:var(--muted);max-width:310px;margin:0 0 20px}.blog-card>span{margin-top:auto;font:9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--acid)}.social-links{display:flex;gap:20px;margin-top:18px;align-items:center}.social-links a{display:inline-flex;align-items:center;gap:8px;font:10px var(--mono);letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid rgba(23,23,17,.45);padding:0 0 6px;text-decoration:none}.social-links a:hover{opacity:.65}.social-links svg{width:16px;height:16px;display:block;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    @media(max-width:800px){.catalogue-meta{display:block}.catalogue-meta span{display:block;text-align:left;margin-top:7px}.blog-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.catalogue-grid,.blog-grid{grid-template-columns:1fr}.catalogue-placeholder{min-height:260px}}
+  </style>
+</head>
+<body>
+<div class="grain"></div>
+<header class="shell topbar">
+  <a class="brand" href="#top">AKASH <span>/</span> LAMA</a>
+  <nav id="nav" aria-label="Main navigation"><a href="#film">Film</a><a href="#photography">Photography</a><a href="#writing">Screenwriting</a><a href="#blog">Blog</a><a href="#about">About</a></nav>
+  <a class="nav-contact" href="#contact">Get in touch ↗</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">MENU +</button>
+</header>
+
+<main id="top">
+  <div class="shell hero">
+    <div class="hero-copy">
+      <div class="eyebrow mono">Filmmaker · Photographer · Screenwriter / Minneapolis, USA</div>
+      <h1>Frames<br><span class="italic">of mind.</span></h1>
+      <p class="hero-sub">I am a filmmaker, photographer, and screenwriter drawn to visual storytelling, human experiences, and the stories hidden in everyday life.</p>
+      <div class="hero-meta"><span><b>01</b> Filmmaking</span><span><b>02</b> Photography</span><span><b>03</b> Screenwriting</span></div>
+    </div>
+    <div class="hero-art">
+      <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=85" alt="A cinematic film camera in a dark theater" />
+      <div class="frame-mark">FIG. 001 — A STUDY IN LIGHT</div>
+      <div class="frame-caption"><strong>Look closer.</strong><span>MINNEAPOLIS, MINNESOTA</span></div>
+    </div>
+    <div class="vertical-note">A PERSONAL ARCHIVE OF IMAGES & IDEAS — EST. 2026</div>
+  </div>
+
+  <div class="ticker"><div class="ticker-track"><span>STORIES IN MOTION</span><i>✳</i><span>LIGHT / SHADOW / MEMORY</span><i>✳</i><span>THE HUMAN CONDITION</span><i>✳</i><span>STORIES IN MOTION</span><i>✳</i><span>LIGHT / SHADOW / MEMORY</span><i>✳</i><span>THE HUMAN CONDITION</span><i>✳</i></div></div>
+
+  <section class="shell" id="film">
+    <div class="section-head"><div><div class="mono">01 / Moving images</div><h2>Film & <em>video.</em></h2></div><p class="section-note">A catalogue of my films, documentary projects, cinematography, and video work. Project details and media can be added whenever they are ready.</p></div>
+    <div class="catalogue-grid">
+      <article class="catalogue-card"><div class="catalogue-placeholder"><span class="mono">01 / FILM</span><span class="catalogue-plus">+</span><span class="catalogue-label">Add film still or poster</span></div><div class="catalogue-meta"><h3>Short films</h3><span>Projects / credits / links</span></div></article>
+      <article class="catalogue-card"><div class="catalogue-placeholder"><span class="mono">02 / DOCUMENTARY</span><span class="catalogue-plus">+</span><span class="catalogue-label">Add documentary still</span></div><div class="catalogue-meta"><h3>Documentary</h3><span>Stories from real life</span></div></article>
+      <article class="catalogue-card"><div class="catalogue-placeholder"><span class="mono">03 / COMMERCIAL & EVENTS</span><span class="catalogue-plus">+</span><span class="catalogue-label">Add video thumbnail</span></div><div class="catalogue-meta"><h3>Event & client films</h3><span>Weddings / events / commissioned work</span></div></article>
+      <article class="catalogue-card"><div class="catalogue-placeholder"><span class="mono">04 / CINEMATOGRAPHY</span><span class="catalogue-plus">+</span><span class="catalogue-label">Add frame or showreel</span></div><div class="catalogue-meta"><h3>Cinematography & reels</h3><span>Selected scenes / showreel</span></div></article>
+    </div>
+  </section>
+
+  <section class="manifesto">
+    <div class="shell manifesto-inner">
+      <div><div class="mono">A note on the work</div><h2>Between<br>what is <em>seen</em><br>and felt.</h2></div>
+      <div class="manifesto-copy"><p>I am drawn to the moments that are difficult to explain: the pause before a confession, the distance between two people in the same room, or the way a city can hold a memory.</p><p class="small">My work moves between cinema and photography, observation and invention. I look for honest details, human experiences, and images that stay with us after the frame has gone dark.</p></div>
+    </div>
+  </section>
+
+  <section class="shell" id="photography">
+    <div class="section-head"><div><div class="mono">02 / Still images</div><h2>Photography <em>archive.</em></h2></div><p class="section-note">A collection of commissioned and personal photography. Each category is ready for your photographs, captions, and project details.</p></div>
+    <div class="catalogue-grid photo-catalogue">
+      <article class="catalogue-card"><div class="catalogue-placeholder photo-placeholder"><span class="mono">01 / STREET</span><span class="catalogue-plus">+</span><span class="catalogue-label">Add street photographs</span></div><div class="catalogue-meta"><h3>Street photography</h3><span>Personal projects / photo essays</span></div></article>
+      <article class="catalogue-card"><div class="catalogue-placeholder photo-placeholder"><span class="mono">02 / WEDDINGS</span><span class="catalogue-plus">+</span><span class="catalogue-label">Add wedding photographs</span></div><div class="catalogue-meta"><h3>Weddings</h3><span>Celebrations / stories / details</span></div></article>
+      <article class="catalogue-card"><div class="catalogue-placeholder photo-placeholder"><span class="mono">03 / COUPLES</span><span class="catalogue-plus">+</span><span class="catalogue-label">Add couple portraits</span></div><div class="catalogue-meta"><h3>Couples</h3><span>Portraits / engagements</span></div></article>
+      <article class="catalogue-card"><div class="catalogue-placeholder photo-placeholder"><span class="mono">04 / CONCERTS</span><span class="catalogue-plus">+</span><span class="catalogue-label">Add concert photographs</span></div><div class="catalogue-meta"><h3>Concerts</h3><span>Live music / performance</span></div></article>
+      <article class="catalogue-card"><div class="catalogue-placeholder photo-placeholder"><span class="mono">05 / EVENTS</span><span class="catalogue-plus">+</span><span class="catalogue-label">Add event photographs</span></div><div class="catalogue-meta"><h3>Events</h3><span>People / atmosphere / moments</span></div></article>
+    </div>
+  </section>
+
+  <section class="shell" id="writing">
+    <div class="section-head"><div><div class="mono">03 / The written word</div><h2>Screenwriting <em>archive.</em></h2></div><p class="section-note">A home for original screenplays, short-film concepts, loglines, and selected writing. I'll add the stories and descriptions here over time.</p></div>
+    <div class="writing">
+      <div class="writing-row"><h3>Short screenplays</h3><p>Space for completed short scripts, loglines, synopses, and selected excerpts.</p><span class="status">Add projects</span></div>
+      <div class="writing-row"><h3>Feature projects</h3><p>Space for feature-length screenplays and projects in development.</p><span class="status">Add projects</span></div>
+      <div class="writing-row"><h3>Other writing</h3><p>Space for treatments, creative notes, essays, and other selected written work.</p><span class="status">Add projects</span></div>
+    </div>
+  </section>
+
+  <section class="shell" id="blog">
+    <div class="section-head"><div><div class="mono">04 / Notes & observations</div><h2>From the <em>journal.</em></h2></div><p class="section-note">Thoughts on filmmaking, photography, creative process, films, and the experiences that shape my work.</p></div>
+    <div class="blog-grid" id="journalPosts" aria-live="polite"><p class="section-note">Loading journal entries…</p></div>
+    <p class="mono" id="journalEmpty" style="display:none;margin-top:24px">New writing will appear here soon.</p>
+  </section>
+
+  <section class="shell" id="managed-work"><div class="section-head"><div><div class="mono">Selected work / Updated from the studio</div><h2>More <em>work.</em></h2></div><p class="section-note">Photography, films, screenplays and creative projects added to the portfolio.</p></div><div id="managedWorkGrid" class="blog-grid"><p class="section-note">Loading selected work…</p></div><p class="mono" id="managedWorkEmpty" style="display:none;margin-top:20px">New work will appear here soon.</p></section>
+
+  <section class="shell" id="about">
+    <div class="about">
+      <div class="about-stamp"><div class="mono">Independent / multidisciplinary</div><div class="big">A.<br>L.</div><div class="bottom">AKASH LAMA<br>FILM · PHOTO · WORDS<br>MINNEAPOLIS, MN</div></div>
+      <div class="about-copy"><div class="mono">05 / The person behind the frame</div><h2>Curious about<br>people. <em>Drawn to</em><br>their stories.</h2>
+        <p>I'm a filmmaker, photographer, and screenwriter originally from Nepal and currently based in Minneapolis, Minnesota. My creative journey began with filmmaking and led me to New York, where I studied at the Digital Film Academy and developed my foundation in film production.</p>
+        <p>My interests later expanded into street photography and the stories found in everyday life. I worked with Moktan Digital, gaining professional experience as a photographer, videographer, and video editor. My photography work has included weddings, events, concerts, and couple portraits, alongside my personal exploration of street photography.</p>
+        <p>Whether I'm working with moving images, still photographs, or a screenplay, I'm interested in people, emotions, and the details that make a story feel real. For me, visual storytelling is about finding a story worth telling.</p>
+        <div class="credits"><div><strong>Practice</strong><span>Filmmaking<br>Cinematography<br>Photography<br>Screenwriting</span></div><div><strong>Education</strong><span>Minneapolis College<br>Digital Film Academy<br>BBA — REVA University</span></div><div><strong>Creative path</strong><span>Nepal → New York<br>Now based in<br>Minneapolis, Minnesota</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="shell"><div class="mono">06 / Start a conversation</div><h2>Have a story?<br><em>Let's make it.</em></h2>
+      <div class="contact-bottom"><div><a class="email-link" href="mailto:akashlama26@gmail.com">akashlama26@gmail.com ↗</a><div class="social-links"><a href="https://www.instagram.com/akash_lama_06/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg><span>Instagram</span><span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/akash-lama-591567114/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9v10M5 5.5v.1M10 19v-6a4 4 0 0 1 8 0v6M10 9v10"/><circle cx="5" cy="5" r="1"/></svg><span>LinkedIn</span><span aria-hidden="true">↗</span></a></div></div><div class="contact-small">For collaborations, commissions,<br>screenings & thoughtful conversations.</div></div>
+    </div>
+  </section>
+</main>
+<footer class="shell"><span>© <span id="year"></span> Akash Lama</span><span>Made with intention · Minneapolis, MN</span><a href="#top">Back to top ↑</a></footer>
+
+<div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box"><button class="modal-close" id="modalClose" aria-label="Close dialog">×</button><div class="mono" id="modalType"></div><h3 id="modalTitle"></h3><p id="modalDescription"></p><div class="note" id="modalStatus"></div></div>
+</div>
+
+<div class="modal" id="journalModal" role="dialog" aria-modal="true" aria-labelledby="journalModalTitle">
+  <div class="modal-box"><button class="modal-close" id="journalModalClose" aria-label="Close article">×</button><div class="mono" id="journalModalDate">JOURNAL</div><h3 id="journalModalTitle"></h3><div id="journalModalContent" style="white-space:pre-wrap;line-height:1.85;color:#c6c2b7"></div></div>
+</div>
+<script>
+
+  const SUPABASE_URL = "https://jofagddegqwsaeqtaoyn.supabase.co";
+  const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_g7H7cwfVzBtsVqED0XeOjg_X3gR6ScD";
+  const journalContainer = document.getElementById("journalPosts");
+  const journalEmpty = document.getElementById("journalEmpty");
+  const journalModal = document.getElementById("journalModal");
+  const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+  async function loadJournalPosts() {
+    try {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/journal_posts?select=id,title,slug,post_type,excerpt,content,cover_image_url,published_at,created_at&status=eq.published&order=published_at.desc.nullslast,created_at.desc`, {
+        headers: { apikey: SUPABASE_PUBLISHABLE_KEY, Authorization: `Bearer ${SUPABASE_PUBLISHABLE_KEY}` }
+      });
+      if (!response.ok) throw new Error("Journal request failed");
+      const posts = await response.json();
+      journalContainer.innerHTML = "";
+      if (!posts.length) { journalEmpty.style.display = "block"; return; }
+      posts.forEach((post, index) => {
+        const card = document.createElement("article");
+        card.className = "blog-card";
+        const date = post.published_at ? new Date(post.published_at) : new Date(post.created_at);
+        const dateText = Number.isNaN(date.getTime()) ? "JOURNAL ENTRY" : date.toLocaleDateString(undefined, {year:"numeric",month:"long",day:"numeric"});
+        const symbol = ["✳","◉","⌁"][index % 3];
+        card.innerHTML = (post.cover_image_url ? `<img src="${escapeHTML(post.cover_image_url)}" alt="" style="width:100%;height:150px;object-fit:cover;margin-bottom:18px">` : `<div class="blog-symbol">${symbol}</div>`) +
+          `<div class="blog-number">${escapeHTML((post.post_type || "journal").replaceAll("_"," ").toUpperCase())} · ${String(index+1).padStart(3,"0")} · ${escapeHTML(dateText)}</div><h3>${escapeHTML(post.title)}</h3><p>${escapeHTML(post.excerpt || "")}</p><span>Read article ↗</span>`;
+        card.tabIndex = 0; card.setAttribute("role","button");
+        const open = () => {
+          document.getElementById("journalModalDate").textContent = dateText.toUpperCase();
+          document.getElementById("journalModalTitle").textContent = post.title || "";
+          document.getElementById("journalModalContent").textContent = post.content || "";
+          journalModal.classList.add("open");
+        };
+        card.addEventListener("click", open);
+        card.addEventListener("keydown", e => { if(e.key==="Enter" || e.key===" ") {e.preventDefault();open();} });
+        journalContainer.appendChild(card);
+      });
+    } catch (error) {
+      journalContainer.innerHTML = '<p class="section-note">Journal entries are temporarily unavailable. Please check back soon.</p>';
+    }
+  }
+  document.getElementById("journalModalClose").addEventListener("click",()=>journalModal.classList.remove("open"));
+  journalModal.addEventListener("click",e=>{if(e.target===journalModal)journalModal.classList.remove("open")});
+  loadJournalPosts();
+
+  async function loadManagedWork(){
+    const target=document.getElementById('managedWorkGrid'),empty=document.getElementById('managedWorkEmpty');
+    try{const r=await fetch(`${SUPABASE_URL}/rest/v1/portfolio_items?select=*&status=eq.published&order=created_at.desc`,{headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${SUPABASE_PUBLISHABLE_KEY}`}});if(!r.ok)throw Error();const items=await r.json();target.innerHTML='';if(!items.length){empty.style.display='block';return}empty.style.display='none';
+      items.forEach(item=>{const card=document.createElement('article');card.className='blog-card';let media='';if(item.video_url){let u=item.video_url,embed=u;if(u.includes('youtu.be/'))embed='https://www.youtube-nocookie.com/embed/'+u.split('youtu.be/')[1].split(/[?&]/)[0];else if(u.includes('youtube.com/watch'))embed='https://www.youtube-nocookie.com/embed/'+new URL(u).searchParams.get('v');else if(u.includes('vimeo.com/'))embed='https://player.vimeo.com/video/'+u.split('vimeo.com/')[1].split(/[?&]/)[0];media=`<div style="aspect-ratio:16/9;margin-bottom:16px"><iframe src="${escapeHTML(embed)}" title="${escapeHTML(item.title)}" loading="lazy" style="width:100%;height:100%;border:0" allowfullscreen></iframe></div>`}else if(item.media_url&&item.media_type!=='application/pdf')media=`<img src="${escapeHTML(item.media_url)}" alt="${escapeHTML(item.title)}" style="width:100%;height:190px;object-fit:cover;margin-bottom:16px">`;else if(item.media_type==='application/pdf')media=`<p><a href="${escapeHTML(item.media_url)}" target="_blank" rel="noopener">Open PDF ↗</a></p>`;
+      card.innerHTML=media+`<div class="blog-number">${escapeHTML((item.category||'work').replaceAll('_',' ').toUpperCase())}</div><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.description||'')}</p>${item.details?`<p style="white-space:pre-wrap">${escapeHTML(item.details)}</p>`:''}`;target.appendChild(card)})
+    }catch(e){target.innerHTML='<p class="section-note">Selected work is temporarily unavailable.</p>'}}
+  loadManagedWork();
+
+
+  const menuToggle=document.getElementById('menuToggle'),nav=document.getElementById('nav');
+  menuToggle.addEventListener('click',()=>{const isOpen=nav.classList.toggle('open');menuToggle.textContent=isOpen?'CLOSE ×':'MENU +';menuToggle.setAttribute('aria-expanded',String(isOpen));});
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuToggle.textContent='MENU +';menuToggle.setAttribute('aria-expanded','false');}));
+  document.getElementById('year').textContent=new Date().getFullYear();
+  const filters=document.querySelectorAll('.filter'),cards=document.querySelectorAll('.work-card');
+  filters.forEach(btn=>btn.addEventListener('click',()=>{filters.forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;cards.forEach(card=>{card.style.display=f==='all'||card.dataset.category===f?'':'none'})}));
+  const modal=document.getElementById('projectModal');
+  cards.forEach(card=>card.addEventListener('click',()=>{document.getElementById('modalType').textContent=card.dataset.type;document.getElementById('modalTitle').textContent=card.dataset.title;document.getElementById('modalDescription').textContent=card.dataset.description;document.getElementById('modalStatus').textContent=card.dataset.status;modal.classList.add('open')}));
+  function closeModal(){modal.classList.remove('open')}
+  document.getElementById('modalClose').addEventListener('click',closeModal);
+  modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+</script>
+</body>
+</html>
