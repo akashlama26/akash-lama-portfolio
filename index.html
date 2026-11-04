@@ -104,12 +104,9 @@
   </section>
 
   <section class="shell" id="blog">
-    <div class="section-head"><div><div class="mono">04 / Notes & observations</div><h2>From the <em>journal.</em></h2></div><p class="section-note">A space for thoughts on filmmaking, photography, creative process, films, and the experiences that shape my work. Articles will be added later.</p></div>
-    <div class="blog-grid">
-      <article class="blog-card"><div class="blog-number">ENTRY 001</div><div class="blog-symbol">✳</div><h3>Film notes</h3><p>Reflections on cinema, storytelling, directing, and the films that stay with me.</p><span>Coming when ready</span></article>
-      <article class="blog-card"><div class="blog-number">ENTRY 002</div><div class="blog-symbol">◉</div><h3>Behind the frame</h3><p>Photography, visual experiments, street observations, and life behind the camera.</p><span>Coming when ready</span></article>
-      <article class="blog-card"><div class="blog-number">ENTRY 003</div><div class="blog-symbol">⌁</div><h3>Creative journal</h3><p>Personal essays, ideas in progress, lessons learned, and notes from the creative journey.</p><span>Coming when ready</span></article>
-    </div>
+    <div class="section-head"><div><div class="mono">04 / Notes & observations</div><h2>From the <em>journal.</em></h2></div><p class="section-note">Thoughts on filmmaking, photography, creative process, films, and the experiences that shape my work.</p></div>
+    <div class="blog-grid" id="journalPosts" aria-live="polite"><p class="section-note">Loading journal entries…</p></div>
+    <p class="mono" id="journalEmpty" style="display:none;margin-top:24px">New writing will appear here soon.</p>
   </section>
 
   <section class="shell" id="about">
@@ -135,7 +132,54 @@
 <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-box"><button class="modal-close" id="modalClose" aria-label="Close dialog">×</button><div class="mono" id="modalType"></div><h3 id="modalTitle"></h3><p id="modalDescription"></p><div class="note" id="modalStatus"></div></div>
 </div>
+
+<div class="modal" id="journalModal" role="dialog" aria-modal="true" aria-labelledby="journalModalTitle">
+  <div class="modal-box"><button class="modal-close" id="journalModalClose" aria-label="Close article">×</button><div class="mono" id="journalModalDate">JOURNAL</div><h3 id="journalModalTitle"></h3><div id="journalModalContent" style="white-space:pre-wrap;line-height:1.85;color:#c6c2b7"></div></div>
+</div>
 <script>
+
+  const SUPABASE_URL = "https://jofagddegqwsaeqtaoyn.supabase.co";
+  const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_g7H7cwfVzBtsVqED0XeOjg_X3gR6ScD";
+  const journalContainer = document.getElementById("journalPosts");
+  const journalEmpty = document.getElementById("journalEmpty");
+  const journalModal = document.getElementById("journalModal");
+  const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+  async function loadJournalPosts() {
+    try {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/journal_posts?select=id,title,slug,excerpt,content,cover_image_url,published_at,created_at&status=eq.published&order=published_at.desc.nullslast,created_at.desc`, {
+        headers: { apikey: SUPABASE_PUBLISHABLE_KEY, Authorization: `Bearer ${SUPABASE_PUBLISHABLE_KEY}` }
+      });
+      if (!response.ok) throw new Error("Journal request failed");
+      const posts = await response.json();
+      journalContainer.innerHTML = "";
+      if (!posts.length) { journalEmpty.style.display = "block"; return; }
+      posts.forEach((post, index) => {
+        const card = document.createElement("article");
+        card.className = "blog-card";
+        const date = post.published_at ? new Date(post.published_at) : new Date(post.created_at);
+        const dateText = Number.isNaN(date.getTime()) ? "JOURNAL ENTRY" : date.toLocaleDateString(undefined, {year:"numeric",month:"long",day:"numeric"});
+        const symbol = ["✳","◉","⌁"][index % 3];
+        card.innerHTML = (post.cover_image_url ? `<img src="${escapeHTML(post.cover_image_url)}" alt="" style="width:100%;height:150px;object-fit:cover;margin-bottom:18px">` : `<div class="blog-symbol">${symbol}</div>`) +
+          `<div class="blog-number">ENTRY ${String(index+1).padStart(3,"0")} · ${escapeHTML(dateText)}</div><h3>${escapeHTML(post.title)}</h3><p>${escapeHTML(post.excerpt || "")}</p><span>Read article ↗</span>`;
+        card.tabIndex = 0; card.setAttribute("role","button");
+        const open = () => {
+          document.getElementById("journalModalDate").textContent = dateText.toUpperCase();
+          document.getElementById("journalModalTitle").textContent = post.title || "";
+          document.getElementById("journalModalContent").textContent = post.content || "";
+          journalModal.classList.add("open");
+        };
+        card.addEventListener("click", open);
+        card.addEventListener("keydown", e => { if(e.key==="Enter" || e.key===" ") {e.preventDefault();open();} });
+        journalContainer.appendChild(card);
+      });
+    } catch (error) {
+      journalContainer.innerHTML = '<p class="section-note">Journal entries are temporarily unavailable. Please check back soon.</p>';
+    }
+  }
+  document.getElementById("journalModalClose").addEventListener("click",()=>journalModal.classList.remove("open"));
+  journalModal.addEventListener("click",e=>{if(e.target===journalModal)journalModal.classList.remove("open")});
+  loadJournalPosts();
+
   const menuToggle=document.getElementById('menuToggle'),nav=document.getElementById('nav');
   menuToggle.addEventListener('click',()=>{const isOpen=nav.classList.toggle('open');menuToggle.textContent=isOpen?'CLOSE ×':'MENU +';menuToggle.setAttribute('aria-expanded',String(isOpen));});
   nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuToggle.textContent='MENU +';menuToggle.setAttribute('aria-expanded','false');}));
