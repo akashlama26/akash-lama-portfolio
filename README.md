@@ -16,4 +16,4 @@ My portfolio website will be published soon.
 
 ## Contact
 - Email: akashlama26@gmail.com
-- Instagram: [@akash_lama_o6](https://www.instagram.com/akash_lama_o6/)
+- Instagram: [@akash_lama_o6](https://www.instagram.com/akash_lama_06/)
