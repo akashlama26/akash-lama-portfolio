@@ -109,6 +109,8 @@
     <p class="mono" id="journalEmpty" style="display:none;margin-top:24px">New writing will appear here soon.</p>
   </section>
 
+  <section class="shell" id="managed-work"><div class="section-head"><div><div class="mono">Selected work / Updated from the studio</div><h2>More <em>work.</em></h2></div><p class="section-note">Photography, films, screenplays and creative projects added to the portfolio.</p></div><div id="managedWorkGrid" class="blog-grid"><p class="section-note">Loading selected work…</p></div><p class="mono" id="managedWorkEmpty" style="display:none;margin-top:20px">New work will appear here soon.</p></section>
+
   <section class="shell" id="about">
     <div class="about">
       <div class="about-stamp"><div class="mono">Independent / multidisciplinary</div><div class="big">A.<br>L.</div><div class="bottom">AKASH LAMA<br>FILM · PHOTO · WORDS<br>MINNEAPOLIS, MN</div></div>
@@ -146,7 +148,7 @@
   const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
   async function loadJournalPosts() {
     try {
-      const response = await fetch(`${SUPABASE_URL}/rest/v1/journal_posts?select=id,title,slug,excerpt,content,cover_image_url,published_at,created_at&status=eq.published&order=published_at.desc.nullslast,created_at.desc`, {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/journal_posts?select=id,title,slug,post_type,excerpt,content,cover_image_url,published_at,created_at&status=eq.published&order=published_at.desc.nullslast,created_at.desc`, {
         headers: { apikey: SUPABASE_PUBLISHABLE_KEY, Authorization: `Bearer ${SUPABASE_PUBLISHABLE_KEY}` }
       });
       if (!response.ok) throw new Error("Journal request failed");
@@ -160,7 +162,7 @@
         const dateText = Number.isNaN(date.getTime()) ? "JOURNAL ENTRY" : date.toLocaleDateString(undefined, {year:"numeric",month:"long",day:"numeric"});
         const symbol = ["✳","◉","⌁"][index % 3];
         card.innerHTML = (post.cover_image_url ? `<img src="${escapeHTML(post.cover_image_url)}" alt="" style="width:100%;height:150px;object-fit:cover;margin-bottom:18px">` : `<div class="blog-symbol">${symbol}</div>`) +
-          `<div class="blog-number">ENTRY ${String(index+1).padStart(3,"0")} · ${escapeHTML(dateText)}</div><h3>${escapeHTML(post.title)}</h3><p>${escapeHTML(post.excerpt || "")}</p><span>Read article ↗</span>`;
+          `<div class="blog-number">${escapeHTML((post.post_type || "journal").replaceAll("_"," ").toUpperCase())} · ${String(index+1).padStart(3,"0")} · ${escapeHTML(dateText)}</div><h3>${escapeHTML(post.title)}</h3><p>${escapeHTML(post.excerpt || "")}</p><span>Read article ↗</span>`;
         card.tabIndex = 0; card.setAttribute("role","button");
         const open = () => {
           document.getElementById("journalModalDate").textContent = dateText.toUpperCase();
@@ -179,6 +181,15 @@
   document.getElementById("journalModalClose").addEventListener("click",()=>journalModal.classList.remove("open"));
   journalModal.addEventListener("click",e=>{if(e.target===journalModal)journalModal.classList.remove("open")});
   loadJournalPosts();
+
+  async function loadManagedWork(){
+    const target=document.getElementById('managedWorkGrid'),empty=document.getElementById('managedWorkEmpty');
+    try{const r=await fetch(`${SUPABASE_URL}/rest/v1/portfolio_items?select=*&status=eq.published&order=created_at.desc`,{headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${SUPABASE_PUBLISHABLE_KEY}`}});if(!r.ok)throw Error();const items=await r.json();target.innerHTML='';if(!items.length){empty.style.display='block';return}empty.style.display='none';
+      items.forEach(item=>{const card=document.createElement('article');card.className='blog-card';let media='';if(item.video_url){let u=item.video_url,embed=u;if(u.includes('youtu.be/'))embed='https://www.youtube-nocookie.com/embed/'+u.split('youtu.be/')[1].split(/[?&]/)[0];else if(u.includes('youtube.com/watch'))embed='https://www.youtube-nocookie.com/embed/'+new URL(u).searchParams.get('v');else if(u.includes('vimeo.com/'))embed='https://player.vimeo.com/video/'+u.split('vimeo.com/')[1].split(/[?&]/)[0];media=`<div style="aspect-ratio:16/9;margin-bottom:16px"><iframe src="${escapeHTML(embed)}" title="${escapeHTML(item.title)}" loading="lazy" style="width:100%;height:100%;border:0" allowfullscreen></iframe></div>`}else if(item.media_url&&item.media_type!=='application/pdf')media=`<img src="${escapeHTML(item.media_url)}" alt="${escapeHTML(item.title)}" style="width:100%;height:190px;object-fit:cover;margin-bottom:16px">`;else if(item.media_type==='application/pdf')media=`<p><a href="${escapeHTML(item.media_url)}" target="_blank" rel="noopener">Open PDF ↗</a></p>`;
+      card.innerHTML=media+`<div class="blog-number">${escapeHTML((item.category||'work').replaceAll('_',' ').toUpperCase())}</div><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.description||'')}</p>${item.details?`<p style="white-space:pre-wrap">${escapeHTML(item.details)}</p>`:''}`;target.appendChild(card)})
+    }catch(e){target.innerHTML='<p class="section-note">Selected work is temporarily unavailable.</p>'}}
+  loadManagedWork();
+
 
   const menuToggle=document.getElementById('menuToggle'),nav=document.getElementById('nav');
   menuToggle.addEventListener('click',()=>{const isOpen=nav.classList.toggle('open');menuToggle.textContent=isOpen?'CLOSE ×':'MENU +';menuToggle.setAttribute('aria-expanded',String(isOpen));});
