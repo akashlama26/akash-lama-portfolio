@@ -1,32 +1,23 @@
-# Akash Lama — Creative Portfolio
+AKASH LAMA — COMPLETE PORTFOLIO MANAGER
 
-Welcome to my personal portfolio.
+FILES
+- index.html: public portfolio website with a live Selected Work section and existing Journal section.
+- admin.html: private dashboard for uploads, portfolio items, articles, drafts, publishing, editing and deleting.
+- portfolio-manager-setup.sql: one-time Supabase setup for the portfolio table and media storage.
 
-I'm Akash Lama, a filmmaker, photographer, and screenwriter originally from Nepal and currently based in Minneapolis, Minnesota.
+ONE-TIME INSTALLATION
+1. Keep a backup of your current GitHub website files.
+2. In Supabase, open SQL Editor, paste the complete contents of portfolio-manager-setup.sql, and click Run. This adds a portfolio_items table and a public portfolio-media storage bucket. It does not delete your existing journal_posts table.
+3. In your GitHub portfolio repository, replace index.html and admin.html with the two files in this package. Keep any other assets already in your repository.
+4. Netlify should deploy automatically after the GitHub commit.
+5. Open https://incomparable-salmiakki-8afc44.netlify.app/admin.html and sign in with akashlama26@gmail.com using the emailed magic link.
 
-My creative journey began with filmmaking and a passion for visual storytelling. That interest led me from Nepal to New York, where I studied filmmaking at the Digital Film Academy and developed my foundation in film production.
+AFTER INSTALLATION
+Use the admin page to upload images and PDFs (up to 20 MB each), add YouTube/Vimeo links for video, add screenwriting and project descriptions, and publish or save drafts. Published portfolio items appear in the Selected Work section; published articles appear in Journal. No repeated SQL or GitHub editing is needed for ordinary content updates.
 
-Over time, my creative interests expanded into photography, particularly street photography, where I became drawn to capturing everyday life, people, and the stories hidden in ordinary moments.
+VIDEO NOTE
+Use an unlisted YouTube or Vimeo URL for videos. The dashboard embeds the video; it does not upload large video files to Supabase.
 
-I later worked with Moktan Digital, gaining professional experience as a photographer, videographer, and video editor. My work has included weddings, events, concerts, and couple photography, alongside my personal exploration of street photography.
+SECURITY / STORAGE
+The dashboard allows only the configured admin email. Uploaded images/PDFs are stored in a public bucket so the public portfolio can display them; do not upload private or confidential documents. Supabase storage usage and bandwidth are subject to your Supabase plan.
 
-Working across filmmaking and photography has shaped the way I see and tell stories. Whether I'm behind a camera or developing a screenplay, I'm interested in exploring human experiences, emotions, and the small details that make everyday life meaningful.
-
-For me, visual storytelling is more than capturing an image or creating a film. It's about finding a story worth telling.
-
-## Portfolio
-
-- **Film & Video:** Short films, documentaries, and video projects.
-- **Photography:** Street photography, events, weddings, and portraits.
-- **Screenwriting:** Original screenplays and stories in development.
-- **Journal:** Creative experiences, filmmaking insights, and personal reflections.
-
-## Contact
-
-- Email: akashlama26@gmail.com
-- Instagram: [@akash_lama_06](https://www.instagram.com/akash_lama_06/)
-- LinkedIn: [Akash Lama](https://www.linkedin.com/in/akash-lama-591567114/)
-
----
-
-© Akash Lama. All rights reserved.
