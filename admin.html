@@ -1,31 +1,316 @@
+
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Portfolio Studio — Akash Lama</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfolio Studio — Akash Lama</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#11110f;--panel:#191916;--paper:#e9e5da;--muted:#aaa69b;--line:rgba(233,229,218,.18);--acid:#d6ed68;--mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--paper);font-family:var(--sans)}.wrap{width:min(1050px,calc(100% - 32px));margin:38px auto}.mono,label{font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}h1{font:italic 52px 'Playfair Display',serif;margin:12px 0}h2{font-size:22px}.muted,p{color:var(--muted);line-height:1.6}.panel{background:var(--panel);border:1px solid var(--line);padding:22px;margin:18px 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{margin:15px 0}label{display:block;margin:0 0 8px}input,textarea,select{width:100%;padding:12px;background:#10100e;color:var(--paper);border:1px solid var(--line);font:14px var(--sans);border-radius:2px}textarea{min-height:140px;line-height:1.6}button,.btn{background:var(--acid);color:#171711;border:0;padding:12px 16px;font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;margin:6px 6px 6px 0}button.secondary{background:transparent;color:var(--paper);border:1px solid var(--line)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.tabs button.active{background:var(--acid);color:#171711}.hidden{display:none!important}.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.entry{border-top:1px solid var(--line);padding:15px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}.entry small{display:block;color:var(--muted);margin-top:5px}.status{color:var(--acid)}#message,#loginMessage{color:var(--acid);white-space:pre-wrap}.hint{font-size:12px;color:var(--muted)}.preview{max-width:180px;max-height:110px;object-fit:cover;display:block;margin-top:8px}.danger{color:#ff9b83}.full{grid-column:1/-1}@media(max-width:650px){.grid{grid-template-columns:1fr}h1{font-size:42px}.panel{padding:16px}}
-</style></head><body><main class="wrap"><div class="mono">AKASH LAMA / PRIVATE PORTFOLIO STUDIO</div><h1>Your creative dashboard.</h1><p class="muted">Upload and manage the work that appears on your public portfolio. Only your authorized email can sign in.</p>
-<section id="loginPanel" class="panel"><h2>Sign in</h2><p>Sign in with your email and password.</p><div class="field"><label>Email address</label><input id="email" type="email" value="akashlama26@gmail.com" autocomplete="username"></div><div class="field"><label>Password</label><input id="password" type="password" autocomplete="current-password" placeholder="Your password"></div><button id="loginButton">Log in</button><button class="secondary" id="forgotPassword" type="button">Forgot / set password</button><p id="loginMessage"></p><section id="recoveryPanel" class="hidden"><h2>Set a new password</h2><div class="field"><label>New password</label><input id="newPassword" type="password" autocomplete="new-password" minlength="8"></div><button id="savePassword" type="button">Save password</button><p id="recoveryMessage"></p></section></section>
-<section id="appPanel" class="hidden"><div class="row"><p id="signedInAs"></p><button class="secondary" id="signOut">Sign out</button></div>
-<div class="tabs"><button class="active" data-tab="portfolio">Portfolio items</button><button data-tab="journal">Journal & writing</button><button data-tab="manage">All content</button></div>
-<section id="portfolioTab" class="panel"><div class="row"><h2 id="itemHeading">Add portfolio work</h2><button class="secondary" id="clearItem">New item</button></div><input type="hidden" id="itemId">
-<div class="grid"><div class="field"><label>Category</label><select id="category"><option value="photography">Photography</option><option value="film">Films & videos</option><option value="screenwriting">Screenwriting</option><option value="project">Creative projects</option><option value="other">Other work</option></select></div><div class="field"><label>Visibility</label><select id="itemStatus"><option value="draft">Save as draft</option><option value="published">Publish on website</option></select></div><div class="field full"><label>Title</label><input id="itemTitle" maxlength="180" placeholder="Project or photograph series title"></div><div class="field full"><label>Short description</label><textarea id="itemDescription" style="min-height:85px" placeholder="What is this work about?"></textarea></div><div class="field"><label>Upload image or PDF (optional)</label><input id="mediaFile" type="file" accept="image/jpeg,image/png,image/webp,image/gif,application/pdf"><p class="hint">Images and PDFs upload directly to your portfolio storage. Max 20 MB per file.</p><img id="mediaPreview" class="preview hidden" alt="File preview"></div><div class="field"><label>Video link (YouTube or Vimeo)</label><input id="videoUrl" type="url" placeholder="https://youtu.be/... or Vimeo link"><p class="hint">For videos, paste an unlisted YouTube or Vimeo link. This keeps your website fast.</p></div><div class="field full"><label>More details / screenplay synopsis / project notes</label><textarea id="itemDetails" placeholder="Optional longer description, logline, synopsis, credits, or notes…"></textarea></div></div><div class="row"><button id="saveItem">Save portfolio item</button><span id="itemMessage"></span></div></section>
-<section id="journalTab" class="panel hidden"><div class="row"><h2 id="postHeading">Write an article</h2><button class="secondary" id="clearPost">New article</button></div><input type="hidden" id="postId"><div class="grid"><div class="field"><label>Type</label><select id="postType"><option value="journal">Journal</option><option value="analysis">Film & script analysis</option><option value="process">Writing process</option><option value="project">Project in development</option></select></div><div class="field"><label>Status</label><select id="postStatus"><option value="draft">Save as draft</option><option value="published">Publish</option></select></div><div class="field full"><label>Title</label><input id="postTitle" maxlength="180" placeholder="Article title"></div><div class="field full"><label>Short introduction</label><textarea id="postExcerpt" style="min-height:75px"></textarea></div><div class="field full"><label>Article content</label><textarea id="postContent" placeholder="Write your article…"></textarea></div><div class="field full"><label>Cover image URL (optional)</label><input id="postCover" type="url" placeholder="Optional image URL"></div></div><button id="savePost">Save article</button><span id="postMessage"></span></section>
-<section id="manageTab" class="panel hidden"><h2>Everything you've added</h2><p class="hint">Edit, publish, unpublish, or delete your content.</p><div id="allItems">Loading…</div></section>
-</section><p class="mono"><a href="/" style="color:var(--acid)">← View public portfolio</a></p></main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>if(!window.supabase){document.write('<script src="https://unpkg.com/@supabase/supabase-js@2"><\/script>')}</script><script>
-const SUPABASE_URL='https://jofagddegqwsaeqtaoyn.supabase.co',KEY='sb_publishable_g7H7cwfVzBtsVqED0XeOjg_X3gR6ScD',ADMIN='akashlama26@gmail.com',db=window.supabase.createClient(SUPABASE_URL,KEY),$=id=>document.getElementById(id);
-const say=(id,msg)=>$(id).textContent=msg;const slug=s=>s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-$('loginButton').addEventListener('click',async()=>{const button=$('loginButton');button.disabled=true;say('loginMessage','Signing in…');try{const email=$('email').value.trim().toLowerCase(),password=$('password').value;if(email!==ADMIN)throw new Error('This email is not authorized.');if(!password)throw new Error('Enter your password.');const {error}=await db.auth.signInWithPassword({email,password});if(error)throw error;say('loginMessage','Login successful.');}catch(error){say('loginMessage',error.message||String(error));}finally{button.disabled=false;}});
-$('forgotPassword').addEventListener('click',async()=>{try{const email=$('email').value.trim().toLowerCase();if(email!==ADMIN)throw new Error('Enter your authorized admin email first.');say('loginMessage','Sending password setup/reset email…');const {error}=await db.auth.resetPasswordForEmail(email,{redirectTo:location.origin+'/admin.html'});if(error)throw error;say('loginMessage','Password setup email sent. Open it once, set your password, then use email + password for future logins.');}catch(error){say('loginMessage',error.message||String(error));}});
-$('savePassword').addEventListener('click',async()=>{try{const password=$('newPassword').value;if(password.length<8)throw new Error('Use at least 8 characters.');const {error}=await db.auth.updateUser({password});if(error)throw error;say('recoveryMessage','Password saved. You can now log in with your email and password.');$('recoveryPanel').classList.add('hidden');}catch(error){say('recoveryMessage',error.message||String(error));}});
-async function session(){let {data:{session}}=await db.auth.getSession(),u=session?.user;if(location.hash.includes('type=recovery')){$('recoveryPanel').classList.remove('hidden');}if(u?.email?.toLowerCase()===ADMIN){$('loginPanel').classList.add('hidden');$('appPanel').classList.remove('hidden');$('signedInAs').textContent='Signed in: '+u.email;loadAll()}else{$('appPanel').classList.add('hidden');$('loginPanel').classList.remove('hidden');if(u)await db.auth.signOut()}}db.auth.onAuthStateChange((event)=>{if(event==='PASSWORD_RECOVERY'){$('recoveryPanel').classList.remove('hidden');$('loginMessage').textContent='';}setTimeout(session,0)});$('signOut').onclick=async()=>{await db.auth.signOut();location.reload()};
-document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));['portfolio','journal','manage'].forEach(t=>$(t+'Tab').classList.toggle('hidden',t!==b.dataset.tab));if(b.dataset.tab==='manage')loadAll()});
-let selectedFile=null,existingMedia=null;$('mediaFile').onchange=()=>{selectedFile=$('mediaFile').files[0]||null;if(selectedFile&&selectedFile.type.startsWith('image/')){$('mediaPreview').src=URL.createObjectURL(selectedFile);$('mediaPreview').classList.remove('hidden')}else $('mediaPreview').classList.add('hidden')};
-function clearItem(){['itemId','itemTitle','itemDescription','itemDetails','videoUrl'].forEach(i=>$(i).value='');$('category').value='photography';$('itemStatus').value='draft';$('mediaFile').value='';$('mediaPreview').classList.add('hidden');selectedFile=null;existingMedia=null;$('itemHeading').textContent='Add portfolio work';say('itemMessage','')} $('clearItem').onclick=clearItem;
-async function uploadFile(file){if(!file)return existingMedia;if(file.size>20*1024*1024)throw Error('Please choose a file smaller than 20 MB.');let safe=file.name.replace(/[^a-zA-Z0-9._-]/g,'-'),path=Date.now()+'-'+crypto.randomUUID()+'-'+safe;let {error}=await db.storage.from('portfolio-media').upload(path,file,{upsert:false,contentType:file.type});if(error)throw error;let {data}=db.storage.from('portfolio-media').getPublicUrl(path);return data.publicUrl}
-$('saveItem').onclick=async()=>{say('itemMessage','Saving…');try{let title=$('itemTitle').value.trim();if(!title)throw Error('Please enter a title.');let media=await uploadFile(selectedFile),payload={category:$('category').value,title,description:$('itemDescription').value.trim(),details:$('itemDetails').value.trim(),media_url:media||null,media_type:selectedFile?.type|| (media?'existing':'')||null,video_url:$('videoUrl').value.trim()||null,status:$('itemStatus').value,updated_at:new Date().toISOString()};let id=$('itemId').value,res=id?await db.from('portfolio_items').update(payload).eq('id',id):await db.from('portfolio_items').insert(payload);if(res.error)throw res.error;say('itemMessage',payload.status==='published'?'Published on your website.':'Draft saved.');clearItem();loadAll()}catch(e){say('itemMessage',e.message)}};
-function clearPost(){['postId','postTitle','postExcerpt','postContent','postCover'].forEach(i=>$(i).value='');$('postType').value='journal';$('postStatus').value='draft';$('postHeading').textContent='Write an article';say('postMessage','')} $('clearPost').onclick=clearPost;
-$('savePost').onclick=async()=>{say('postMessage','Saving…');let title=$('postTitle').value.trim(),content=$('postContent').value.trim(),id=$('postId').value;if(!title||!content){say('postMessage','Please add a title and article content.');return}let status=$('postStatus').value,p={post_type:$('postType').value,title,slug:slug(title),excerpt:$('postExcerpt').value.trim(),content,cover_image_url:$('postCover').value.trim()||null,status,published_at:status==='published'?new Date().toISOString():null,updated_at:new Date().toISOString()};let r=id?await db.from('journal_posts').update(p).eq('id',id):await db.from('journal_posts').insert(p);if(r.error){say('postMessage',r.error.message);return}say('postMessage',status==='published'?'Article published.':'Draft saved.');clearPost();loadAll()};
-function el(tag,txt){let x=document.createElement(tag);x.textContent=txt;return x}async function loadAll(){let [a,b]=await Promise.all([db.from('portfolio_items').select('*').order('created_at',{ascending:false}),db.from('journal_posts').select('*').order('created_at',{ascending:false})]);if(a.error||b.error){$('allItems').textContent=(a.error||b.error).message;return}$('allItems').innerHTML='';let entries=[...(a.data||[]).map(x=>({...x,_kind:'portfolio'})),...(b.data||[]).map(x=>({...x,_kind:'journal'}))].sort((x,y)=>new Date(y.created_at)-new Date(x.created_at));if(!entries.length){$('allItems').textContent='Nothing added yet.';return}entries.forEach(p=>{let row=document.createElement('div');row.className='entry';let info=document.createElement('div');info.append(el('strong',p.title||'Untitled'),el('small',(p._kind==='portfolio'?p.category:'Journal · '+p.post_type)+' · '+p.status));let actions=document.createElement('div'),edit=el('button','Edit'),del=el('button','Delete');edit.className='secondary';del.className='secondary danger';edit.onclick=()=>{if(p._kind==='portfolio'){document.querySelector('[data-tab="portfolio"]').click();$('itemId').value=p.id;$('category').value=p.category;$('itemTitle').value=p.title;$('itemDescription').value=p.description||'';$('itemDetails').value=p.details||'';$('videoUrl').value=p.video_url||'';$('itemStatus').value=p.status;existingMedia=p.media_url;$('itemHeading').textContent='Edit portfolio work';say('itemMessage','Existing upload retained unless you choose a new file.');window.scrollTo(0,0)}else{document.querySelector('[data-tab="journal"]').click();$('postId').value=p.id;$('postType').value=p.post_type||'journal';$('postTitle').value=p.title||'';$('postExcerpt').value=p.excerpt||'';$('postContent').value=p.content||'';$('postCover').value=p.cover_image_url||'';$('postStatus').value=p.status||'draft';$('postHeading').textContent='Edit article';window.scrollTo(0,0)}};del.onclick=async()=>{if(!confirm('Permanently delete this item?'))return;let r=p._kind==='portfolio'?await db.from('portfolio_items').delete().eq('id',p.id):await db.from('journal_posts').delete().eq('id',p.id);if(r.error)alert(r.error.message);else loadAll()};actions.append(edit,del);row.append(info,actions);$('allItems').append(row)})}
+:root{--bg:#11110f;--panel:#191916;--paper:#e9e5da;--muted:#aaa69b;--line:rgba(233,229,218,.18);--acid:#d6ed68;--mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--paper);font-family:var(--sans)}
+.wrap{width:min(1050px,calc(100% - 32px));margin:38px auto}
+.mono,label{font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{font:italic 52px 'Playfair Display',serif;margin:12px 0}
+h2{font-size:22px}
+.muted,p{color:var(--muted);line-height:1.6}
+.panel{background:var(--panel);border:1px solid var(--line);padding:22px;margin:18px 0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.field{margin:15px 0}
+label{display:block;margin:0 0 8px}
+input,textarea,select{width:100%;padding:12px;background:#10100e;color:var(--paper);border:1px solid var(--line);font:14px var(--sans);border-radius:2px}
+textarea{min-height:140px;line-height:1.6}
+button,.btn{background:var(--acid);color:#171711;border:0;padding:12px 16px;font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;margin:6px 6px 6px 0}
+button.secondary{background:transparent;color:var(--paper);border:1px solid var(--line)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.tabs button.active{background:var(--acid);color:#171711}
+.hidden{display:none!important}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.entry{border-top:1px solid var(--line);padding:15px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.entry small{display:block;color:var(--muted);margin-top:5px}
+.status{color:var(--acid)}
+#message,#loginMessage{color:var(--acid);white-space:pre-wrap}
+.hint{font-size:12px;color:var(--muted)}
+.preview{max-width:180px;max-height:110px;object-fit:cover;display:block;margin-top:8px}
+.danger{color:#ff9b83}
+.full{grid-column:1/-1}
+@media(max-width:650px){.grid{grid-template-columns:1fr}h1{font-size:42px}.panel{padding:16px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<div class="mono">AKASH LAMA / PRIVATE PORTFOLIO STUDIO</div>
+<h1>Your creative dashboard.</h1>
+<p class="muted">Upload and manage the work that appears on your public portfolio. Only your authorized email can sign in.</p>
+
+<section id="loginPanel" class="panel">
+<h2>Sign in</h2>
+<p>Sign in with your email and password.</p>
+<div class="field"><label>Email address</label><input id="email" type="email" value="akashlama26@gmail.com" autocomplete="username"></div>
+<div class="field"><label>Password</label><input id="password" type="password" autocomplete="current-password" placeholder="Your password"></div>
+<button id="loginButton">Log in</button>
+<button class="secondary" id="forgotPassword" type="button">Forgot / set password</button>
+<p id="loginMessage"></p>
+</section>
+
+<section id="recoveryPanel" class="panel hidden">
+<h2>Set a new password</h2>
+<p>Choose a new password for your portfolio dashboard.</p>
+<div class="field"><label>New password</label><input id="newPassword" type="password" autocomplete="new-password" minlength="8"></div>
+<button id="savePassword" type="button">Save password</button>
+<p id="recoveryMessage"></p>
+</section>
+
+<section id="appPanel" class="hidden">
+<div class="row"><p id="signedInAs"></p><button class="secondary" id="signOut">Sign out</button></div>
+<div class="tabs">
+<button class="active" data-tab="portfolio">Portfolio items</button>
+<button data-tab="journal">Journal & writing</button>
+<button data-tab="manage">All content</button>
+</div>
+
+<section id="portfolioTab" class="panel">
+<div class="row"><h2 id="itemHeading">Add portfolio work</h2><button class="secondary" id="clearItem">New item</button></div>
+<input type="hidden" id="itemId">
+<div class="grid">
+<div class="field"><label>Category</label><select id="category"><option value="photography">Photography</option><option value="film">Films & videos</option><option value="screenwriting">Screenwriting</option><option value="project">Creative projects</option><option value="other">Other work</option></select></div>
+<div class="field"><label>Visibility</label><select id="itemStatus"><option value="draft">Save as draft</option><option value="published">Publish on website</option></select></div>
+<div class="field full"><label>Title</label><input id="itemTitle" maxlength="180" placeholder="Project or photograph series title"></div>
+<div class="field full"><label>Short description</label><textarea id="itemDescription" style="min-height:85px" placeholder="What is this work about?"></textarea></div>
+<div class="field"><label>Upload image or PDF (optional)</label><input id="mediaFile" type="file" accept="image/jpeg,image/png,image/webp,image/gif,application/pdf"><p class="hint">Images and PDFs upload directly to your portfolio storage. Max 20 MB per file.</p><img id="mediaPreview" class="preview hidden" alt="File preview"></div>
+<div class="field"><label>Video link (YouTube or Vimeo)</label><input id="videoUrl" type="url" placeholder="https://youtu.be/... or Vimeo link"><p class="hint">For videos, paste an unlisted YouTube or Vimeo link. This keeps your website fast.</p></div>
+<div class="field full"><label>More details / screenplay synopsis / project notes</label><textarea id="itemDetails" placeholder="Optional longer description, logline, synopsis, credits, or notes…"></textarea></div>
+</div>
+<div class="row"><button id="saveItem">Save portfolio item</button><span id="itemMessage"></span></div>
+</section>
+
+<section id="journalTab" class="panel hidden">
+<div class="row"><h2 id="postHeading">Write an article</h2><button class="secondary" id="clearPost">New article</button></div>
+<input type="hidden" id="postId">
+<div class="grid">
+<div class="field"><label>Type</label><select id="postType"><option value="journal">Journal</option><option value="analysis">Film & script analysis</option><option value="process">Writing process</option><option value="project">Project in development</option></select></div>
+<div class="field"><label>Status</label><select id="postStatus"><option value="draft">Save as draft</option><option value="published">Publish</option></select></div>
+<div class="field full"><label>Title</label><input id="postTitle" maxlength="180" placeholder="Article title"></div>
+<div class="field full"><label>Short introduction</label><textarea id="postExcerpt" style="min-height:75px"></textarea></div>
+<div class="field full"><label>Article content</label><textarea id="postContent" placeholder="Write your article…"></textarea></div>
+<div class="field full"><label>Cover image URL (optional)</label><input id="postCover" type="url" placeholder="Optional image URL"></div>
+</div>
+<button id="savePost">Save article</button><span id="postMessage"></span>
+</section>
+
+<section id="manageTab" class="panel hidden">
+<h2>Everything you've added</h2>
+<p class="hint">Edit, publish, unpublish, or delete your content.</p>
+<div id="allItems">Loading…</div>
+</section>
+</section>
+<p class="mono"><a href="/" style="color:var(--acid)">← View public portfolio</a></p>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+if(!window.supabase){document.write('<script src="https://unpkg.com/@supabase/supabase-js@2"><\/script>')}
+</script>
+<script>
+const SUPABASE_URL='https://jofagddegqwsaeqtaoyn.supabase.co';
+const KEY='sb_publishable_g7H7cwfVzBtsVqED0XeOjg_X3gR6ScD';
+const ADMIN='akashlama26@gmail.com';
+const db=window.supabase.createClient(SUPABASE_URL,KEY);
+const $=id=>document.getElementById(id);
+const say=(id,msg)=>$(id).textContent=msg;
+const slug=s=>s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+
+$('loginButton').addEventListener('click',async()=>{
+const button=$('loginButton');button.disabled=true;say('loginMessage','Signing in…');
+try{
+const email=$('email').value.trim().toLowerCase(),password=$('password').value;
+if(email!==ADMIN)throw new Error('This email is not authorized.');
+if(!password)throw new Error('Enter your password.');
+const {error}=await db.auth.signInWithPassword({email,password});
+if(error)throw error;
+say('loginMessage','Login successful.');
+}catch(error){say('loginMessage',error.message||String(error))}
+finally{button.disabled=false}
+});
+
+$('forgotPassword').addEventListener('click',async()=>{
+try{
+const email=$('email').value.trim().toLowerCase();
+if(email!==ADMIN)throw new Error('Enter your authorized admin email first.');
+say('loginMessage','Sending password setup/reset email…');
+const {error}=await db.auth.resetPasswordForEmail(email,{redirectTo:'https://akashlama.com/admin.html'});
+if(error)throw error;
+say('loginMessage','Password setup email sent. Open it once, set your password, then use email + password for future logins.');
+}catch(error){say('loginMessage',error.message||String(error))}
+});
+
+let recoveryMode=false;
+$('savePassword').addEventListener('click',async()=>{
+try{
+const password=$('newPassword').value;
+if(password.length<8)throw new Error('Use at least 8 characters.');
+const {error}=await db.auth.updateUser({password});
+if(error)throw error;
+recoveryMode=false;
+await db.auth.signOut();
+$('recoveryPanel').classList.add('hidden');
+$('loginPanel').classList.remove('hidden');
+$('appPanel').classList.add('hidden');
+$('password').value='';
+say('loginMessage','Password saved. Please sign in with your new password.');
+}catch(error){say('recoveryMessage',error.message||String(error))}
+});
+
+async function session(){
+let {data:{session}}=await db.auth.getSession(),u=session?.user;
+if(recoveryMode||location.hash.includes('type=recovery')){
+recoveryMode=true;
+$('loginPanel').classList.add('hidden');
+$('appPanel').classList.add('hidden');
+$('recoveryPanel').classList.remove('hidden');
+return;
+}
+if(u?.email?.toLowerCase()===ADMIN){
+$('loginPanel').classList.add('hidden');
+$('recoveryPanel').classList.add('hidden');
+$('appPanel').classList.remove('hidden');
+$('signedInAs').textContent='Signed in: '+u.email;
+loadAll();
+}else{
+$('appPanel').classList.add('hidden');
+$('recoveryPanel').classList.add('hidden');
+$('loginPanel').classList.remove('hidden');
+if(u)await db.auth.signOut();
+}
+}
+
+db.auth.onAuthStateChange((event)=>{
+if(event==='PASSWORD_RECOVERY'){
+recoveryMode=true;
+$('loginPanel').classList.add('hidden');
+$('appPanel').classList.add('hidden');
+$('recoveryPanel').classList.remove('hidden');
+$('loginMessage').textContent='';
+}
+setTimeout(session,0);
+});
+
+$('signOut').onclick=async()=>{await db.auth.signOut();location.reload()};
+
+document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{
+document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));
+['portfolio','journal','manage'].forEach(t=>$(t+'Tab').classList.toggle('hidden',t!==b.dataset.tab));
+if(b.dataset.tab==='manage')loadAll();
+});
+
+let selectedFile=null,existingMedia=null;
+$('mediaFile').onchange=()=>{
+selectedFile=$('mediaFile').files[0]||null;
+if(selectedFile&&selectedFile.type.startsWith('image/')){
+$('mediaPreview').src=URL.createObjectURL(selectedFile);
+$('mediaPreview').classList.remove('hidden');
+}else $('mediaPreview').classList.add('hidden');
+};
+
+function clearItem(){
+['itemId','itemTitle','itemDescription','itemDetails','videoUrl'].forEach(i=>$(i).value='');
+$('category').value='photography';$('itemStatus').value='draft';
+$('mediaFile').value='';$('mediaPreview').classList.add('hidden');
+selectedFile=null;existingMedia=null;
+$('itemHeading').textContent='Add portfolio work';say('itemMessage','');
+}
+$('clearItem').onclick=clearItem;
+
+async function uploadFile(file){
+if(!file)return existingMedia;
+if(file.size>20*1024*1024)throw Error('Please choose a file smaller than 20 MB.');
+let safe=file.name.replace(/[^a-zA-Z0-9._-]/g,'-');
+let path=Date.now()+'-'+crypto.randomUUID()+'-'+safe;
+let {error}=await db.storage.from('portfolio-media').upload(path,file,{upsert:false,contentType:file.type});
+if(error)throw error;
+let {data}=db.storage.from('portfolio-media').getPublicUrl(path);
+return data.publicUrl;
+}
+
+$('saveItem').onclick=async()=>{
+say('itemMessage','Saving…');
+try{
+let title=$('itemTitle').value.trim();
+if(!title)throw Error('Please enter a title.');
+let media=await uploadFile(selectedFile);
+let payload={category:$('category').value,title,description:$('itemDescription').value.trim(),details:$('itemDetails').value.trim(),media_url:media||null,media_type:selectedFile?.type||(media?'existing':'')||null,video_url:$('videoUrl').value.trim()||null,status:$('itemStatus').value,updated_at:new Date().toISOString()};
+let id=$('itemId').value;
+let res=id?await db.from('portfolio_items').update(payload).eq('id',id):await db.from('portfolio_items').insert(payload);
+if(res.error)throw res.error;
+say('itemMessage',payload.status==='published'?'Published on your website.':'Draft saved.');
+clearItem();loadAll();
+}catch(e){say('itemMessage',e.message)}
+};
+
+function clearPost(){
+['postId','postTitle','postExcerpt','postContent','postCover'].forEach(i=>$(i).value='');
+$('postType').value='journal';$('postStatus').value='draft';
+$('postHeading').textContent='Write an article';say('postMessage','');
+}
+$('clearPost').onclick=clearPost;
+
+$('savePost').onclick=async()=>{
+say('postMessage','Saving…');
+let title=$('postTitle').value.trim(),content=$('postContent').value.trim(),id=$('postId').value;
+if(!title||!content){say('postMessage','Please add a title and article content.');return}
+let status=$('postStatus').value;
+let p={post_type:$('postType').value,title,slug:slug(title),excerpt:$('postExcerpt').value.trim(),content,cover_image_url:$('postCover').value.trim()||null,status,published_at:status==='published'?new Date().toISOString():null,updated_at:new Date().toISOString()};
+let r=id?await db.from('journal_posts').update(p).eq('id',id):await db.from('journal_posts').insert(p);
+if(r.error){say('postMessage',r.error.message);return}
+say('postMessage',status==='published'?'Article published.':'Draft saved.');
+clearPost();loadAll();
+};
+
+function el(tag,txt){let x=document.createElement(tag);x.textContent=txt;return x}
+
+async function loadAll(){
+let [a,b]=await Promise.all([
+db.from('portfolio_items').select('*').order('created_at',{ascending:false}),
+db.from('journal_posts').select('*').order('created_at',{ascending:false})
+]);
+if(a.error||b.error){$('allItems').textContent=(a.error||b.error).message;return}
+$('allItems').innerHTML='';
+let entries=[...(a.data||[]).map(x=>({...x,_kind:'portfolio'})),...(b.data||[]).map(x=>({...x,_kind:'journal'}))].sort((x,y)=>new Date(y.created_at)-new Date(x.created_at));
+if(!entries.length){$('allItems').textContent='Nothing added yet.';return}
+entries.forEach(p=>{
+let row=document.createElement('div');row.className='entry';
+let info=document.createElement('div');
+info.append(el('strong',p.title||'Untitled'),el('small',(p._kind==='portfolio'?p.category:'Journal · '+p.post_type)+' · '+p.status));
+let actions=document.createElement('div'),edit=el('button','Edit'),del=el('button','Delete');
+edit.className='secondary';del.className='secondary danger';
+edit.onclick=()=>{
+if(p._kind==='portfolio'){
+document.querySelector('[data-tab="portfolio"]').click();
+$('itemId').value=p.id;$('category').value=p.category;$('itemTitle').value=p.title;
+$('itemDescription').value=p.description||'';$('itemDetails').value=p.details||'';
+$('videoUrl').value=p.video_url||'';$('itemStatus').value=p.status;
+existingMedia=p.media_url;$('itemHeading').textContent='Edit portfolio work';
+say('itemMessage','Existing upload retained unless you choose a new file.');
+window.scrollTo(0,0);
+}else{
+document.querySelector('[data-tab="journal"]').click();
+$('postId').value=p.id;$('postType').value=p.post_type||'journal';
+$('postTitle').value=p.title||'';$('postExcerpt').value=p.excerpt||'';
+$('postContent').value=p.content||'';$('postCover').value=p.cover_image_url||'';
+$('postStatus').value=p.status||'draft';$('postHeading').textContent='Edit article';
+window.scrollTo(0,0);
+}
+};
+del.onclick=async()=>{
+if(!confirm('Permanently delete this item?'))return;
+let r=p._kind==='portfolio'?await db.from('portfolio_items').delete().eq('id',p.id):await db.from('journal_posts').delete().eq('id',p.id);
+if(r.error)alert(r.error.message);else loadAll();
+};
+actions.append(edit,del);row.append(info,actions);$('allItems').append(row);
+});
+}
 session();
-</script></body></html>
+</script>
+</body>
+</html>
