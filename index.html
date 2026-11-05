@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#11110f" />
+  <meta name="theme-color" content="#f7f3eb" />
   <meta name="description" content="Akash Lama is a filmmaker, photographer and screenwriter based in Minneapolis, Minnesota. Explore film, photography, screenwriting and journal work." />
   <meta property="og:title" content="Akash Lama — Filmmaker, Photographer & Screenwriter" />
   <meta property="og:description" content="A creative portfolio of moving images, still photographs and stories." />
@@ -90,6 +90,77 @@
     .menu-toggle{color:#292820}
     a:focus-visible,button:focus-visible,nav a:focus-visible,.nav-contact:focus-visible{outline-color:#849442}
     @media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
+
+    /* Warm, welcoming artist-studio direction */
+    :root{--bg:#f7f3eb;--panel:#fffdf8;--paper:#282a24;--muted:#77766c;--line:rgba(40,42,36,.17);--acid:#9baa58;--red:#c87558}
+    body{background:var(--bg);color:var(--paper)}
+    .grain{opacity:.012}
+    .topbar{border-color:var(--line)}
+    nav a,.nav-contact{color:#68695f}
+    nav a:hover,.nav-contact:hover{color:#9a674d}
+    .brand span{color:#b66f52}
+    .hero{min-height:660px;gap:6vw;padding:76px 0 88px}
+    .eyebrow:before{background:#b66f52}
+    h1{font-size:clamp(62px,8.7vw,128px);letter-spacing:-.075em}
+    h1 .italic{color:#a46e50}
+    .hero-sub{color:#62645b}
+    .hero-meta span,.hero-meta b{color:#77766c}
+    .hero-art{height:550px;background:#e8dfd0;border-radius:2px}
+    .hero-art img{filter:none;opacity:1;object-position:center 35%}
+    .hero-art:after{background:linear-gradient(180deg,transparent 65%,rgba(35,34,27,.18))}
+    .frame-mark,.frame-caption span{color:#fffdf8;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+    .frame-caption strong{color:#fffdf8}
+    .vertical-note{color:#77766c}
+    .ticker{color:#6d7a3e;border-color:var(--line)}
+    .ticker i{color:#bd795b}
+    section{background:transparent}
+    .section-head h2 em,.about-copy h2 em{color:#a46e50}
+    .section-note{color:#77766c}
+    .filter{border-color:var(--line);color:#68695f}
+    .filter.active,.filter:hover{background:#a9b76d;border-color:#a9b76d;color:#282a24}
+    .work-grid{gap:48px 24px}
+    .work-card:nth-child(3n+2){grid-column:span 5;margin-left:16.666%}
+    .work-card:nth-child(3n){grid-column:span 7}
+    .work-image,.catalogue-image,.catalogue-placeholder{background:#e9e1d4}
+    .work-image img{filter:saturate(1)}
+    .work-image:after{background:#a9b76d;color:#282a24}
+    .work-info,.catalogue-meta,.writing-row{border-color:var(--line)}
+    .work-info p,.catalogue-meta span,.writing-row p{color:#77766c}
+    .photo-grid img{filter:none}
+    .photo-grid figcaption{color:#77766c}
+    .photo-collection-heading{color:#282a24}
+    .photo-album-cover{background:#e9e1d4;border-color:var(--line)}
+    .photo-album-meta{border-color:var(--line)}
+    .photo-album-note{color:#77766c}
+    .catalogue-card,.journal-card,.blog-card{background:#fffdf8;border-color:var(--line)}
+    .catalogue-card p,.journal-card p,.blog-card p{color:#68695f}
+    .status,.catalogue-tag{color:#748044}
+    .writing-row .status{color:#748044;border-color:rgba(116,128,68,.4)}
+    .manifesto{background:#e9dfcf;color:#282a24}
+    .manifesto .mono{color:#77766c}
+    .manifesto h2 em{color:#9b684e}
+    .manifesto-copy .small{color:#77766c}
+    .about-stamp{background:linear-gradient(145deg,#e9dfcf,#dce3d0);border-color:var(--line)}
+    .about-stamp .big{color:#a46e50}
+    .about-stamp .bottom,.about-copy p{color:#68695f}
+    .credits strong{color:#9a704e}
+    .credits span{color:#77766c}
+    .contact{background:#dce4c8;color:#282a24}
+    .contact .mono{color:#657044}
+    .contact-bottom{border-color:rgba(40,42,36,.22)}
+    .email-link{border-color:#282a24}
+    .contact-small{color:#68695f}
+    footer{border-color:var(--line);color:#77766c}
+    .modal{background:rgba(35,34,29,.72)}
+    .modal-box{background:#fffdf8;color:#282a24;border-color:var(--line)}
+    .modal-box p{color:#68695f}
+    .modal-box .note{color:#748044}
+    .gallery-modal{background:rgba(247,243,235,.98);color:#282a24}
+    .gallery-close{color:#282a24;border-color:var(--line)}
+    .gallery-modal-desc{color:#77766c}
+    .gallery-images img{background:#e9e1d4}
+    @media(max-width:800px){nav{background:var(--bg)}.hero-art{width:92%;height:410px}}
+
   </style>
 </head>
 <body>
@@ -110,7 +181,7 @@
       <div class="hero-meta"><span><b>01</b> Filmmaking</span><span><b>02</b> Photography</span><span><b>03</b> Screenwriting</span></div>
     </div>
     <div class="hero-art">
-      <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1600&q=88" alt="Cinema camera and crew working on a film set" />
+      <img src="https://images.pexels.com/photos/7811599/pexels-photo-7811599.jpeg?auto=compress&dpr=1&h=1200&w=900" alt="Temporary editorial portrait of a Nepali man wearing a Dhaka topi; to be replaced with Akash’s own portrait" />
     </div>
     <div class="vertical-note">A PERSONAL ARCHIVE OF IMAGES & IDEAS — EST. 2026</div>
   </div>
