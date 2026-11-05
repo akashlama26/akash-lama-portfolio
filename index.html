@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f7f3eb" />
+  <meta name="theme-color" content="#eee7dc" />
   <meta name="description" content="Akash Lama is a filmmaker, photographer and screenwriter based in Minneapolis, Minnesota. Explore film, photography, screenwriting and journal work." />
   <meta property="og:title" content="Akash Lama — Filmmaker, Photographer & Screenwriter" />
-  <meta property="og:description" content="A creative portfolio of moving images, still photographs and stories." />
+  <meta property="og:description" content="An independent filmmaker and photographer working across cinema, still images and the written word." />
   <meta property="og:type" content="website" />
   <title>Akash Lama — Filmmaker, Photographer & Screenwriter</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -207,13 +207,153 @@ section{padding:90px 0}
 footer{color:#6f6a62}
 @media(max-width:800px){.shell{width:calc(100% - 36px)}.topbar{height:auto;min-height:68px}.brand{font-size:19px}nav{gap:12px}.hero{grid-template-columns:1fr;padding-bottom:18px}.hero-copy{padding:38px 0 12px}.hero-art{height:340px;width:100%}.home-feature-grid{grid-template-columns:1fr;gap:12px}.home-feature{height:230px}.feature-copy strong{font-size:34px}}
 
+  
+    /* Final art-direction pass: warm cinematic editorial */
+    :root{
+      --bg:#eee7dc;
+      --panel:#f6f0e7;
+      --paper:#29251f;
+      --muted:#918779;
+      --line:rgba(54,45,35,.19);
+      --acid:#85845f;
+      --red:#a96f55;
+    }
+    html{scroll-padding-top:24px}
+    body{background:var(--bg);color:var(--paper)}
+    .shell{width:min(1320px,calc(100% - 80px))}
+    .topbar{height:82px;border-bottom:1px solid var(--line)}
+    .brand{font:600 19px var(--sans);letter-spacing:.1em}
+    .brand span{color:var(--red)}
+    nav{gap:clamp(18px,2.5vw,34px)}
+    nav a,.nav-contact{font:500 11px var(--mono);letter-spacing:.11em;color:#5e574d}
+    nav a:hover{color:var(--red)}
+    .nav-contact{border:1px solid rgba(41,37,31,.42);padding:12px 17px;color:var(--paper)}
+    .nav-contact:hover{background:var(--paper);color:var(--bg)}
+    .hero{grid-template-columns:.78fr 1.22fr;gap:clamp(28px,4vw,62px);padding:50px 0 34px;min-height:0}
+    .hero-copy{padding:28px 0 28px 8px}
+    .eyebrow{display:flex;margin-bottom:25px;color:#766e62}
+    .eyebrow:before{background:var(--red)}
+    h1{font:600 clamp(48px,5.6vw,78px)/.98 var(--sans);letter-spacing:-.065em;margin:0 0 23px}
+    h1 .italic{display:none}
+    .hero-sub{font:400 clamp(17px,1.45vw,20px)/1.6 var(--sans);color:#625b51;max-width:390px}
+    .hero-actions{display:flex;align-items:center;gap:23px;margin-top:31px;flex-wrap:wrap}
+    .hero-primary{background:#29251f;color:#f6f0e7;border:1px solid #29251f;border-radius:2px;padding:14px 20px;font:500 10px var(--mono);letter-spacing:.12em}
+    .hero-primary:hover{background:var(--red);border-color:var(--red)}
+    .hero-watch{font:500 10px var(--mono);letter-spacing:.1em;color:#49443d}
+    .hero-watch span{border-color:#746b60;width:34px;height:34px}
+    .hero-art{height:clamp(370px,39vw,520px);border-radius:2px;background:#d7c7b3;box-shadow:0 18px 45px rgba(56,43,29,.09)}
+    .hero-art img{object-position:center 34%;filter:saturate(.88) contrast(.98);opacity:1}
+    .hero-art:after{display:block;background:linear-gradient(180deg,transparent 72%,rgba(31,25,19,.25))}
+    .home-feature-grid{gap:15px;padding:0 0 12px}
+    .home-feature{height:clamp(190px,19vw,250px);border-radius:3px;background:#3b342c}
+    .home-feature img{filter:saturate(.78) brightness(.88)}
+    .home-feature:hover img{filter:saturate(.95) brightness(.95)}
+    .home-feature:after{background:linear-gradient(0deg,rgba(24,21,17,.82),rgba(24,21,17,.02) 78%)}
+    .feature-copy{left:22px;bottom:20px}
+    .feature-copy strong{font:500 clamp(27px,2.7vw,38px)/1.05 var(--serif)}
+    .feature-copy small{font:11px var(--mono);letter-spacing:.02em;color:#f2eadf}
+    .feature-copy b{font:500 9px var(--mono);letter-spacing:.12em}
+    .ticker{display:none}
+    section{padding:92px 0}
+    .section-head{margin-bottom:38px}
+    .section-head h2{font:500 clamp(40px,5.4vw,68px)/.98 var(--serif);letter-spacing:-.045em}
+    .section-head h2 em{color:var(--red)}
+    .section-head .mono,.mono{color:#83796b}
+    .section-note{font:12px/1.75 var(--sans);color:#766e62}
+    .catalogue-grid{gap:30px 22px}
+    .catalogue-card{background:#f5efe6;border:1px solid rgba(54,45,35,.14);padding:0 0 16px}
+    .catalogue-card .catalogue-meta,.catalogue-card>p{margin-left:16px;margin-right:16px}
+    .catalogue-image,.catalogue-placeholder{border:0}
+    .catalogue-placeholder{background:linear-gradient(145deg,#d9d0c2,#b8aa98);color:#302a23}
+    .catalogue-placeholder:before,.catalogue-placeholder:after{border-color:rgba(70,55,39,.18)}
+    .catalogue-plus{color:rgba(70,55,39,.25)}
+    .catalogue-label{color:#51483d}
+    .catalogue-meta h3{font:500 24px var(--serif)}
+    .catalogue-meta span{color:#847969}
+    .manifesto{background:#302b25;color:#eee7dc;padding:92px 0}
+    .manifesto .mono{color:#b4a895}
+    .manifesto h2{font:500 clamp(43px,5.8vw,76px)/.98 var(--serif);letter-spacing:-.045em}
+    .manifesto h2 em{color:#c28b6d}
+    .manifesto-copy{font:clamp(19px,2vw,25px)/1.55 var(--serif);color:#e1d7c9}
+    .manifesto-copy .small{font:11px/1.85 var(--mono);color:#b8ad9e}
+    .photo-collection-heading{font:500 31px var(--serif);color:var(--paper)}
+    .photo-album-cover{background:#d9d0c2;border:1px solid var(--line)}
+    .photo-album-meta h3{font:500 22px var(--serif)}
+    .photo-album-meta span,.photo-album-note{color:#776e62}
+    .writing{border-color:var(--line)}
+    .writing-row{padding:25px 0;border-color:var(--line)}
+    .writing-row h3{font:500 27px var(--serif);color:#393128}
+    .writing-row p{font:12px/1.7 var(--sans);color:#766e62}
+    .writing-row .status{color:#74734f;border-color:rgba(116,115,79,.4)}
+    .blog-card,.journal-card{background:#f7f1e8;border:1px solid rgba(54,45,35,.15);border-radius:2px;min-height:250px}
+    .blog-card h3{font:500 25px var(--serif);color:#332d26}
+    .blog-card p{color:#756c60}
+    .blog-symbol{color:var(--red)}
+    .blog-card>span{color:#777653}
+    .about-stamp{background:linear-gradient(145deg,#d9d0c2,#c9bca9);border-color:var(--line)}
+    .about-stamp .big{color:#a96f55}
+    .about-stamp .bottom{color:#62594e}
+    .about-copy h2{font:500 clamp(40px,5.1vw,68px)/.98 var(--serif);letter-spacing:-.045em}
+    .about-copy h2 em{color:var(--red)}
+    .about-copy p{font:16px/1.85 var(--sans);color:#625b51}
+    .credits{border-color:var(--line)}
+    .credits strong{color:#987153}
+    .credits span{color:#766e62}
+    .contact{background:#d8d5c2;color:#292820;padding:88px 0}
+    .contact .mono{color:#6f7155}
+    .contact h2{font:500 clamp(55px,9vw,116px)/.9 var(--serif);letter-spacing:-.055em}
+    .contact h2 em{color:#a96f55}
+    .contact-bottom{border-color:rgba(41,37,31,.24)}
+    .email-link{border-color:#494239}
+    .contact-small{color:#6e675c}
+    footer{border-top:1px solid var(--line);color:#7d7468}
+    .modal{background:rgba(30,25,20,.78)}
+    .modal-box{background:#f4ede3;color:#29251f;border-color:var(--line)}
+    .modal-box p{color:#625b51}
+    .modal-box .note{color:#85845f}
+    .gallery-modal{background:rgba(39,34,28,.97);color:#f1e9de}
+    .gallery-modal .mono,.gallery-modal-desc{color:#c0b4a4}
+    .gallery-close{color:#f1e9de;border-color:rgba(241,233,222,.35)}
+    .gallery-images img{background:#211d18}
+    .email-menu{background:#f7f1e8;border-color:var(--line)}
+    .email-menu a,.email-menu button{color:#29251f}
+    .email-menu a:hover,.email-menu button:hover{background:#e8dfd2}
+    a:focus-visible,button:focus-visible,nav a:focus-visible,.nav-contact:focus-visible{outline:2px solid #a96f55;outline-offset:4px}
+    @media(max-width:800px){
+      .shell{width:calc(100% - 36px)}
+      .topbar{height:70px}
+      nav{background:#eee7dc;top:70px;border-color:var(--line)}
+      nav a{color:#514a41}
+      .hero{grid-template-columns:1fr;padding:38px 0 25px;gap:25px}
+      .hero-copy{padding:10px 0 8px}
+      h1{font-size:clamp(47px,10vw,68px)}
+      .hero-art{height:clamp(300px,65vw,430px);width:100%}
+      .home-feature-grid{grid-template-columns:1fr;gap:12px}
+      .home-feature{height:220px}
+      section{padding:68px 0}
+      .manifesto{padding:68px 0}
+      .section-head{display:block}
+      .section-note{margin-top:14px}
+      .catalogue-grid{grid-template-columns:1fr}
+      .photo-album-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .blog-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:560px){
+      .photo-album-grid,.blog-grid{grid-template-columns:1fr}
+      .photo-album-cover{height:260px}
+      .writing-row{grid-template-columns:1fr;gap:8px}
+      .writing-row p{grid-column:auto;grid-row:auto}
+      .credits{grid-template-columns:1fr 1fr}
+      .contact{padding:68px 0}
+    }
+
   </style>
 </head>
 <body>
 <div class="grain"></div>
 <header class="shell topbar">
   <a class="brand" href="#top">AKASH <span>/</span> LAMA</a>
-  <nav id="nav" aria-label="Main navigation"><a href="#film">Film & Video</a><a href="#photography">Photography</a><a href="#writing">Screenwriting</a><a href="#blog">Blog</a><a href="#about">About</a></nav>
+  <nav id="nav" aria-label="Main navigation"><a href="#film">Film</a><a href="#photography">Photography</a><a href="#writing">Screenwriting</a><a href="#blog">Journal</a><a href="#about">About</a></nav>
   <a class="nav-contact" href="#contact">Get in touch ↗</a>
   <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">MENU +</button>
 </header>
