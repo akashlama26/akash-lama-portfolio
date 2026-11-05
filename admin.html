@@ -6,7 +6,35 @@
 <title>Portfolio Studio — Akash Lama</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#11110f;--panel:#191916;--paper:#e9e5da;--muted:#aaa69b;--line:rgba(233,229,218,.18);--acid:#d6ed68;--mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--paper);font-family:var(--sans)}.wrap{width:min(1050px,calc(100% - 32px));margin:38px auto}.mono,label{font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}h1{font:italic 52px 'Playfair Display',serif;margin:12px 0}h2{font-size:22px}.muted,p{color:var(--muted);line-height:1.6}.panel{background:var(--panel);border:1px solid var(--line);padding:22px;margin:18px 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{margin:15px 0}label{display:block;margin:0 0 8px}input,textarea,select{width:100%;padding:12px;background:#10100e;color:var(--paper);border:1px solid var(--line);font:14px var(--sans);border-radius:2px}textarea{min-height:140px;line-height:1.6}button,.btn{background:var(--acid);color:#171711;border:0;padding:12px 16px;font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;margin:6px 6px 6px 0}button.secondary{background:transparent;color:var(--paper);border:1px solid var(--line)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.tabs button.active{background:var(--acid);color:#171711}.hidden{display:none!important}.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.entry{border-top:1px solid var(--line);padding:15px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}.entry small{display:block;color:var(--muted);margin-top:5px}.status{color:var(--acid)}#message,#loginMessage{color:var(--acid);white-space:pre-wrap}.hint{font-size:12px;color:var(--muted)}.preview{max-width:180px;max-height:110px;object-fit:cover;display:block;margin-top:8px}.danger{color:#ff9b83}.full{grid-column:1/-1}@media(max-width:650px){.grid{grid-template-columns:1fr}h1{font-size:42px}.panel{padding:16px}}
+:root{--bg:#11110f;--panel:#191916;--paper:#e9e5da;--muted:#aaa69b;--line:rgba(233,229,218,.18);--acid:#d6ed68;--mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--paper);font-family:var(--sans)}
+.wrap{width:min(1050px,calc(100% - 32px));margin:38px auto}
+.mono,label{font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{font:italic 52px 'Playfair Display',serif;margin:12px 0}
+h2{font-size:22px}
+.muted,p{color:var(--muted);line-height:1.6}
+.panel{background:var(--panel);border:1px solid var(--line);padding:22px;margin:18px 0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.field{margin:15px 0}
+label{display:block;margin:0 0 8px}
+input,textarea,select{width:100%;padding:12px;background:#10100e;color:var(--paper);border:1px solid var(--line);font:14px var(--sans);border-radius:2px}
+textarea{min-height:140px;line-height:1.6}
+button,.btn{background:var(--acid);color:#171711;border:0;padding:12px 16px;font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;margin:6px 6px 6px 0}
+button.secondary{background:transparent;color:var(--paper);border:1px solid var(--line)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.tabs button.active{background:var(--acid);color:#171711}
+.hidden{display:none!important}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.entry{border-top:1px solid var(--line);padding:15px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.entry small{display:block;color:var(--muted);margin-top:5px}
+.status{color:var(--acid)}
+#message,#loginMessage{color:var(--acid);white-space:pre-wrap}
+.hint{font-size:12px;color:var(--muted)}
+.preview{max-width:180px;max-height:110px;object-fit:cover;display:block;margin-top:8px}
+.danger{color:#ff9b83}
+.full{grid-column:1/-1}
+@media(max-width:650px){.grid{grid-template-columns:1fr}h1{font-size:42px}.panel{padding:16px}}
 </style>
 </head>
 <body>
@@ -70,10 +98,22 @@
 <select id="category">
 <option value="photography">Photography</option>
 <option value="film">Films & videos</option>
-<option value="screenwriting">Screenwriting</option>
+<option value="screenwriting">Screenwriting / screenplays</option>
 <option value="project">Creative projects</option>
 <option value="other">Other work</option>
 </select>
+</div>
+<div class="field">
+<label>Website collection</label>
+<select id="collection">
+<option value="">No collection — show under More Work</option>
+<option value="street">Street photography</option>
+<option value="weddings">Weddings</option>
+<option value="couples">Couples</option>
+<option value="concerts">Concerts</option>
+<option value="events">Events</option>
+</select>
+<p class="hint">For photography, choose the section where this work should appear.</p>
 </div>
 <div class="field">
 <label>Visibility</label>
@@ -81,6 +121,10 @@
 <option value="draft">Save as draft</option>
 <option value="published">Publish on website</option>
 </select>
+</div>
+<div class="field full">
+<label>Display order (smaller numbers appear first)</label>
+<input id="itemOrder" type="number" min="0" step="1" value="100">
 </div>
 <div class="field full">
 <label>Title</label>
@@ -136,6 +180,10 @@
 </select>
 </div>
 <div class="field full">
+<label>Display order (smaller numbers appear first)</label>
+<input id="postOrder" type="number" min="0" step="1" value="100">
+</div>
+<div class="field full">
 <label>Title</label>
 <input id="postTitle" maxlength="180" placeholder="Article title">
 </div>
@@ -179,9 +227,8 @@ const KEY='sb_publishable_g7H7cwfVzBtsVqED0XeOjg_X3gR6ScD';
 const ADMIN='akashlama26@gmail.com';
 const db=window.supabase.createClient(SUPABASE_URL,KEY);
 const $=id=>document.getElementById(id);
-
 const say=(id,msg)=>$(id).textContent=msg;
-const slug=s=>s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const slug=s=>s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/,'');
 
 $('loginButton').addEventListener('click',async()=>{
 const button=$('loginButton');
@@ -256,9 +303,7 @@ $('loginPanel').classList.remove('hidden');
 if(u)await db.auth.signOut();
 }
 }
-db.auth.onAuthStateChange(()=>{
-setTimeout(session,0);
-});
+db.auth.onAuthStateChange(()=>{setTimeout(session,0);});
 
 $('signOut').onclick=async()=>{
 await db.auth.signOut();
@@ -284,7 +329,9 @@ $('mediaPreview').classList.add('hidden');
 
 function clearItem(){
 ['itemId','itemTitle','itemDescription','itemDetails','videoUrl'].forEach(i=>$(i).value='');
+$('itemOrder').value='100';
 $('category').value='photography';
+$('collection').value='';
 $('itemStatus').value='draft';
 $('mediaFile').value='';
 $('mediaPreview').classList.add('hidden');
@@ -314,6 +361,7 @@ if(!title)throw Error('Please enter a title.');
 let media=await uploadFile(selectedFile);
 let payload={
 category:$('category').value,
+collection:$('category').value==='photography'?($('collection').value||null):null,
 title,
 description:$('itemDescription').value.trim(),
 details:$('itemDetails').value.trim(),
@@ -321,6 +369,7 @@ media_url:media||null,
 media_type:selectedFile?.type||(media?'existing':'')||null,
 video_url:$('videoUrl').value.trim()||null,
 status:$('itemStatus').value,
+sort_order:Number($('itemOrder').value||100),
 updated_at:new Date().toISOString()
 };
 let id=$('itemId').value;
@@ -329,13 +378,12 @@ if(res.error)throw res.error;
 say('itemMessage',payload.status==='published'?'Published on your website.':'Draft saved.');
 clearItem();
 loadAll();
-}catch(e){
-say('itemMessage',e.message);
-}
+}catch(e){say('itemMessage',e.message);}
 };
 
 function clearPost(){
 ['postId','postTitle','postExcerpt','postContent','postCover'].forEach(i=>$(i).value='');
+$('postOrder').value='100';
 $('postType').value='journal';
 $('postStatus').value='draft';
 $('postHeading').textContent='Write an article';
@@ -362,13 +410,11 @@ content,
 cover_image_url:$('postCover').value.trim()||null,
 status,
 published_at:status==='published'?new Date().toISOString():null,
+sort_order:Number($('postOrder').value||100),
 updated_at:new Date().toISOString()
 };
 let r=id?await db.from('journal_posts').update(p).eq('id',id):await db.from('journal_posts').insert(p);
-if(r.error){
-say('postMessage',r.error.message);
-return;
-}
+if(r.error){say('postMessage',r.error.message);return;}
 say('postMessage',status==='published'?'Article published.':'Draft saved.');
 clearPost();
 loadAll();
@@ -393,18 +439,15 @@ $('allItems').innerHTML='';
 let entries=[
 ...(a.data||[]).map(x=>({...x,_kind:'portfolio'})),
 ...(b.data||[]).map(x=>({...x,_kind:'journal'}))
-].sort((x,y)=>new Date(y.created_at)-new Date(x.created_at));
-if(!entries.length){
-$('allItems').textContent='Nothing added yet.';
-return;
-}
+].sort((x,y)=>(Number(x.sort_order??100)-Number(y.sort_order??100))||(new Date(y.created_at)-new Date(x.created_at)));
+if(!entries.length){$('allItems').textContent='Nothing added yet.';return;}
 entries.forEach(p=>{
 let row=document.createElement('div');
 row.className='entry';
 let info=document.createElement('div');
 info.append(
 el('strong',p.title||'Untitled'),
-el('small',(p._kind==='portfolio'?p.category:'Journal · '+p.post_type)+' · '+p.status)
+el('small',(p._kind==='portfolio'?p.category+(p.collection?' / '+p.collection:''):'Journal · '+p.post_type)+' · '+p.status+' · Order '+(p.sort_order??100))
 );
 let actions=document.createElement('div');
 let edit=el('button','Edit');
@@ -417,11 +460,13 @@ if(p._kind==='portfolio'){
 document.querySelector('[data-tab="portfolio"]').click();
 $('itemId').value=p.id;
 $('category').value=p.category;
+$('collection').value=p.collection||'';
 $('itemTitle').value=p.title;
 $('itemDescription').value=p.description||'';
 $('itemDetails').value=p.details||'';
 $('videoUrl').value=p.video_url||'';
 $('itemStatus').value=p.status;
+$('itemOrder').value=p.sort_order??100;
 existingMedia=p.media_url;
 $('itemHeading').textContent='Edit portfolio work';
 say('itemMessage','Existing upload retained unless you choose a new file.');
@@ -435,6 +480,7 @@ $('postExcerpt').value=p.excerpt||'';
 $('postContent').value=p.content||'';
 $('postCover').value=p.cover_image_url||'';
 $('postStatus').value=p.status||'draft';
+$('postOrder').value=p.sort_order??100;
 $('postHeading').textContent='Edit article';
 window.scrollTo(0,0);
 }
@@ -448,13 +494,11 @@ let r=p._kind==='portfolio'
 if(r.error)alert(r.error.message);
 else loadAll();
 };
-
 actions.append(edit,del);
 row.append(info,actions);
 $('allItems').append(row);
 });
 }
-
 session();
 </script>
 </body>
