@@ -161,6 +161,52 @@
     .gallery-images img{background:#e9e1d4}
     @media(max-width:800px){nav{background:var(--bg)}.hero-art{width:92%;height:410px}}
 
+
+/* Homepage recreation based on the approved visual reference */
+:root{--bg:#f8eee5;--panel:#fff8f1;--paper:#171714;--muted:#6f6a62;--line:rgba(30,28,24,.16);--acid:#858b43;--red:#c77c5d}
+body{background:#f8eee5;color:#171714}
+.grain{display:none}
+.shell{width:min(1400px,calc(100% - 72px))}
+.topbar{height:76px;border:0}
+.brand{font:700 24px var(--sans);letter-spacing:.09em;color:#171714}
+.brand span{color:#858b43}
+nav{gap:38px}
+nav a,.nav-contact{font:600 14px var(--sans);letter-spacing:.02em;color:#171714}
+.nav-contact{background:#171714;color:#fff!important;border:0;border-radius:5px;padding:13px 20px}
+.hero{min-height:0;grid-template-columns: .72fr 1.65fr;gap:32px;padding:0 0 28px;align-items:stretch}
+.hero-copy{padding:55px 0 42px 20px;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{display:none}
+h1{font:700 clamp(40px,4vw,62px)/.99 var(--sans);letter-spacing:-.055em;margin:0 0 18px}
+h1 .italic{display:none}
+.hero-sub{font:400 20px/1.4 var(--sans);color:#25231f;max-width:330px;margin:0}
+.hero-actions{display:flex;align-items:center;gap:28px;margin-top:32px}
+.hero-primary{background:#171714;color:white;padding:14px 22px;border-radius:5px;font:600 13px var(--sans);letter-spacing:.04em;text-transform:uppercase}
+.hero-watch{display:flex;align-items:center;gap:10px;font:600 13px var(--sans);text-transform:uppercase}
+.hero-watch span{border:1px solid #171714;border-radius:50%;width:32px;height:32px;display:grid;place-items:center;font-size:11px}
+.hero-art{height:clamp(360px,34vw,510px);background:#d8b99c}
+.hero-art img{filter:none;opacity:1;object-position:center 40%}
+.hero-art:after{display:none}
+.home-feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding-bottom:0}
+.home-feature{height:235px;position:relative;overflow:hidden;border-radius:10px;background:#333;display:block;color:#fff}
+.home-feature img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.home-feature:hover img{transform:scale(1.04)}
+.home-feature:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.78),transparent 78%)}
+.feature-copy{position:absolute;z-index:1;left:25px;right:18px;bottom:20px;display:flex;flex-direction:column;align-items:flex-start}
+.feature-copy strong{font:500 38px var(--serif);line-height:1.1}
+.feature-copy small{font:13px var(--sans);margin-top:6px}
+.feature-copy b{font:600 12px var(--sans);text-transform:uppercase;letter-spacing:.04em;margin-top:18px}
+.ticker{display:none}
+section{padding:90px 0}
+.section-head h2{color:#171714}
+.section-head h2 em{color:#a56f52}
+.filter{color:#555;background:#fff8f1;border-color:var(--line)}
+.filter.active,.filter:hover{background:#858b43;border-color:#858b43;color:#fff}
+.work-image img,.photo-grid img{filter:none}
+.manifesto{background:#e9dfd3;color:#171714}
+.contact{background:#dfe4c9;color:#171714}
+footer{color:#6f6a62}
+@media(max-width:800px){.shell{width:calc(100% - 36px)}.topbar{height:auto;min-height:68px}.brand{font-size:19px}nav{gap:12px}.hero{grid-template-columns:1fr;padding-bottom:18px}.hero-copy{padding:38px 0 12px}.hero-art{height:340px;width:100%}.home-feature-grid{grid-template-columns:1fr;gap:12px}.home-feature{height:230px}.feature-copy strong{font-size:34px}}
+
   </style>
 </head>
 <body>
@@ -176,16 +222,19 @@
   <div class="shell hero">
     <div class="hero-copy">
       <div class="eyebrow mono">Filmmaker · Photographer · Screenwriter / Minneapolis, USA</div>
-      <h1>Frames<br><span class="italic">of mind.</span></h1>
-      <p class="hero-sub">I am a filmmaker, photographer, and screenwriter drawn to visual storytelling, human experiences, and the stories hidden in everyday life.</p>
-      <div class="hero-meta"><span><b>01</b> Filmmaking</span><span><b>02</b> Photography</span><span><b>03</b> Screenwriting</span></div>
+      <h1>Filmmaker.<br>Photographer.<br>Screenwriter.</h1>
+      <p class="hero-sub">I tell human stories through moving images, photographs, and written word.</p>
+      <div class="hero-actions"><a class="hero-primary" href="#film">Explore work&nbsp; →</a><a class="hero-watch" href="#film"><span>▶</span> Watch reel</a></div>
     </div>
-    <div class="hero-art">
-      <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1600&q=88" alt="Film production slate on a film set" />
-    </div>
-    <div class="vertical-note">A PERSONAL ARCHIVE OF IMAGES & IDEAS — EST. 2026</div>
+    <div class="hero-art"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=90" alt="Warm cinematic landscape placeholder; replace with Akash wearing a Dhaka topi" /></div>
+    
   </div>
 
+  <section class="home-feature-grid shell" aria-label="Explore creative work">
+    <a class="home-feature film-feature" href="#film"><img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1100&q=88" alt="Filmmaking camera on location"><span class="feature-copy"><strong>Film</strong><small>Short Films · Documentaries · Narrative</small><b>Explore film&nbsp; →</b></span></a>
+    <a class="home-feature photo-feature" href="#photography"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1100&q=88" alt="Mountain landscape photography"><span class="feature-copy"><strong>Photography</strong><small>People · Places · Stories</small><b>Explore photography&nbsp; →</b></span></a>
+    <a class="home-feature writing-feature" href="#writing"><img src="https://images.unsplash.com/photo-1455390582262-044c6c6f7b11?auto=format&fit=crop&w=1100&q=88" alt="Writing and screenplay workspace"><span class="feature-copy"><strong>Screenwriting</strong><small>Original Stories · Short Scripts · Features</small><b>Explore writing&nbsp; →</b></span></a>
+  </section>
   <div class="ticker"><div class="ticker-track"><span>STORIES IN MOTION</span><i>✳</i><span>LIGHT / SHADOW / MEMORY</span><i>✳</i><span>THE HUMAN CONDITION</span><i>✳</i><span>STORIES IN MOTION</span><i>✳</i><span>LIGHT / SHADOW / MEMORY</span><i>✳</i><span>THE HUMAN CONDITION</span><i>✳</i></div></div>
 
   <section class="shell" id="film">
