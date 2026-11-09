@@ -289,6 +289,86 @@ section{scroll-margin-top:22px}
   .recent-projects-head{align-items:start;flex-direction:column;gap:10px}
 }
 
+  
+/* === Cinematic light, texture and depth treatment === */
+.hero{isolation:isolate;background:#241a13}
+.hero-art{isolation:isolate}
+.hero-art img{
+  filter:brightness(.94) contrast(1.09) saturate(1.12)!important;
+  transform:scale(1.012);
+  will-change:transform;
+}
+.hero-art:before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 76% 18%,rgba(255,199,119,.30),transparent 39%),
+    radial-gradient(ellipse at 52% 74%,rgba(176,95,39,.14),transparent 44%),
+    linear-gradient(90deg,rgba(17,12,8,.20),transparent 56%,rgba(12,8,5,.18));
+  mix-blend-mode:screen;opacity:.78;
+}
+.hero-art:after{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(16,10,6,.08),transparent 35%,rgba(10,7,4,.30)),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0,rgba(255,255,255,.012) 1px,transparent 1px,transparent 3px);
+  mix-blend-mode:soft-light;opacity:.72;
+}
+.hero-copy{filter:drop-shadow(0 4px 20px rgba(0,0,0,.18))}
+.home-feature{
+  isolation:isolate;border:1px solid rgba(255,248,235,.20);
+  box-shadow:0 17px 38px rgba(45,31,20,.19),0 3px 9px rgba(45,31,20,.10);
+  transform:translateZ(0);
+}
+.home-feature img{
+  filter:brightness(.94) contrast(1.10) saturate(1.13)!important;
+  transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .7s ease;
+}
+.home-feature:before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;
+  background:
+    radial-gradient(ellipse at 18% 5%,rgba(255,220,164,.30),transparent 42%),
+    linear-gradient(135deg,rgba(255,243,221,.15),transparent 48%),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0,rgba(255,255,255,.018) 1px,transparent 1px,transparent 3px);
+  mix-blend-mode:screen;opacity:.62;
+}
+.home-feature:after{
+  z-index:2;
+  background:linear-gradient(0deg,rgba(18,12,8,.88) 0%,rgba(28,18,11,.42) 34%,rgba(20,13,8,.02) 78%);
+}
+.feature-copy{
+  z-index:3;
+  text-shadow:0 2px 14px rgba(0,0,0,.48),0 1px 2px rgba(0,0,0,.55);
+}
+.home-feature:hover{
+  box-shadow:0 22px 48px rgba(45,31,20,.25),0 0 0 1px rgba(255,242,219,.22);
+}
+.home-feature:hover img{
+  filter:brightness(1.01) contrast(1.10) saturate(1.16)!important;
+}
+.recent-project-image,.catalogue-image,.photo-album-cover,.work-image{
+  position:relative;isolation:isolate;overflow:hidden;
+  box-shadow:0 12px 30px rgba(48,33,21,.13);
+}
+.recent-project-image:before,.catalogue-image:before,.photo-album-cover:before,.work-image:before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 18% 4%,rgba(255,219,159,.20),transparent 46%),
+    linear-gradient(135deg,rgba(255,246,224,.10),transparent 50%),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.014) 0,rgba(255,255,255,.014) 1px,transparent 1px,transparent 3px);
+  mix-blend-mode:soft-light;opacity:.8;
+}
+.recent-project-image img,.catalogue-image img,.photo-album-cover img,.work-image img{
+  filter:contrast(1.06) saturate(1.08);
+}
+.work-image iframe{
+  position:relative;z-index:0;filter:contrast(1.04) saturate(1.05);
+}
+.recent-project-image{border:1px solid rgba(88,67,47,.12)}
+.catalogue-image,.photo-album-cover{border:1px solid rgba(88,67,47,.12)}
+@media(prefers-reduced-motion:reduce){
+  .hero-art img,.home-feature img{transform:none!important;transition:none!important}
+}
+
   </style>
 </head>
 <body>
@@ -302,7 +382,7 @@ section{scroll-margin-top:22px}
 
 <main id="top">
   <div class="hero">
-    <div class="hero-art" aria-hidden="true"><img src="assets/hero.webp" alt=""></div>
+    <div class="hero-art" aria-hidden="true"><img src="assets/hero.webp" alt="" fetchpriority="high" decoding="async"></div>
     <div class="hero-copy shell">
       <div class="eyebrow mono">Filmmaker / Photographer / Screenwriter</div>
       <h1>Visual Stories<br>from Life</h1>
