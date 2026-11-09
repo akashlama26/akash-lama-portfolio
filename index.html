@@ -400,33 +400,91 @@ footer{color:#6f6a62}
       .hero-art{width:100%;height:390px}
     }
 
+  
+  /* Reference-led homepage layout */
+  :root{--bg:#eee4d5;--panel:#e8ddcd;--paper:#2b241e;--muted:#776b5d;--line:rgba(43,36,30,.18);--acid:#777660;--red:#a56f52}
+  body{background:#eee4d5;color:#2b241e}
+  .grain{display:none}
+  .topbar{height:68px;border:0;width:min(1380px,calc(100% - 80px))}
+  .brand{font:500 27px var(--serif);letter-spacing:.09em;color:#2b241e}
+  .brand span{color:#777660}
+  nav{gap:clamp(20px,3.8vw,58px)}
+  nav a,.nav-contact{font:500 12px var(--sans);letter-spacing:.14em;color:#2b241e}
+  .nav-contact{border:0;padding:14px 22px;background:#171512;color:#f6f0e7;border-radius:4px}
+  .nav-contact:hover{background:#777660;color:#fff}
+  .hero{position:relative;display:flex;align-items:center;min-height:470px;height:clamp(440px,31vw,520px);padding:0;margin:0;width:100%;overflow:hidden;background:#33291f}
+  .hero-art{position:absolute;inset:0;height:100%;width:100%;background:#33291f}
+  .hero-art img{width:100%;height:100%;object-fit:cover;object-position:center 38%;filter:none!important;opacity:1}
+  .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(25,20,15,.88) 0%,rgba(25,20,15,.67) 35%,rgba(25,20,15,.10) 73%,rgba(25,20,15,.12) 100%);pointer-events:none}
+  .hero-copy.shell{position:relative;z-index:2;width:min(1380px,calc(100% - 80px));margin:0 auto;padding:54px 0;max-width:1380px}
+  .eyebrow{color:#f0e7da;margin-bottom:24px}
+  .eyebrow:before{background:#b5a477}
+  h1{font:500 clamp(52px,5.2vw,78px)/.98 var(--serif);letter-spacing:-.035em;color:#f7efe4;margin:0 0 18px}
+  h1 .italic{color:#c6a17d}
+  .hero-sub{max-width:500px;color:#eee2d2;font:400 17px/1.55 var(--serif)}
+  .hero-actions{display:flex;gap:18px;margin-top:34px;align-items:center}
+  .hero-primary{background:#777660;color:#fff;border-radius:4px;padding:15px 25px;font:500 12px var(--sans);letter-spacing:.13em}
+  .hero-primary:hover{background:#5f604b}
+  .hero-watch{color:#fff;font:500 12px var(--sans);letter-spacing:.13em}
+  .hero-watch span{border-color:#f5ebdc;width:34px;height:34px}
+  .home-feature-grid{width:min(1380px,calc(100% - 80px));padding:30px 0 10px;gap:22px}
+  .home-feature{height:265px;border-radius:8px;background:#33291f}
+  .home-feature img{filter:none!important}
+  .home-feature:after{background:linear-gradient(0deg,rgba(24,19,15,.78),rgba(24,19,15,.04) 76%)}
+  .feature-copy{left:30px;bottom:26px}
+  .feature-copy strong{font:500 34px/1.1 var(--serif)}
+  .feature-copy small{font:14px var(--serif);margin-top:7px}
+  .feature-copy b{font:500 11px var(--sans);letter-spacing:.13em;margin-top:19px}
+  section{scroll-margin-top:20px}
+  .section-head h2{font:500 clamp(38px,4vw,54px)/1.1 var(--serif);color:#2b241e}
+  .section-head h2 em{color:#a56f52}
+  .section-note,.mono{color:#776b5d}
+  .manifesto{background:#332b25;color:#f6f0e7}
+  .manifesto h2{font-family:var(--serif)}
+  .contact{background:#e4dacb;color:#302923}
+  .contact .mono,footer{color:#766d62}
+  .work-image img,.photo-grid img{filter:none!important}
+  @media(max-width:800px){
+    .topbar{width:calc(100% - 36px);height:70px}
+    .brand{font-size:22px}
+    nav{background:#eee4d5;border-color:rgba(43,36,30,.18)}
+    .hero{height:auto;min-height:600px;align-items:flex-end}
+    .hero-art img{object-position:60% center}
+    .hero:after{background:linear-gradient(0deg,rgba(25,20,15,.88) 0%,rgba(25,20,15,.56) 55%,rgba(25,20,15,.12) 100%)}
+    .hero-copy.shell{width:calc(100% - 40px);padding:90px 0 48px}
+    h1{font-size:clamp(48px,12vw,68px)}
+    .hero-sub{font-size:16px;max-width:430px}
+    .home-feature-grid{width:calc(100% - 36px);grid-template-columns:1fr;gap:14px;padding-top:20px}
+    .home-feature{height:235px}
+    .feature-copy strong{font-size:34px}
+  }
+
   </style>
 </head>
 <body>
 <div class="grain"></div>
 <header class="shell topbar">
-  <a class="brand" href="#top">AKASH <span>/</span> LAMA</a>
-  <nav id="nav" aria-label="Main navigation"><a href="#film">Film</a><a href="#photography">Photography</a><a href="#writing">Screenwriting</a><a href="#blog">Journal</a><a href="#about">About</a></nav>
+  <a class="brand" href="#top">AKASH LAMA</a>
+  <nav id="nav" aria-label="Main navigation"><a href="#film">Film</a><a href="#photography">Photography</a><a href="#writing">Screenwriting</a><a href="#blog">Journal</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
   <a class="nav-contact" href="#contact">Get in touch ↗</a>
   <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">MENU +</button>
 </header>
 
 <main id="top">
-  <div class="shell hero">
-    <div class="hero-copy">
-      <div class="eyebrow mono">Filmmaker · Photographer · Screenwriter / Minneapolis, USA</div>
-      <h1>Filmmaker.<br>Photographer.<br>Screenwriter.</h1>
-      <p class="hero-sub">I tell human stories through moving images, photographs, and written word.</p>
-      <div class="hero-actions"><a class="hero-primary" href="#film">Explore work&nbsp; →</a><a class="hero-watch" href="#film"><span>▶</span> Watch reel</a></div>
+  <div class="hero">
+    <div class="hero-art"><img src="https://nepalisahitya.com/storage/1150/01KP5T5R9KQVD6DJC4A4192GRB.jpg" alt="Nepali man in a traditional Dhaka topi in the hills of Nepal" /></div>
+    <div class="hero-copy shell">
+      <div class="eyebrow mono">Filmmaker / Photographer / Screenwriter</div>
+      <h1>Visual Stories<br>from Life</h1>
+      <p class="hero-sub">I am a filmmaker and photographer from Nepal, based in the U.S. I tell human stories through film, photography, and writing — shaped by people, place, and experience.</p>
+      <div class="hero-actions"><a class="hero-primary" href="#film">Explore work</a><a class="hero-watch" href="#film"><span>▶</span> Watch reel</a></div>
     </div>
-    <div class="hero-art"><img src="https://nepalisahitya.com/storage/1150/01KP5T5R9KQVD6DJC4A4192GRB.jpg" alt="Nepali man wearing a Dhaka topi in warm sunlight" /></div>
-    
   </div>
 
   <section class="home-feature-grid shell" aria-label="Explore creative work">
-    <a class="home-feature film-feature" href="#film"><img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1100&q=88" alt="Filmmaking camera on location"><span class="feature-copy"><strong>Film</strong><small>Short Films · Documentaries · Narrative</small><b>Explore film&nbsp; →</b></span></a>
-    <a class="home-feature photo-feature" href="#photography"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1100&q=88" alt="Creative documentary photographer at work"><span class="feature-copy"><strong>Photography</strong><small>People · Places · Stories</small><b>Explore photography&nbsp; →</b></span></a>
-    <a class="home-feature writing-feature" href="#writing"><img src="https://images.unsplash.com/photo-1455390582262-044cdead8a18?auto=format&fit=crop&w=1100&q=88" alt="Screenplay and creative writing desk"><span class="feature-copy"><strong>Screenwriting</strong><small>Original Stories · Short Scripts · Features</small><b>Explore writing&nbsp; →</b></span></a>
+    <a class="home-feature film-feature" href="#film"><img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1100&q=88" alt="Filmmaking camera on location"><span class="feature-copy"><strong>Film</strong><small>Short films, documentaries, and visual stories.</small><b>Explore film&nbsp; →</b></span></a>
+    <a class="home-feature photo-feature" href="#photography"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1100&q=88" alt="Creative documentary photographer at work"><span class="feature-copy"><strong>Photography</strong><small>People, places, and everyday stories.</small><b>Explore photography&nbsp; →</b></span></a>
+    <a class="home-feature writing-feature" href="#writing"><img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1100&q=88" alt="Screenplay and creative writing desk"><span class="feature-copy"><strong>Screenwriting</strong><small>Original screenplays and story development.</small><b>Explore writing&nbsp; →</b></span></a>
   </section>
   <section class="shell" id="film">
     <div class="section-head"><div><div class="mono">01 / Moving images</div><h2>Film & <em>video.</em></h2></div><p class="section-note">Short films, documentaries, commissioned work, and cinematography projects.</p></div>
