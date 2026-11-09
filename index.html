@@ -197,6 +197,98 @@ footer{display:flex;justify-content:space-between;gap:20px;padding:23px 0;color:
   .credits{grid-template-columns:1fr 1fr}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+  
+/* === Reference-matched cinematic homepage === */
+:root{
+  --bg:#efe4d4;--panel:#e7d9c8;--paper:#2d241f;--muted:#76695f;
+  --line:#d4c5b4;--olive:#777a60;--clay:#a56f52;--ivory:#f7f0e5;
+}
+body{background:var(--bg);color:var(--paper)}
+.topbar{width:min(1380px,90%);height:68px;margin:0 auto;border:0}
+.brand{font:500 27px var(--serif);letter-spacing:.11em;color:var(--paper)}
+.brand span{color:var(--olive)}
+nav{gap:clamp(22px,4vw,62px)}
+nav a{font:500 11px var(--sans);letter-spacing:.15em;color:#221c18}
+nav a:hover{color:var(--clay)}
+.nav-contact{display:none}
+.menu-toggle{color:var(--paper)}
+.hero{
+  width:100%;min-height:474px;height:474px;padding:0;
+  display:flex;align-items:center;overflow:hidden;
+  background:#38291f;position:relative;
+}
+.hero-art{position:absolute;inset:0;width:100%;height:100%;z-index:0;background:#38291f}
+.hero-art img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 45%;filter:none!important;opacity:1!important}
+.hero:after{
+  content:"";display:block;position:absolute;inset:0;z-index:1;
+  background:linear-gradient(90deg,rgba(18,15,12,.88) 0%,rgba(24,18,13,.73) 31%,rgba(29,20,13,.18) 62%,rgba(21,15,10,.12) 100%);
+  pointer-events:none;
+}
+.hero-copy.shell{position:relative;z-index:2;width:min(1290px,84%);margin:0 auto;padding:0}
+.hero .eyebrow{color:#f5ebdd;margin-bottom:25px}
+.hero .eyebrow:before{background:#c7a77d;width:28px}
+.hero h1{font:500 clamp(55px,5.3vw,82px)/.91 var(--serif);letter-spacing:-.045em;color:#f6eee3;margin:0 0 21px}
+.hero h1 .italic{color:#f0dfc8;margin-left:0}
+.hero-sub{max-width:520px;color:#f0e4d5;font:400 clamp(15px,1.22vw,18px)/1.55 var(--serif)}
+.hero-actions{gap:18px;margin-top:33px}
+.hero-primary{background:var(--olive);border:1px solid var(--olive);border-radius:4px;padding:15px 25px;color:#fff;font:500 11px var(--sans);letter-spacing:.14em}
+.hero-primary:hover{background:#62664e}
+.hero-watch{color:#fff;gap:10px}
+.hero-watch span{width:49px;height:49px;border:1px solid rgba(255,255,255,.8);font-size:12px}
+.home-feature-grid{
+  width:min(1380px,90%);margin:0 auto;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:22px;padding:30px 0 8px;
+}
+.home-feature{height:clamp(220px,18vw,265px);border-radius:8px;background:#332820}
+.home-feature img{object-fit:cover;filter:none!important;opacity:1}
+.home-feature:after{background:linear-gradient(0deg,rgba(24,18,13,.88),rgba(24,18,13,.04) 78%)}
+.feature-copy{left:26px;right:24px;bottom:20px}
+.feature-copy strong{font:500 clamp(27px,2.5vw,35px)/1.08 var(--serif);color:#fff}
+.feature-copy small{font:13px/1.4 var(--serif);color:#f1e7da;margin-top:5px}
+.feature-copy b{font:500 10px var(--sans);letter-spacing:.13em;color:#fff;margin-top:13px}
+section{scroll-margin-top:22px}
+.recent-projects{width:min(1380px,90%);margin:0 auto;padding:46px 0 28px}
+.recent-projects-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:22px}
+.recent-projects-kicker{font:10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#76634f;margin:0 0 8px}
+.recent-projects-head h2{font:500 clamp(36px,3.6vw,48px)/1.05 var(--serif);letter-spacing:-.035em;color:var(--paper);margin:0}
+.recent-projects-all{font:500 10px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#5f4c3b;padding-bottom:5px;white-space:nowrap}
+.recent-projects-all span{font-size:17px;margin-left:9px}
+.recent-projects-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.recent-project-card{display:block;min-width:0;color:var(--paper)}
+.recent-project-image{height:clamp(175px,20vw,260px);overflow:hidden;border-radius:7px;background:#d6c7b6}
+.recent-project-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.recent-project-card:hover .recent-project-image img{transform:scale(1.035)}
+.recent-project-meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-top:1px solid var(--line);padding-top:11px;margin-top:10px}
+.recent-project-meta strong{font:500 21px var(--serif)}
+.recent-project-meta span{font:9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#film,#photography,#writing,#blog,#about{padding-top:74px}
+.manifesto{background:#342a23;color:#f4eadc}
+.manifesto .mono{color:#c8bba9}
+.manifesto h2{color:#f4eadc}
+.contact{background:#e6dac9;color:var(--paper)}
+@media(max-width:800px){
+  .topbar{width:calc(100% - 36px)}
+  .brand{font-size:22px}
+  .hero{height:auto;min-height:560px;padding:58px 0}
+  .hero-copy.shell{width:calc(100% - 44px)}
+  .hero-art img{object-position:60% center}
+  .hero:after{background:linear-gradient(90deg,rgba(18,15,12,.84),rgba(24,18,13,.58) 60%,rgba(24,18,13,.24))}
+  .hero h1{font-size:clamp(48px,10vw,68px)}
+  .home-feature-grid{width:calc(100% - 36px);grid-template-columns:1fr;gap:14px;padding-top:20px}
+  .home-feature{height:245px}
+  .recent-projects{width:calc(100% - 36px);padding:42px 0 18px}
+  .recent-projects-grid{grid-template-columns:1fr;gap:22px}
+  .recent-project-image{height:250px}
+  .recent-projects-head h2{font-size:36px}
+}
+@media(max-width:520px){
+  .hero{min-height:540px}
+  .hero-actions{gap:12px}
+  .hero-watch span{width:40px;height:40px}
+  .feature-copy{left:20px;bottom:18px}
+  .recent-projects-head{align-items:start;flex-direction:column;gap:10px}
+}
+
   </style>
 </head>
 <body>
@@ -210,6 +302,7 @@ footer{display:flex;justify-content:space-between;gap:20px;padding:23px 0;color:
 
 <main id="top">
   <div class="hero">
+    <div class="hero-art" aria-hidden="true"><img src="assets/hero.webp" alt=""></div>
     <div class="hero-copy shell">
       <div class="eyebrow mono">Filmmaker / Photographer / Screenwriter</div>
       <h1>Visual Stories<br>from Life</h1>
@@ -218,9 +311,16 @@ footer{display:flex;justify-content:space-between;gap:20px;padding:23px 0;color:
     </div>
   </div>
   <section class="home-feature-grid shell" aria-label="Explore creative work">
-    <a class="home-feature film-feature" href="#film"><img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1100&q=88" alt="Filmmaking camera on location"><span class="feature-copy"><strong>Film</strong><small>Short films, documentaries, and visual stories.</small><b>Explore film&nbsp; →</b></span></a>
-    <a class="home-feature photo-feature" href="#photography"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1100&q=88" alt="Creative documentary photographer at work"><span class="feature-copy"><strong>Photography</strong><small>People, places, and everyday stories.</small><b>Explore photography&nbsp; →</b></span></a>
-    <a class="home-feature writing-feature" href="#writing"><img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1100&q=88" alt="Screenplay and creative writing desk"><span class="feature-copy"><strong>Screenwriting</strong><small>Original screenplays and story development.</small><b>Explore writing&nbsp; →</b></span></a>
+    <a class="home-feature film-feature" href="#film"><img src="assets/film-card.webp" alt="Videographer operating a cinema camera at sunset"><span class="feature-copy"><strong>Film</strong><small>Short films, documentaries, and visual stories.</small><b>Explore film&nbsp; →</b></span></a>
+    <a class="home-feature photo-feature" href="#photography"><img src="assets/photography-card.webp" alt="Documentary portrait photography"><span class="feature-copy"><strong>Photography</strong><small>People, places, and everyday stories.</small><b>Explore photography&nbsp; →</b></span></a>
+    <a class="home-feature writing-feature" href="#writing"><img src="assets/screenwriting-card.webp" alt="Screenplay manuscript on a writing desk"><span class="feature-copy"><strong>Screenwriting</strong><small>Original screenplays and story development.</small><b>Explore writing&nbsp; →</b></span></a>
+  </section>
+  <section class="recent-projects" id="recent-projects" aria-label="Recent projects">
+    <div class="recent-projects-head">
+      <div><p class="recent-projects-kicker">Selected work</p><h2>Recent Projects</h2></div>
+      <a class="recent-projects-all" href="#film">View all work <span>→</span></a>
+    </div>
+    <div class="recent-projects-grid" id="recentProjects" aria-live="polite"></div>
   </section>
   <section class="shell" id="film">
     <div class="section-head"><div><div class="mono">01 / Moving images</div><h2>Film & <em>video.</em></h2></div><p class="section-note">Short films, documentaries, commissioned work, and cinematography projects.</p></div>
@@ -387,6 +487,19 @@ footer{display:flex;justify-content:space-between;gap:20px;padding:23px 0;color:
   document.getElementById("photoGalleryClose").addEventListener("click",closePhotoGallery);
   document.getElementById("photoGalleryModal").addEventListener("click",e=>{if(e.target.id==="photoGalleryModal")closePhotoGallery();});
   document.addEventListener("keydown",e=>{if(e.key==="Escape")closePhotoGallery();});
+  function renderRecentProjects(items){
+    const container=document.getElementById("recentProjects");
+    if(!container)return;
+    const published=(items||[]).filter(item=>item.media_url&&item.media_type!=="application/pdf");
+    const cards=published.slice(0,3);
+    const fallbacks=[
+      {title:"Film & Video",category:"Cinematography",media_url:"assets/film-card.webp"},
+      {title:"Photography",category:"Selected portraits",media_url:"assets/photography-card.webp"},
+      {title:"Screenwriting",category:"Original stories",media_url:"assets/screenwriting-card.webp"}
+    ];
+    const visible=cards.concat(fallbacks.slice(0,Math.max(0,3-cards.length)));
+    container.innerHTML=visible.map(item=>'<a class="recent-project-card" href="#film"><div class="recent-project-image"><img src="'+escapeHTML(item.media_url)+'" alt="'+escapeHTML(item.title||"Selected project")+'" loading="lazy"></div><div class="recent-project-meta"><strong>'+escapeHTML(item.title||"Untitled project")+'</strong><span>'+escapeHTML(item.category||item.collection||"Selected work")+'</span></div></a>').join("");
+  }
   async function loadManagedWork(){
     const film=document.getElementById("filmItems"),photos=document.getElementById("photoItems"),writing=document.getElementById("writingItems");
     const more=document.getElementById("managedWorkGrid"),empty=document.getElementById("managedWorkEmpty");
@@ -394,6 +507,7 @@ footer{display:flex;justify-content:space-between;gap:20px;padding:23px 0;color:
       const r=await fetch(`${SUPABASE_URL}/rest/v1/portfolio_items?select=*&status=eq.published&order=sort_order.asc,created_at.desc`,{headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${SUPABASE_PUBLISHABLE_KEY}`}});
       if(!r.ok)throw new Error("Portfolio content could not be loaded");
       const items=await r.json();
+      renderRecentProjects(items);
       [film,photos,more].forEach(el=>{if(el)el.innerHTML=""});
       writing.innerHTML='<div class="writing-row"><h3>Script Analysis</h3><p>Film and screenplay analysis, scene construction, character, structure and visual storytelling.</p><span class="status">Selected analysis</span></div><div class="writing-row"><h3>Short Film Screenplays</h3><p>Original short-film screenplays with loglines, synopses and downloadable PDF scripts.</p><span class="status">Original scripts</span></div>';
       let counts={film:0,photo:0,writing:0,more:0};
@@ -443,6 +557,7 @@ footer{display:flex;justify-content:space-between;gap:20px;padding:23px 0;color:
       more.innerHTML='<p class="section-note">More work is temporarily unavailable.</p>';
     }
   }
+  renderRecentProjects([]);
   loadManagedWork();
 
 
