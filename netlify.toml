@@ -1,0 +1,4 @@
+# Serve resized, modern-format versions of portfolio photographs through Netlify Image CDN.
+# The original uploads in Supabase storage are never modified.
+[images]
+  remote_images = ["https://jofagddegqwsaeqtaoyn\\.supabase\\.co/storage/v1/object/public/.*"]
