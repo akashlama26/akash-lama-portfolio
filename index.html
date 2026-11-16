@@ -600,8 +600,11 @@ section{scroll-margin-top:22px}
       writing.innerHTML='<div class="writing-row"><h3>Script Analysis</h3><p>Film and screenplay analysis, scene construction, character, structure and visual storytelling.</p><span class="status">Selected analysis</span></div><div class="writing-row"><h3>Short Film Screenplays</h3><p>Original short-film screenplays with loglines, synopses and downloadable PDF scripts.</p><span class="status">Original scripts</span></div>';
       let counts={film:0,photo:0,writing:0,more:0};
       const photoItems=items.filter(item=>item.category==="photography"||["street","weddings","couples","concerts","events"].includes(item.collection));
-      const collectionNames={street:"Street Photography",weddings:"Weddings",couples:"Couples",concerts:"Concerts",events:"Events"};
-      const collectionOrder=["street","weddings","couples","concerts","events"];
+      const collectionNames={street:"Street Photography",weddings:"Weddings",couples:"Couples",concerts:"Concerts",events:"Events",photography:"Photography"};
+      // Include every published photography collection, including older/custom collection values.
+      const collectionOrder=[...new Set(photoItems.map(item=>item.collection||"photography"))];
+      collectionOrder.sort((a,b)=>{const preferred=["couples","street","weddings","concerts","events","photography"];return (preferred.indexOf(a)<0?99:preferred.indexOf(a))-(preferred.indexOf(b)<0?99:preferred.indexOf(b))});
+      collectionOrder.forEach(key=>{if(!collectionNames[key])collectionNames[key]=key.replace(/[_-]+/g," ").replace(/\\b\\w/g,ch=>ch.toUpperCase())});
       collectionOrder.forEach(collection=>{
         const albums=new Map();
         photoItems.filter(item=>item.collection===collection).forEach(item=>{
