@@ -294,7 +294,7 @@ section{scroll-margin-top:22px}
 .hero{isolation:isolate;background:#241a13}
 .hero-art{isolation:isolate}
 .hero-art img{
-  filter:brightness(.94) contrast(1.09) saturate(1.12)!important;
+  filter:brightness(.98) contrast(1.04) saturate(1.02)!important;
   transform:scale(1.012);
   will-change:transform;
 }
@@ -320,15 +320,12 @@ section{scroll-margin-top:22px}
   transform:translateZ(0);
 }
 .home-feature img{
-  filter:brightness(.94) contrast(1.10) saturate(1.13)!important;
+  filter:brightness(.98) contrast(1.04) saturate(1.03)!important;
   transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .7s ease;
 }
 .home-feature:before{
   content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;
-  background:
-    radial-gradient(ellipse at 18% 5%,rgba(255,220,164,.30),transparent 42%),
-    linear-gradient(135deg,rgba(255,243,221,.15),transparent 48%),
-    repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0,rgba(255,255,255,.018) 1px,transparent 1px,transparent 3px);
+  background:linear-gradient(135deg,rgba(255,243,221,.08),transparent 48%);
   mix-blend-mode:screen;opacity:.62;
 }
 .home-feature:after{
@@ -358,7 +355,7 @@ section{scroll-margin-top:22px}
   mix-blend-mode:soft-light;opacity:.8;
 }
 .recent-project-image img,.catalogue-image img,.photo-album-cover img,.work-image img{
-  filter:contrast(1.06) saturate(1.08);
+  filter:contrast(1.02) saturate(1.02);
 }
 .work-image iframe{
   position:relative;z-index:0;filter:contrast(1.04) saturate(1.05);
@@ -382,7 +379,7 @@ section{scroll-margin-top:22px}
 
 <main id="top">
   <div class="hero">
-    <div class="hero-art" aria-hidden="true"><img src="https://images.unsplash.com/photo-1533577344265-69c4873b22aa?auto=format&fit=crop&w=3000&q=95" alt="Cinematic camera and lighting setup in a dark film studio" fetchpriority="high" decoding="async"></div>
+    <div class="hero-art" aria-hidden="true"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=2600&q=92" alt="Cinematic camera and lighting setup in a dark film studio" fetchpriority="high" decoding="async"></div>
     <div class="hero-copy shell">
       <div class="eyebrow mono">Filmmaker / Photographer / Screenwriter</div>
       <h1>Visual Stories<br>from Life</h1>
@@ -391,9 +388,9 @@ section{scroll-margin-top:22px}
     </div>
   </div>
   <section class="home-feature-grid shell" aria-label="Explore creative work">
-    <a class="home-feature film-feature" href="#film"><img src="https://images.unsplash.com/photo-1641499303764-a9e3a93a72e1?auto=format&fit=crop&w=2000&q=95" alt="Camera in warm golden-hour light" loading="lazy" decoding="async"><span class="feature-copy"><strong>Film</strong><small>Short films, documentaries, and visual stories.</small><b>Explore film&nbsp; →</b></span></a>
-    <a class="home-feature photo-feature" href="#photography"><img src="https://images.unsplash.com/photo-1758726948996-c2390f716d70?auto=format&fit=crop&w=2000&q=95" alt="Documentary portrait of an elderly Nepali man wearing a Dhaka topi" loading="lazy" decoding="async"><span class="feature-copy"><strong>Photography</strong><small>People, places, and everyday stories.</small><b>Explore photography&nbsp; →</b></span></a>
-    <a class="home-feature writing-feature" href="#writing"><img src="https://images.unsplash.com/photo-1731963094554-c5c981ccdefd?auto=format&fit=crop&w=2000&q=95" alt="Notebook, pen and coffee on a writing desk" loading="lazy" decoding="async"><span class="feature-copy"><strong>Screenwriting</strong><small>Original screenplays and story development.</small><b>Explore writing&nbsp; →</b></span></a>
+    <a class="home-feature film-feature" href="#film"><img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1800&q=92" alt="Camera in warm golden-hour light" loading="lazy" decoding="async"><span class="feature-copy"><strong>Film</strong><small>Short films, documentaries, and visual stories.</small><b>Explore film&nbsp; →</b></span></a>
+    <a class="home-feature photo-feature" href="#photography"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1800&q=92" alt="Documentary portrait of an elderly Nepali man wearing a Dhaka topi" loading="lazy" decoding="async"><span class="feature-copy"><strong>Photography</strong><small>People, places, and everyday stories.</small><b>Explore photography&nbsp; →</b></span></a>
+    <a class="home-feature writing-feature" href="#writing"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1800&q=92" alt="Notebook, pen and coffee on a writing desk" loading="lazy" decoding="async"><span class="feature-copy"><strong>Screenwriting</strong><small>Original screenplays and story development.</small><b>Explore writing&nbsp; →</b></span></a>
   </section>
   <section class="recent-projects" id="recent-projects" aria-label="Recent projects">
     <div class="recent-projects-head">
@@ -573,9 +570,9 @@ section{scroll-margin-top:22px}
     const published=(items||[]).filter(item=>item.media_url&&item.media_type!=="application/pdf");
     const cards=published.slice(0,3);
     const fallbacks=[
-      {title:"Film & Video",category:"Cinematography",media_url:"assets/film-card.webp"},
-      {title:"Photography",category:"Selected portraits",media_url:"assets/photography-card.webp"},
-      {title:"Screenwriting",category:"Original stories",media_url:"assets/screenwriting-card.webp"}
+      {title:"Film & Video",category:"Cinematography",media_url:"https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1600&q=92"},
+      {title:"Photography",category:"Selected portraits",media_url:"https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1600&q=92"},
+      {title:"Screenwriting",category:"Original stories",media_url:"https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=92"}
     ];
     const visible=cards.concat(fallbacks.slice(0,Math.max(0,3-cards.length)));
     container.innerHTML=visible.map(item=>'<a class="recent-project-card" href="#film"><div class="recent-project-image"><img src="'+escapeHTML(item.media_url)+'" alt="'+escapeHTML(item.title||"Selected project")+'" loading="lazy"></div><div class="recent-project-meta"><strong>'+escapeHTML(item.title||"Untitled project")+'</strong><span>'+escapeHTML(item.category||item.collection||"Selected work")+'</span></div></a>').join("");
