@@ -1,64 +1,339 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
 <title>Akash Lama — Studio</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#11110f;--panel:#191916;--paper:#e9e5da;--muted:#aaa69b;--line:rgba(233,229,218,.16);--acid:#d6ed68;--mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% 0%,rgba(214,237,104,.06),transparent 35%),var(--bg);color:var(--paper);font-family:var(--sans)}button,input,textarea,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}.wrap{width:min(1440px,calc(100% - 36px));margin:24px auto 60px}.mono,label{font:10px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
-.top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:0 0 18px;margin-bottom:22px}.brand{font:600 15px var(--mono);letter-spacing:.1em}.brand b{color:var(--acid)}.muted,p{color:var(--muted);line-height:1.6}.layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:22px}.side,.panel,.welcome,.tile{background:var(--panel);border:1px solid var(--line)}.side{padding:16px;height:max-content;position:sticky;top:18px}.side .mono{padding:10px;display:block}.navbtn{width:100%;display:block;text-align:left;padding:13px 12px;border:0;background:transparent;color:var(--paper);font-size:13px;margin:3px 0}.navbtn.active,.navbtn:hover{background:var(--acid);color:#171711}.main{min-width:0}.welcome{padding:26px 28px;background:linear-gradient(105deg,rgba(214,237,104,.08),transparent 60%),var(--panel)}.welcome .mono{color:var(--acid)}h1{font-size:clamp(32px,4vw,54px);letter-spacing:-.06em;font-weight:500;margin:10px 0}h2{font-size:22px;margin:0 0 14px}.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:16px 0}.tile{padding:17px;text-align:left;color:var(--paper);min-height:115px}.tile:hover{border-color:var(--acid)}.tile strong{display:block;margin:9px 0 5px}.tile small{color:var(--muted);line-height:1.5}.panel{padding:22px;margin:16px 0}.panelhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{margin:10px 0;min-width:0}.field.full{grid-column:1/-1}label{display:block;margin:0 0 8px}input,textarea,select{width:100%;padding:12px;background:#10100e;color:var(--paper);border:1px solid var(--line);border-radius:2px;font-size:14px}textarea{min-height:120px;line-height:1.6}input:focus,textarea:focus,select:focus{outline:1px solid var(--acid);border-color:var(--acid)}.btn{background:var(--acid);color:#171711;border:0;padding:12px 16px;font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:4px}.btn.secondary{background:transparent;color:var(--paper);border:1px solid var(--line)}.btn.danger{color:#ff9b83}.hint{font-size:11px;color:var(--muted)}.entry{border-top:1px solid var(--line);padding:14px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}.entry small{display:block;color:var(--muted);margin-top:5px}.entry button{margin:0 0 0 6px}.preview{max-width:180px;max-height:110px;object-fit:cover;display:block;margin-top:8px}.msg{font:11px var(--mono);color:var(--acid);white-space:pre-wrap}.footer{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:18px;margin-top:24px}.login{max-width:500px;margin:8vh auto}.login .panel{padding:28px}
-@media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:static;display:grid;grid-template-columns:repeat(3,1fr)}.side .mono{grid-column:1/-1}.tiles{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.wrap{width:calc(100% - 22px);margin:12px auto}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.panel{padding:15px}.tiles{grid-template-columns:1fr 1fr}.entry{align-items:flex-start}.entry>div:last-child{display:flex;flex-wrap:wrap}}
-.album-tools{margin:14px 0;padding:14px;border:1px solid var(--line);background:#11110e}.album-thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:8px;margin:12px 0}.album-thumbs img{width:100%;aspect-ratio:4/3;object-fit:cover}.album-preview{background:#e9e5da;color:#28231f;padding:14px;margin-top:14px}.album-preview h3{font:500 23px Georgia,serif;margin:0 0 6px}.album-preview p{color:#655d53;font-size:12px}.album-preview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.album-preview-grid.mobile{grid-template-columns:repeat(2,minmax(0,1fr));max-width:390px;margin:auto}.album-preview-grid img{width:100%;aspect-ratio:3/2;object-fit:cover}.album-preview-grid.portrait img{aspect-ratio:2/3}.album-preview-grid.square img{aspect-ratio:1}.album-preview-grid.original img{aspect-ratio:auto;max-height:220px;object-fit:contain;background:#d9d2c6}.upload-progress{height:5px;background:#333;margin:8px 0}.upload-progress span{display:block;height:100%;width:0;background:var(--acid)}@media(max-width:600px){.album-preview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}</style></head><body><main class="wrap">
-<div id="loginView" class="login"><div class="brand">AKASH <b>/</b> LAMA — STUDIO</div><section class="panel"><div class="mono">PRIVATE PORTFOLIO WORKSPACE</div><h1>Welcome back.</h1><p>Sign in to manage your public portfolio.</p><div class="field"><label>Email address</label><input id="email" type="email" value="akashlama26@gmail.com" autocomplete="username"></div><div class="field"><label>Password</label><input id="password" type="password" autocomplete="current-password"></div><button class="btn" id="login">Log in</button><button class="btn secondary" id="forgot">Forgot password</button><p id="loginMsg" class="msg"></p><div id="recovery" class="hidden"><div class="field"><label>Recovery code from email</label><input id="code" autocomplete="one-time-code"></div><div class="field"><label>New password</label><input id="newPass" type="password" minlength="8"></div><button class="btn" id="savePass">Save new password</button><p id="recoveryMsg" class="msg"></p></div></section><a class="mono" href="/">← Public website</a></div>
+:root{--bg:#ebdfcf;--soft:#f5ede2;--card:#fbf6ef;--sand:#e2d3bf;--ink:#231a14;--ink2:#4a3b30;--muted:#7a6a5c;--line:#d6c6b1;--olive:#5b6143;--olive2:#4b5037;--umber:#2c211a;--gold:#c99a62;--danger:#9b3b28;--serif:"EB Garamond",Georgia,serif;--sans:"Inter",Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;-webkit-font-smoothing:antialiased}
+button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer}.hidden{display:none!important}
+.wrap{width:min(1440px,calc(100% - 40px));margin:0 auto 60px}
+.kicker,label{display:block;font:500 10.5px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.top{display:flex;justify-content:space-between;align-items:center;height:70px;border-bottom:1px solid var(--line);margin-bottom:26px}
+.brand{font:400 26px/1 var(--serif);letter-spacing:.11em}.brand small{font:500 10.5px var(--sans);letter-spacing:.2em;color:var(--muted);margin-left:12px}
+.top-right{display:flex;align-items:center;gap:14px}
+p,.muted{color:var(--muted);line-height:1.6}
+h1{font:400 clamp(36px,4vw,56px)/1.05 var(--serif);margin:12px 0 10px}h2{font:400 30px/1.1 var(--serif);margin:0}h3{font:400 22px/1.2 var(--serif);margin:0}
+.layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:26px}
+.side{position:sticky;top:20px;height:max-content;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:14px}
+.side .kicker{padding:10px 10px 6px}
+.navbtn{width:100%;display:flex;gap:10px;align-items:center;text-align:left;padding:12px;border:0;border-radius:4px;background:transparent;color:var(--ink);font:500 13px var(--sans);margin:2px 0}
+.navbtn:hover{background:var(--sand)}.navbtn.active{background:var(--ink);color:var(--soft)}
+.main{min-width:0}
+.panel,.welcome{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:26px;margin:0 0 20px}
+.welcome{position:relative;overflow:hidden;color:#f3e9dc;background:#1d140e;border:0;padding:44px 40px;isolation:isolate}
+.welcome:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(22,14,9,.92),rgba(22,14,9,.6) 55%,rgba(22,14,9,.15)),url(/assets/hero-dhaka-golden-hour.jpg) 70% 40%/cover}
+.welcome .kicker{color:#d6c1a5}.welcome p{color:#e1d2bf;max-width:36em;font:18px/1.55 var(--serif)}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:0 0 20px}
+.tile{position:relative;overflow:hidden;border:0;border-radius:6px;min-height:150px;padding:18px;text-align:left;color:#fff;background:var(--umber) center/cover;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end}
+.tile:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(16,10,6,.86),rgba(16,10,6,.1))}
+.tile strong{font:400 25px/1.1 var(--serif)}.tile small{color:#eadccb;margin-top:4px;line-height:1.4}
+.tile:hover{outline:2px solid var(--olive);outline-offset:2px}
+.panelhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 18px}.field{margin:8px 0;min-width:0}.field.full{grid-column:1/-1}label{margin-bottom:8px}
+input,textarea,select{width:100%;padding:12px 13px;background:#fffdf9;border:1px solid var(--line);border-radius:4px;font-size:14px}
+textarea{min-height:110px;line-height:1.6;resize:vertical}input:focus,textarea:focus,select:focus{outline:2px solid rgba(91,97,67,.35);border-color:var(--olive)}
+input[type=checkbox]{width:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 18px;border-radius:3px;border:1px solid var(--olive);background:var(--olive);color:#f6efe4;font:500 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;margin:3px 4px 3px 0}
+.btn:hover{background:var(--olive2)}.btn:disabled{opacity:.55;cursor:wait}
+.btn.secondary{background:transparent;color:var(--ink);border-color:var(--line)}.btn.secondary:hover{background:var(--sand)}
+.btn.dark{background:var(--ink);border-color:var(--ink)}
+.btn.danger{background:transparent;color:var(--danger);border-color:#dcb8ab}.btn.danger:hover{background:#f4e1da}
+.btn.small{min-height:30px;padding:0 10px;font-size:9.5px}
+.hint{font-size:12px;color:var(--muted);margin:6px 0 0}
+.msg{font:500 12px/1.5 var(--sans);color:var(--olive);white-space:pre-wrap;margin-left:8px}
+.entry{border-top:1px solid var(--line);padding:14px 0;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.entry .info{display:flex;align-items:center;gap:14px;min-width:0}.entry img{width:64px;height:48px;object-fit:cover;border-radius:3px;background:var(--sand);flex:none}
+.entry strong{font:400 20px var(--serif)}.entry small{display:block;color:var(--muted);margin-top:3px}
+.badge{display:inline-block;font:500 9.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:4px 7px;border-radius:2px;background:var(--sand);color:var(--ink2);margin-left:6px}.badge.pub{background:#dfe3cf;color:var(--olive2)}
+.preview{max-width:220px;max-height:140px;object-fit:cover;display:block;margin-top:10px;border-radius:4px}
+.login{max-width:520px;margin:9vh auto}
+/* Album manager */
+.album{margin-top:8px;border:1px solid var(--line);border-radius:6px;background:var(--soft);padding:18px}
+.dropzone{border:1.5px dashed #bfa98d;border-radius:6px;padding:26px;text-align:center;background:#fffaf3;cursor:pointer;transition:background .2s}
+.dropzone.over,.dropzone:hover{background:#f3e7d6}.dropzone strong{display:block;font:400 22px var(--serif);margin-bottom:4px}
+.album-bar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;margin:16px 0 10px}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.thumb{position:relative;background:#fffdf9;border:1px solid var(--line);border-radius:5px;padding:6px;cursor:grab;user-select:none}
+.thumb.dragging{opacity:.4}.thumb.drop-target{outline:2px solid var(--olive)}
+.thumb.is-cover{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold)}
+.thumb img{width:100%;aspect-ratio:1;object-fit:cover;display:block;border-radius:3px;background:var(--sand);pointer-events:none}
+.thumb .num{position:absolute;top:10px;left:10px;background:rgba(35,26,20,.78);color:#fff;font:600 10px var(--sans);padding:3px 6px;border-radius:2px}
+.thumb .tag{position:absolute;top:10px;right:10px;background:var(--olive);color:#fff;font:600 9px var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:3px 6px;border-radius:2px}
+.thumb .tag.cover{background:var(--gold);color:var(--ink)}
+.thumb .name{font-size:10.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:6px 2px}
+.thumb .acts{display:flex;gap:4px}.thumb .acts button{flex:1;min-height:28px;border:1px solid var(--line);background:var(--card);border-radius:3px;font-size:12px;padding:0}
+.thumb .acts button:hover{background:var(--sand)}.thumb .acts .rm{color:var(--danger)}
+.progress{height:5px;background:var(--sand);border-radius:3px;overflow:hidden;margin:12px 0 4px}.progress span{display:block;height:100%;width:0;background:var(--olive);transition:width .2s}
+.pv{margin-top:18px;border-radius:6px;background:var(--bg);padding:20px;border:1px solid var(--line)}
+.pv-wrap{transition:max-width .3s;margin:auto}.pv-wrap.mobile{max-width:390px}
+.pv-card{max-width:360px}.pv-wrap.mobile .pv-card{max-width:none}
+.pv-cover{aspect-ratio:3/2;border-radius:6px;overflow:hidden;background:var(--sand)}.pv-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.pv-cover.portrait{aspect-ratio:2/3}.pv-cover.square{aspect-ratio:1}.pv-cover.original{aspect-ratio:auto}.pv-cover.original img{height:auto}
+.pv-meta{display:flex;justify-content:space-between;align-items:baseline;padding-top:10px;gap:10px}.pv-meta h3{font-size:24px}.pv-meta span{font:500 10px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.pv-gallery{margin-top:18px;background:#17100b;border-radius:6px;padding:20px;color:#f1e6d7}
+.pv-gallery h3{font-size:30px;color:#f6ede1}.pv-gallery p{color:#cdbca7;font-family:var(--serif);font-size:16px}
+.pv-images{columns:3 160px;column-gap:8px}.pv-wrap.mobile .pv-images{columns:1}.pv-images img{width:100%;display:block;margin:0 0 8px;border-radius:3px}
+.recover{margin-top:16px;border-top:1px solid var(--line);padding-top:16px}
+.recover .thumb{cursor:pointer}.recover .thumb.sel{box-shadow:0 0 0 2px var(--olive);border-color:var(--olive)}
+.footer{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:18px;margin-top:24px}
+a.kicker{text-decoration:none}a.kicker:hover{color:var(--ink)}
+@media(max-width:960px){.layout{grid-template-columns:1fr}.side{position:static;display:flex;flex-wrap:wrap;gap:4px}.side .kicker{width:100%}.navbtn{width:auto}.tiles{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.wrap{width:calc(100% - 24px)}.grid{grid-template-columns:1fr}.panel{padding:18px}.welcome{padding:30px 22px}.entry{flex-direction:column;align-items:flex-start}.thumbs{grid-template-columns:repeat(2,1fr)}.top{height:auto;padding:14px 0;flex-direction:column;align-items:flex-start;gap:10px}}
+</style></head><body><main class="wrap">
+
+<div id="loginView" class="login">
+  <div class="top" style="border:0;margin:0"><div class="brand">AKASH LAMA<small>STUDIO</small></div></div>
+  <section class="panel"><p class="kicker">Private portfolio workspace</p><h1>Welcome back.</h1><p>Sign in to manage your public portfolio.</p>
+    <div class="field"><label for="email">Email address</label><input id="email" type="email" value="akashlama26@gmail.com" autocomplete="username"></div>
+    <div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password"></div>
+    <button class="btn" id="login">Log in</button><button class="btn secondary" id="forgot">Forgot password</button><p id="loginMsg" class="msg"></p>
+    <div id="recovery" class="hidden"><div class="field"><label for="code">Recovery code from email</label><input id="code" autocomplete="one-time-code"></div><div class="field"><label for="newPass">New password</label><input id="newPass" type="password" minlength="8"></div><button class="btn" id="savePass">Save new password</button><p id="recoveryMsg" class="msg"></p></div>
+  </section><a class="kicker" href="/">← Public website</a>
+</div>
+
 <div id="app" class="hidden">
-<header class="top"><div class="brand">AKASH <b>/</b> LAMA — STUDIO</div><div><span id="signedIn" class="mono"></span> <button class="btn secondary" id="logout">Sign out</button></div></header>
-<div class="layout"><aside class="side"><span class="mono">WORKSPACE</span>
-<button class="navbtn active" data-view="dashboard">▦ &nbsp; Dashboard</button><button class="navbtn" data-view="film">▣ &nbsp; Film & Video</button><button class="navbtn" data-view="photo">▧ &nbsp; Photography</button><button class="navbtn" data-view="writing">▤ &nbsp; Screenwriting</button><button class="navbtn" data-view="blog">✎ &nbsp; Blog & Journal</button><button class="navbtn" data-view="all">☷ &nbsp; All content</button><span class="mono" style="margin-top:16px">WEBSITE</span><a class="btn secondary" href="/" style="display:block;text-align:center">View live website ↗</a></aside>
+<header class="top"><div class="brand">AKASH LAMA<small>STUDIO</small></div><div class="top-right"><span id="signedIn" class="kicker"></span><button class="btn secondary" id="logout">Sign out</button></div></header>
+<div class="layout"><aside class="side"><span class="kicker">Workspace</span>
+<button class="navbtn active" data-view="dashboard">▦ Dashboard</button><button class="navbtn" data-view="film">▣ Film &amp; Video</button><button class="navbtn" data-view="photo">▧ Photography</button><button class="navbtn" data-view="writing">▤ Screenwriting</button><button class="navbtn" data-view="blog">✎ Journal</button><button class="navbtn" data-view="all">☷ All content</button>
+<span class="kicker" style="margin-top:14px">Website</span><a class="btn secondary" href="/" target="_blank" rel="noopener" style="width:100%">View website ↗</a></aside>
 <div class="main">
-<section id="view-dashboard"><div class="welcome"><div class="mono">YOUR PRIVATE CREATIVE WORKSPACE</div><h1>Make room for the next story.</h1><p>Manage your films, photographs, screenplays and writing in one place. Save drafts, preview your work, and publish when ready.</p></div>
-<div class="tiles"><button class="tile" data-view="film">▣<strong>Film & Video</strong><small>Short films, documentaries, client work and reels</small></button><button class="tile" data-view="photo">▧<strong>Photography</strong><small>Street, weddings, couples, concerts and events</small></button><button class="tile" data-view="writing">▤<strong>Screenwriting</strong><small>Script analysis and short-film screenplays</small></button><button class="tile" data-view="blog">✎<strong>Blog & Journal</strong><small>Articles, film analysis and creative notes</small></button></div>
-<section class="panel"><div class="panelhead"><h2>Recent work</h2><button class="btn secondary" data-view="all">Manage all ↗</button></div><div id="recentItems">Loading…</div></section></section>
-<section id="view-editor" class="panel hidden"><div class="panelhead"><h2 id="editorTitle">Add new work</h2><button class="btn secondary" id="newItem">New item</button></div><input type="hidden" id="itemId"><div class="grid">
-<div class="field"><label>Type of work</label><select id="category"><optgroup label="Film & Video"><option value="film_short">Short Films</option><option value="film_documentary">Documentary</option><option value="film_client">Event & Client Films</option><option value="film_cinematography">Cinematography & Reels</option></optgroup><option value="photography">Photography</option><optgroup label="Screenwriting"><option value="screenwriting_analysis">Script Analysis</option><option value="screenwriting_short">Short Film Screenplays</option></optgroup><option value="project">More Work — Creative Project</option><option value="other">More Work — Other</option></select></div>
-<div class="field" id="collectionField"><label>Photography collection</label><select id="collection"><option value="">Choose collection</option><option value="street">Street Photography</option><option value="weddings">Weddings</option><option value="couples">Couples</option><option value="concerts">Concerts</option><option value="events">Events</option></select></div>
-<div class="field"><label>Visibility</label><select id="status"><option value="draft">Save as draft</option><option value="published">Publish on website</option></select></div><div class="field"><label>Display order</label><input id="sortOrder" type="number" min="0" value="100"><p class="hint">Smaller numbers appear first.</p></div>
-<div class="field full"><label id="titleLabel">Client / gallery name</label><input id="title" maxlength="180" placeholder="e.g. Ava & Daniel — Surprise Engagement"></div>
-<div class="field full"><label id="descLabel">Short description</label><textarea id="description" placeholder="What is this work about?"></textarea></div>
-<div class="field" id="mediaField"><label id="mediaLabel">Upload image / poster</label><input id="media" type="file" accept="image/jpeg,image/png,image/webp,image/gif,application/pdf"><p class="hint" id="mediaHint">Select up to 150 photos for one event album. Photos will be grouped into one gallery.</p><div id="albumTools" class="album-tools hidden"><div class="field"><label>Album cover orientation</label><select id="albumLayout"><option value="landscape">Landscape · 3:2</option><option value="portrait">Portrait · 2:3</option><option value="square">Square · 1:1</option><option value="original">Use original proportions</option></select><p class="hint">This changes the album thumbnail layout only. Your uploaded photographs stay uncropped.</p></div><div class="panelhead"><strong id="photoCount">0 photos selected</strong><label><input id="coverFirst" type="checkbox" checked style="width:auto"> First photo as cover</label></div><div id="albumThumbs" class="album-thumbs"></div><div class="album-preview"><h3 id="albumTitlePreview">Your album title</h3><p id="albumDescPreview">Your album description</p><div style="display:flex;gap:6px"><button type="button" class="btn secondary" id="desktopPreview">Desktop</button><button type="button" class="btn secondary" id="mobilePreview">Mobile</button></div><div id="albumPreviewGrid" class="album-preview-grid"></div></div></div><div id="uploadProgressWrap" class="hidden"><div class="upload-progress"><span id="uploadProgressBar"></span></div><p class="hint" id="uploadProgressText"></p></div><img id="preview" class="preview hidden" alt="Preview"></div>
-<div class="field" id="videoField"><label>Video link (YouTube or Vimeo)</label><input id="video" type="url" placeholder="https://youtu.be/..."></div>
-<div class="field full"><label id="detailsLabel">Details / credits / project notes</label><textarea id="details" placeholder="Optional details, credits, synopsis or notes"></textarea></div>
-</div><button class="btn" id="saveItem">Save work</button><span id="itemMsg" class="msg"></span></section>
-<section id="view-blog" class="panel hidden"><div class="panelhead"><h2 id="postHeading">Write a blog post</h2><button class="btn secondary" id="newPost">New post</button></div><input type="hidden" id="postId"><div class="grid">
-<div class="field"><label>Article type</label><select id="postType"><option value="journal">Journal</option><option value="analysis">Film & Script Analysis</option><option value="process">Creative Process</option><option value="project">Project in Development</option></select></div><div class="field"><label>Visibility</label><select id="postStatus"><option value="draft">Save as draft</option><option value="published">Publish</option></select></div>
-<div class="field full"><label>Title</label><input id="postTitle" maxlength="180"></div><div class="field full"><label>Short introduction</label><textarea id="excerpt" style="min-height:75px"></textarea></div><div class="field full"><label>Article</label><textarea id="content" style="min-height:260px"></textarea></div><div class="field full"><label>Cover image URL (optional)</label><input id="cover" type="url"></div><div class="field"><label>Display order</label><input id="postOrder" type="number" value="100"></div></div><button class="btn" id="savePost">Save article</button><span id="postMsg" class="msg"></span></section>
+
+<section id="view-dashboard">
+  <div class="welcome"><p class="kicker">Your private creative workspace</p><h1>Make room for the next story.</h1><p>Manage your films, photographs, screenplays and writing in one place. Save drafts, preview your work, and publish when ready.</p></div>
+  <div class="tiles">
+    <button class="tile" data-view="film" style="background-image:url(/assets/category-film.jpg)"><strong>Film &amp; Video</strong><small>Short films, documentaries, client work and reels</small></button>
+    <button class="tile" data-view="photo" style="background-image:url(/assets/category-photography.jpg)"><strong>Photography</strong><small>Albums for street, weddings, couples, concerts and events</small></button>
+    <button class="tile" data-view="writing" style="background-image:url(/assets/category-screenwriting.jpg)"><strong>Screenwriting</strong><small>Script analysis and short-film screenplays</small></button>
+    <button class="tile" data-view="blog" style="background-image:url(/assets/hero-dhaka-golden-hour-mobile.jpg)"><strong>Journal</strong><small>Articles, film analysis and creative notes</small></button>
+  </div>
+  <section class="panel"><div class="panelhead"><h2>Recent work</h2><button class="btn secondary" data-view="all">Manage all →</button></div><div id="recentItems">Loading…</div></section>
+</section>
+
+<section id="view-editor" class="panel hidden">
+  <div class="panelhead"><h2 id="editorTitle">Add new work</h2><button class="btn secondary" id="newItem">New item</button></div>
+  <input type="hidden" id="itemId">
+  <div class="grid">
+    <div class="field"><label for="category">Type of work</label><select id="category"><optgroup label="Film &amp; Video"><option value="film_short">Short Films</option><option value="film_documentary">Documentary</option><option value="film_client">Event &amp; Client Films</option><option value="film_cinematography">Cinematography &amp; Reels</option></optgroup><option value="photography">Photography album</option><optgroup label="Screenwriting"><option value="screenwriting_analysis">Script Analysis</option><option value="screenwriting_short">Short Film Screenplays</option></optgroup><option value="project">More Work — Creative Project</option><option value="other">More Work — Other</option></select></div>
+    <div class="field" id="collectionField"><label for="collection">Photography collection</label><select id="collection"><option value="">Photography (no collection)</option><option value="street">Street Photography</option><option value="weddings">Weddings</option><option value="couples">Couples</option><option value="concerts">Concerts</option><option value="events">Events</option></select></div>
+    <div class="field"><label for="status">Visibility</label><select id="status"><option value="draft">Save as draft</option><option value="published">Publish on website</option></select></div>
+    <div class="field"><label for="sortOrder">Display order</label><input id="sortOrder" type="number" min="0" value="100"><p class="hint">Smaller numbers appear first on the website.</p></div>
+    <div class="field full"><label for="title" id="titleLabel">Title</label><input id="title" maxlength="180" placeholder="e.g. Ava &amp; Daniel — Surprise Engagement"></div>
+    <div class="field full"><label for="description" id="descLabel">Short description</label><textarea id="description" placeholder="What is this work about?"></textarea></div>
+
+    <!-- Single-file media (film, writing, other) -->
+    <div class="field" id="mediaField"><label for="media" id="mediaLabel">Upload poster / cover image (optional)</label><input id="media" type="file" accept="image/jpeg,image/png,image/webp,image/gif,application/pdf"><p class="hint" id="mediaHint">Up to 20 MB. Existing media is kept unless you choose a replacement.</p><img id="preview" class="preview hidden" alt="Preview"></div>
+    <div class="field" id="videoField"><label for="video">Video link (YouTube or Vimeo)</label><input id="video" type="url" placeholder="https://youtu.be/..."></div>
+
+    <!-- Photography album manager -->
+    <div class="field full hidden" id="albumField">
+      <label>Photographs</label>
+      <div class="album">
+        <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Add photographs"><strong>Add photographs</strong><span class="muted">Drag and drop, or click to choose — select as many as you like at once (JPEG, PNG, WebP, up to 20 MB each).</span><input id="albumFiles" type="file" multiple accept="image/jpeg,image/png,image/webp,image/gif" class="hidden"></div>
+        <div class="grid" style="margin-top:12px">
+          <div class="field"><label for="albumLayout">Album cover orientation</label><select id="albumLayout"><option value="landscape">Landscape · 3:2</option><option value="portrait">Portrait · 2:3</option><option value="square">Square · 1:1</option><option value="original">Original proportions</option></select><p class="hint">Changes how the album cover is framed on the website. Your photographs are never cropped or altered.</p></div>
+          <div class="field"><label>Order</label><p class="hint" style="margin-top:0">Drag photographs to reorder, or use ← →. Click ★ to choose the album cover.</p><button type="button" class="btn secondary small" id="sortName">Sort by file name</button><button type="button" class="btn secondary small" id="reverseOrder">Reverse order</button></div>
+        </div>
+        <div class="album-bar"><strong id="photoCount" style="font:400 20px var(--serif)">No photographs yet</strong><span class="hint" id="albumHint"></span></div>
+        <div id="thumbs" class="thumbs"></div>
+        <div id="uploadProgressWrap" class="hidden"><div class="progress"><span id="uploadProgressBar"></span></div><p class="hint" id="uploadProgressText"></p></div>
+
+        <div class="recover" id="recoverBox">
+          <div class="panelhead" style="margin:0"><div><h3>Recover existing uploads</h3><p class="hint" style="margin:4px 0 0">Find photographs already in your storage that aren't attached to any album (for example after an interrupted upload) and add them here — no re-uploading needed.</p></div><button type="button" class="btn secondary" id="findOrphans">Find unattached photographs</button></div>
+          <div id="orphanList"></div>
+        </div>
+
+        <div class="pv"><div class="panelhead" style="margin-bottom:12px"><div><p class="kicker">Preview before publishing</p><h3>How this album will appear</h3></div><div><button type="button" class="btn secondary small" id="desktopPreview">Desktop</button><button type="button" class="btn secondary small" id="mobilePreview">Mobile</button></div></div>
+          <div class="pv-wrap" id="pvWrap"><div class="pv-card"><div class="pv-cover" id="pvCover"></div><div class="pv-meta"><h3 id="pvTitle">Your album title</h3><span id="pvCount">0 photographs ↗</span></div></div>
+          <div class="pv-gallery"><p class="kicker" style="color:#c8b296" id="pvKicker">Photography</p><h3 id="pvTitle2">Your album title</h3><p id="pvDesc">Your album description</p><div class="pv-images" id="pvImages"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field full"><label for="details" id="detailsLabel">Details / credits / project notes</label><textarea id="details" placeholder="Optional details, credits, synopsis or notes"></textarea></div>
+  </div>
+  <button class="btn dark" id="saveItem">Save work</button><span id="itemMsg" class="msg"></span>
+</section>
+
+<section id="view-blog" class="panel hidden"><div class="panelhead"><h2 id="postHeading">Write a journal post</h2><button class="btn secondary" id="newPost">New post</button></div><input type="hidden" id="postId"><div class="grid">
+<div class="field"><label for="postStatus">Visibility</label><select id="postStatus"><option value="draft">Save as draft</option><option value="published">Publish</option></select></div>
+<div class="field full"><label for="postTitle">Title</label><input id="postTitle" maxlength="180"></div><div class="field full"><label for="excerpt">Short introduction</label><textarea id="excerpt" style="min-height:75px"></textarea></div><div class="field full"><label for="content">Article</label><textarea id="content" style="min-height:260px"></textarea></div><div class="field full"><label for="cover">Cover image URL (optional)</label><input id="cover" type="url"></div><div class="field"><label for="postOrder">Display order</label><input id="postOrder" type="number" value="100"></div></div><button class="btn dark" id="savePost">Save article</button><span id="postMsg" class="msg"></span></section>
+
 <section id="view-all" class="panel hidden"><div class="panelhead"><h2>All content</h2><button class="btn secondary" id="refresh">Refresh</button></div><div id="allItems">Loading…</div></section>
-</div></div><div class="footer"><span class="mono">AKASH LAMA / PRIVATE STUDIO</span><a class="mono" href="/">OPEN PUBLIC WEBSITE ↗</a></div></div></main>
+</div></div>
+<div class="footer"><span class="kicker">Akash Lama / Private studio</span><a class="kicker" href="/">Open public website ↗</a></div></div>
+</main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
-const SUPABASE_URL='https://jofagddegqwsaeqtaoyn.supabase.co',KEY='sb_publishable_g7H7cwfVzBtsVqED0XeOjg_X3gR6ScD',ADMIN='akashlama26@gmail.com';
+const SUPABASE_URL='https://jofagddegqwsaeqtaoyn.supabase.co',KEY='sb_publishable_g7H7cwfVzBtsVqED0XeOjg_X3gR6ScD',ADMIN='akashlama26@gmail.com',BUCKET='portfolio-media';
 const db=window.supabase.createClient(SUPABASE_URL,KEY),$=id=>document.getElementById(id),say=(id,msg)=>$(id).textContent=msg;
-const labels={film_short:'Short Films',film_documentary:'Documentary',film_client:'Event & Client Films',film_cinematography:'Cinematography & Reels',street:'Street Photography',weddings:'Weddings',couples:'Couples',concerts:'Concerts',events:'Events',screenwriting_analysis:'Script Analysis',screenwriting_short:'Short Film Screenplays',project:'More Work',other:'More Work'};
-let items=[],posts=[],selectedFiles=[],existingMedia=null,existingMediaType=null,currentView='dashboard',coverIndex=0,albumUrls=[];
-function showView(view){currentView=view;['dashboard','editor','blog','all'].forEach(v=>$('view-'+v).classList.toggle('hidden',v!==view));document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.view===view));if(view==='all'||view==='dashboard')loadAll();if(view==='editor')setTimeout(updateFields,0)}
-document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{let v=b.dataset.view;showView(['film','photo','writing'].includes(v)?'editor':v);if(v==='film')$('category').value='film_short';if(v==='photo')$('category').value='photography';if(v==='writing')$('category').value='screenwriting_analysis';updateFields();}));
-function updateFields(){let c=$('category').value,photo=c==='photography',film=c.startsWith('film_'),script=c.startsWith('screenwriting_');$('collectionField').classList.toggle('hidden',!photo);$('albumTools').classList.toggle('hidden',!photo);$('videoField').classList.toggle('hidden',!film);$('media').multiple=photo;$('media').accept=script?'application/pdf':'image/jpeg,image/png,image/webp,image/gif,application/pdf';$('mediaLabel').textContent=script?'Upload screenplay PDF (optional)':photo?'Upload photographs (select multiple)':'Upload poster / cover image (optional)';$('descLabel').textContent=script?(c==='screenwriting_analysis'?'Analysis summary':'Logline'):'Short description';$('detailsLabel').textContent=script?(c==='screenwriting_analysis'?'Full script analysis':'Synopsis / screenplay notes'):'Details / credits / project notes';}
+const labels={film_short:'Short Films',film_documentary:'Documentary',film_client:'Event & Client Films',film_cinematography:'Cinematography & Reels',photography:'Photography',street:'Street Photography',weddings:'Weddings',couples:'Couples',concerts:'Concerts',events:'Events',screenwriting_analysis:'Script Analysis',screenwriting_short:'Short Film Screenplays',project:'More Work',other:'More Work'};
+const PHOTO_COLLECTIONS=['street','weddings','couples','concerts','events'];
+const MAX_MB=20;
+const MARKER_RE=/\[\[album-(layout|cover):[^\]]*\]\]/g;
+const getLayout=d=>(String(d||'').match(/\[\[album-layout:(landscape|portrait|square|original)\]\]/)||[])[1]||'landscape';
+const getCover=d=>(String(d||'').match(/\[\[album-cover:([^\]]+)\]\]/)||[])[1]||'';
+const strip=d=>String(d||'').replace(MARKER_RE,'').trim();
+const isPhotoRow=x=>x.category==='photography'||PHOTO_COLLECTIONS.includes(x.collection);
+const albumKey=x=>(x.collection||'')+'|'+String(x.title||'').trim().toLowerCase();
+const thumb=(url,w=360)=>/^https:\/\/jofagddegqwsaeqtaoyn\.supabase\.co\/storage\/v1\/object\/public\//.test(url||'')&&!/^(localhost|127\.)/.test(location.hostname)?'/.netlify/images?url='+encodeURIComponent(url)+'&w='+w+'&q=70':url;
+function imgEl(src,full){const i=document.createElement('img');i.loading='lazy';i.decoding='async';i.src=src;if(full)i.onerror=()=>{if(i.src!==full)i.src=full};return i}
+
+let items=[],posts=[],existingMedia=null,existingMediaType=null,singleFile=null;
+// Album state: every photograph is an entry; existing entries keep their database row and original file.
+let album={entries:[],coverKey:null,removed:[],original:null},seq=0,dragKey=null;
+
+/* ---------- Views ---------- */
+function showView(view){['dashboard','editor','blog','all'].forEach(v=>$('view-'+v).classList.toggle('hidden',v!==view));document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.view===view||(view==='editor'&&b.dataset.view===editorNav())));if(view==='all'||view==='dashboard')loadAll();window.scrollTo(0,0)}
+function editorNav(){const c=$('category').value;return c==='photography'?'photo':c.startsWith('screenwriting_')?'writing':'film'}
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.view;if(['film','photo','writing'].includes(v)){clearItem();$('category').value=v==='film'?'film_short':v==='photo'?'photography':'screenwriting_analysis';updateFields();showView('editor')}else showView(v)}));
+function updateFields(){const c=$('category').value,photo=c==='photography',film=c.startsWith('film_'),script=c.startsWith('screenwriting_');
+  $('collectionField').classList.toggle('hidden',!photo);$('albumField').classList.toggle('hidden',!photo);$('mediaField').classList.toggle('hidden',photo);$('videoField').classList.toggle('hidden',!film);
+  $('media').accept=script?'application/pdf':'image/jpeg,image/png,image/webp,image/gif,application/pdf';
+  $('mediaLabel').textContent=script?'Upload screenplay PDF (optional)':'Upload poster / cover image (optional)';
+  $('titleLabel').textContent=photo?'Album / client name':'Title';
+  $('descLabel').textContent=script?(c==='screenwriting_analysis'?'Analysis summary':'Logline'):'Short description';
+  $('detailsLabel').textContent=script?(c==='screenwriting_analysis'?'Full script analysis':'Synopsis / screenplay notes'):'Details / credits / project notes';
+  $('saveItem').textContent=photo?'Save album':'Save work';if(photo)renderAlbum()}
 $('category').addEventListener('change',updateFields);
-function renderAlbum(){albumUrls.forEach(URL.revokeObjectURL);albumUrls=[];$('albumThumbs').innerHTML='';$('albumPreviewGrid').innerHTML='';$('albumPreviewGrid').classList.remove('portrait','square','original');if($('albumLayout'))$('albumPreviewGrid').classList.add($('albumLayout').value);$('photoCount').textContent=selectedFiles.length+' photos selected';$('albumTitlePreview').textContent=$('title').value.trim()||'Your album title';$('albumDescPreview').textContent=$('description').value.trim()||'Your album description';selectedFiles.forEach((file,i)=>{let u=URL.createObjectURL(file);albumUrls.push(u);let card=document.createElement('div');card.style.cssText='position:relative;border:1px solid var(--line);padding:5px;min-width:0';let im=document.createElement('img');im.src=u;im.title=file.name;let name=document.createElement('small');name.textContent=(i+1)+'. '+file.name;name.style.cssText='display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted);font-size:10px;margin-top:5px';let cover=document.createElement('button');cover.type='button';cover.className='btn secondary';cover.textContent=i===coverIndex?'★ Cover':'Set cover';cover.style.cssText='padding:5px;margin:4px 0;font-size:9px';cover.onclick=()=>{coverIndex=i;renderAlbum()};card.append(im,name,cover);$('albumThumbs').append(card);if(i<18){let p=document.createElement('img');p.src=u;$('albumPreviewGrid').append(p)}})}$('media').addEventListener('change',()=>{selectedFiles=Array.from($('media').files||[]).filter(f=>f.type.startsWith('image/')).slice(0,150);renderAlbum();if(selectedFiles[0]){$('preview').src=albumUrls[0];$('preview').classList.remove('hidden')}else $('preview').classList.add('hidden')});['title','description'].forEach(id=>$(id).addEventListener('input',()=>{if($('category').value==='photography')renderAlbum()}));$('desktopPreview').onclick=()=> $('albumPreviewGrid').classList.remove('mobile');$('mobilePreview').onclick=()=> $('albumPreviewGrid').classList.add('mobile');$('albumLayout').addEventListener('change',renderAlbum);
-function clearItem(){['itemId','title','description','details','video'].forEach(id=>$(id).value='');$('status').value='draft';$('sortOrder').value='100';$('category').value='film_short';$('collection').value='';$('media').value='';$('preview').classList.add('hidden');selectedFiles=[];coverIndex=0;albumUrls.forEach(URL.revokeObjectURL);albumUrls=[];$('albumThumbs').innerHTML='';$('albumPreviewGrid').innerHTML='';$('albumTools').classList.add('hidden');$('albumLayout').value='landscape';$('uploadProgressWrap').classList.add('hidden');existingMedia=null;existingMediaType=null;$('editorTitle').textContent='Add new work';say('itemMsg','');updateFields()}
-$('newItem').onclick=clearItem;
-async function cropImage(file){return file}async function uploadFile(file){if(file.size>20*1024*1024)throw Error(file.name+' exceeds 20 MB.');let path=Date.now()+'-'+crypto.randomUUID()+'-'+file.name.replace(/[^a-zA-Z0-9._-]/g,'-');let {error}=await db.storage.from('portfolio-media').upload(path,file,{upsert:false,contentType:file.type});if(error)throw error;return db.storage.from('portfolio-media').getPublicUrl(path).data.publicUrl}async function uploadBatch(files){let out=new Array(files.length),next=0,done=0;async function worker(){while(true){let i=next++;if(i>=files.length)return;out[i]=await uploadFile(await cropImage(files[i]));done++;$('uploadProgressBar').style.width=Math.round(done/files.length*100)+'%';$('uploadProgressText').textContent='Uploading '+done+' of '+files.length}}await Promise.all(Array.from({length:Math.min(4,files.length)},worker));return out}
-$('saveItem').onclick=async()=>{say('itemMsg','Saving…');let btn=$('saveItem');btn.disabled=true;try{let title=$('title').value.trim();if(!title)throw Error('Please enter a title.');let photo=$('category').value==='photography';if(photo&&!selectedFiles.length&&!$('itemId').value&&!existingMedia)throw Error('Choose photos for this album.');let layout=photo?($('albumLayout').value||'landscape'):null;let cleanDetails=$('details').value.trim().replace(/\[\[album-layout:(landscape|portrait|square|original)\]\]/g,'').trim();let base={category:$('category').value,collection:photo?($('collection').value||null):null,title,description:$('description').value.trim(),details:photo?(cleanDetails+' [[album-layout:'+layout+']]').trim():cleanDetails,video_url:$('video').value.trim()||null,status:$('status').value,sort_order:Number($('sortOrder').value||100),updated_at:new Date().toISOString()};let id=$('itemId').value,uploaded;if(selectedFiles.length){$('uploadProgressWrap').classList.remove('hidden');uploaded=await uploadBatch(selectedFiles)}else uploaded=[existingMedia];let rows=uploaded.map((url,n)=>({...base,media_url:url||null,media_type:selectedFiles[n]?.type||existingMediaType||null,sort_order:base.sort_order+n}));if(photo&&selectedFiles.length&&$('coverFirst').checked&&coverIndex>0){let cover=rows.splice(coverIndex,1)[0];rows.unshift(cover);rows.forEach((r,i)=>r.sort_order=base.sort_order+i)}let res;if(id&&photo&&!selectedFiles.length){res=await db.from('portfolio_items').update({collection:base.collection,description:base.description,details:base.details,status:base.status,sort_order:base.sort_order,updated_at:base.updated_at}).eq('category','photography').eq('collection',base.collection).eq('title',title);if(res.error)throw res.error}else if(id){res=await db.from('portfolio_items').update(rows[0]||{...base,media_url:existingMedia,media_type:existingMediaType}).eq('id',id);if(res.error)throw res.error;if(rows.length>1){for(let i=1;i<rows.length;i+=50){let x=await db.from('portfolio_items').insert(rows.slice(i,i+50));if(x.error)throw x.error}}}else{if(!rows.length)rows=[{...base,media_url:null,media_type:null}];for(let i=0;i<rows.length;i+=50){let x=await db.from('portfolio_items').insert(rows.slice(i,i+50));if(x.error)throw x.error}}say('itemMsg',base.status==='published'?'Album published.':'Album saved as a draft.');clearItem();loadAll()}catch(e){say('itemMsg',e.message||String(e))}finally{btn.disabled=false;$('uploadProgressWrap').classList.add('hidden')}};
-function clearPost(){['postId','postTitle','excerpt','content','cover'].forEach(id=>$(id).value='');$('postType').value='journal';$('postStatus').value='draft';$('postOrder').value='100';$('postHeading').textContent='Write a blog post';say('postMsg','')}
+
+/* ---------- Album manager ---------- */
+const entryUrl=e=>e.url||e.preview;
+function addFiles(files){const list=Array.from(files||[]),skipped=[];list.forEach(f=>{if(!f.type.startsWith('image/')){skipped.push(f.name+' (not an image)');return}if(f.size>MAX_MB*1024*1024){skipped.push(f.name+' (over '+MAX_MB+' MB)');return}album.entries.push({key:'n'+(++seq),file:f,name:f.name,type:f.type,preview:URL.createObjectURL(f),isNew:true})});if(!album.coverKey&&album.entries[0])album.coverKey=album.entries[0].key;renderAlbum();if(skipped.length)say('itemMsg','Skipped: '+skipped.join(', '))}
+$('dropzone').onclick=()=>$('albumFiles').click();$('dropzone').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();$('albumFiles').click()}};
+$('albumFiles').onchange=()=>{addFiles($('albumFiles').files);$('albumFiles').value=''};
+['dragenter','dragover'].forEach(ev=>$('dropzone').addEventListener(ev,e=>{if(e.dataTransfer.types.includes('Files')){e.preventDefault();$('dropzone').classList.add('over')}}));
+['dragleave','drop'].forEach(ev=>$('dropzone').addEventListener(ev,()=>$('dropzone').classList.remove('over')));
+$('dropzone').addEventListener('drop',e=>{e.preventDefault();addFiles(e.dataTransfer.files)});
+function move(from,to){if(to<0||to>=album.entries.length)return;const [x]=album.entries.splice(from,1);album.entries.splice(to,0,x);renderAlbum()}
+$('sortName').onclick=()=>{album.entries.sort((a,b)=>String(a.name).localeCompare(String(b.name),undefined,{numeric:true}));renderAlbum()};
+$('reverseOrder').onclick=()=>{album.entries.reverse();renderAlbum()};
+function renderAlbum(){const box=$('thumbs');box.innerHTML='';const n=album.entries.length;
+  if(album.coverKey&&!album.entries.some(e=>e.key===album.coverKey))album.coverKey=album.entries[0]?.key||null;
+  $('photoCount').textContent=n?n+' photograph'+(n===1?'':'s')+' in this album':'No photographs yet';
+  const newCount=album.entries.filter(e=>e.isNew).length;$('albumHint').textContent=(newCount?newCount+' new (not yet saved)':'')+(album.removed.length?(newCount?' · ':'')+album.removed.length+' to remove from album':'');
+  album.entries.forEach((e,i)=>{const c=document.createElement('div');c.className='thumb'+(e.key===album.coverKey?' is-cover':'');c.draggable=true;c.dataset.key=e.key;
+    c.append(imgEl(e.isNew&&e.file?e.preview:thumb(entryUrl(e)),entryUrl(e)));
+    const num=document.createElement('span');num.className='num';num.textContent=i+1;c.append(num);
+    if(e.key===album.coverKey||e.isNew){const t=document.createElement('span');t.className='tag'+(e.key===album.coverKey?' cover':'');t.textContent=e.key===album.coverKey?'★ Cover':'New';c.append(t)}
+    const nm=document.createElement('div');nm.className='name';nm.textContent=e.name||'Photograph';nm.title=e.name||'';c.append(nm);
+    const acts=document.createElement('div');acts.className='acts';
+    const mk=(txt,title,fn,cls)=>{const b=document.createElement('button');b.type='button';b.textContent=txt;b.title=title;b.setAttribute('aria-label',title);if(cls)b.className=cls;b.onclick=ev=>{ev.stopPropagation();fn()};acts.append(b)};
+    mk('←','Move earlier',()=>move(i,i-1));mk('★','Use as album cover',()=>{album.coverKey=e.key;renderAlbum()});mk('→','Move later',()=>move(i,i+1));
+    mk('✕','Remove from album',()=>{if(!e.isNew){if(!confirm('Remove this photograph from the album? The original file stays safely in your storage and can be re-attached later with “Recover existing uploads”.'))return;album.removed.push(e.row.id)}else if(e.preview&&e.file)URL.revokeObjectURL(e.preview);album.entries.splice(i,1);renderAlbum()},'rm');
+    c.append(acts);
+    c.addEventListener('dragstart',ev=>{dragKey=e.key;c.classList.add('dragging');ev.dataTransfer.effectAllowed='move';ev.dataTransfer.setData('text/plain',e.key)});
+    c.addEventListener('dragend',()=>{dragKey=null;c.classList.remove('dragging');box.querySelectorAll('.drop-target').forEach(x=>x.classList.remove('drop-target'))});
+    c.addEventListener('dragover',ev=>{if(dragKey){ev.preventDefault();c.classList.add('drop-target')}});
+    c.addEventListener('dragleave',()=>c.classList.remove('drop-target'));
+    c.addEventListener('drop',ev=>{if(!dragKey)return;ev.preventDefault();const from=album.entries.findIndex(x=>x.key===dragKey),to=album.entries.findIndex(x=>x.key===e.key);if(from>-1&&to>-1&&from!==to)move(from,to)});
+    box.append(c)});
+  renderPreview()}
+function renderPreview(){const title=$('title').value.trim()||'Your album title',layout=$('albumLayout').value,n=album.entries.length;
+  const cover=album.entries.find(e=>e.key===album.coverKey)||album.entries[0];
+  $('pvCover').className='pv-cover '+layout;$('pvCover').innerHTML='';if(cover)$('pvCover').append(imgEl(cover.isNew&&cover.file?cover.preview:thumb(entryUrl(cover),800),entryUrl(cover)));
+  $('pvTitle').textContent=$('pvTitle2').textContent=title;$('pvCount').textContent=n+' photograph'+(n===1?'':'s')+' ↗';
+  $('pvDesc').textContent=$('description').value.trim()||'Your album description';$('pvKicker').textContent='Photography · '+(labels[$('collection').value]||'Photography');
+  $('pvImages').innerHTML='';album.entries.slice(0,60).forEach(e=>$('pvImages').append(imgEl(e.isNew&&e.file?e.preview:thumb(entryUrl(e),500),entryUrl(e))));
+  if(n>60){const p=document.createElement('p');p.textContent='+ '+(n-60)+' more photographs';$('pvImages').append(p)}}
+['title','description'].forEach(id=>$(id).addEventListener('input',()=>{if($('category').value==='photography')renderPreview()}));
+$('collection').addEventListener('change',renderPreview);$('albumLayout').addEventListener('change',renderPreview);
+$('desktopPreview').onclick=()=>$('pvWrap').classList.remove('mobile');$('mobilePreview').onclick=()=>$('pvWrap').classList.add('mobile');
+
+/* Recover photographs that exist in storage but are not attached to any database row */
+$('findOrphans').onclick=async()=>{const out=$('orphanList');out.textContent='Checking your storage…';try{
+  let files=[],offset=0;while(true){const {data,error}=await db.storage.from(BUCKET).list('',{limit:1000,offset,sortBy:{column:'created_at',order:'desc'}});if(error)throw error;files=files.concat(data||[]);if(!data||data.length<1000)break;offset+=1000}
+  const used=new Set(items.map(x=>x.media_url).filter(Boolean));album.entries.forEach(e=>e.url&&used.add(e.url));
+  const inAlbum=new Set(album.entries.map(e=>String(e.name||'').toLowerCase()));
+  const orphans=files.filter(f=>f.id&&/\.(jpe?g|png|webp|gif)$/i.test(f.name)).map(f=>({...f,url:db.storage.from(BUCKET).getPublicUrl(f.name).data.publicUrl,short:f.name.replace(/^\d+-[0-9a-f-]{36}-/i,'')})).filter(f=>!used.has(f.url));
+  out.innerHTML='';if(!orphans.length){out.innerHTML='<p class="hint">Every photograph in storage is already attached to an album.</p>';return}
+  // Show one copy per file name; mark names that already appear in this album as likely duplicates.
+  const seen=new Set(),uniq=orphans.filter(f=>{const k=f.short.toLowerCase();if(seen.has(k))return false;seen.add(k);return true});
+  const info=document.createElement('p');info.className='hint';info.textContent=uniq.length+' unattached photograph'+(uniq.length===1?'':'s')+' found. Photos marked “Duplicate” have the same file name as one already in this album. Select the ones to add, then save the album.';out.append(info);
+  const grid=document.createElement('div');grid.className='thumbs';const picked=new Set();
+  uniq.forEach(f=>{const dup=inAlbum.has(f.short.toLowerCase());const c=document.createElement('div');c.className='thumb';c.append(imgEl(thumb(f.url),f.url));
+    const t=document.createElement('span');t.className='tag'+(dup?' cover':'');t.textContent=dup?'Duplicate':'Not in album';c.append(t);
+    const nm=document.createElement('div');nm.className='name';nm.textContent=f.short;c.append(nm);
+    c.onclick=()=>{picked.has(f)?picked.delete(f):picked.add(f);c.classList.toggle('sel',picked.has(f));addBtn.textContent='Add '+picked.size+' to album'};grid.append(c)});
+  const addBtn=document.createElement('button');addBtn.type='button';addBtn.className='btn';addBtn.textContent='Add 0 to album';
+  addBtn.onclick=()=>{if(!picked.size)return;[...picked].forEach(f=>album.entries.push({key:'s'+(++seq),url:f.url,name:f.short,type:f.metadata?.mimetype||'image/jpeg',isNew:true,fromStorage:true}));if(!album.coverKey&&album.entries[0])album.coverKey=album.entries[0].key;out.innerHTML='<p class="hint">Added. Review the order above, then click “Save album”.</p>';renderAlbum()};
+  out.append(grid,addBtn)}catch(e){out.textContent=e.message||String(e)}};
+
+/* ---------- Clear / edit ---------- */
+function resetAlbum(){album.entries.forEach(e=>{if(e.file&&e.preview)URL.revokeObjectURL(e.preview)});album={entries:[],coverKey:null,removed:[],original:null};$('orphanList').innerHTML=''}
+function clearItem(){['itemId','title','description','details','video'].forEach(id=>$(id).value='');$('status').value='draft';$('sortOrder').value='100';$('category').value='film_short';$('category').disabled=false;$('collection').value='';$('media').value='';$('preview').classList.add('hidden');singleFile=null;resetAlbum();$('albumLayout').value='landscape';$('uploadProgressWrap').classList.add('hidden');existingMedia=null;existingMediaType=null;$('editorTitle').textContent='Add new work';say('itemMsg','');updateFields()}
+$('newItem').onclick=()=>{const c=$('category').value;clearItem();$('category').value=c;updateFields()};
+$('media').onchange=()=>{singleFile=$('media').files[0]||null;if(singleFile&&singleFile.type.startsWith('image/')){$('preview').src=URL.createObjectURL(singleFile);$('preview').classList.remove('hidden')}};
+function editAlbum(rows){clearItem();const sorted=[...rows].sort((a,b)=>(Number(a.sort_order)||0)-(Number(b.sort_order)||0)||String(a.created_at).localeCompare(String(b.created_at)));const first=sorted[0];
+  $('category').value='photography';$('category').disabled=true;updateFields();
+  $('collection').value=first.collection||'';$('title').value=first.title||'';$('description').value=first.description||'';$('details').value=strip(first.details);$('albumLayout').value=getLayout(first.details);
+  $('status').value=sorted.some(r=>r.status==='published')?'published':'draft';$('sortOrder').value=first.sort_order??100;
+  album.original={collection:first.collection,title:first.title};
+  album.entries=sorted.filter(r=>r.media_url).map(r=>({key:'r'+r.id,row:r,url:r.media_url,type:r.media_type,name:String(r.media_url).split('/').pop().replace(/^\d+-[0-9a-f-]{36}-/i,'')}));
+  const coverUrl=sorted.map(r=>getCover(r.details)).find(Boolean);album.coverKey=(album.entries.find(e=>e.url===coverUrl)||album.entries[0])?.key||null;
+  const drafts=sorted.filter(r=>r.status!=='published').length;
+  $('editorTitle').textContent='Edit album';say('itemMsg',(drafts?drafts+' of these photographs are drafts and hidden on the website — choose “Publish on website” and save to show all of them. ':'')+'Original files are always kept.');renderAlbum();showView('editor')}
+function editEntry(p){if(p._kind==='album')return editAlbum(p.rows);if(p._kind==='item'){clearItem();$('itemId').value=p.id;$('category').value=p.category;updateFields();$('title').value=p.title||'';$('description').value=p.description||'';$('details').value=strip(p.details);$('video').value=p.video_url||'';$('status').value=p.status||'draft';$('sortOrder').value=p.sort_order??100;existingMedia=p.media_url;existingMediaType=p.media_type;if(p.media_url&&p.media_type!=='application/pdf'){$('preview').src=thumb(p.media_url,500);$('preview').classList.remove('hidden')}$('editorTitle').textContent='Edit work';say('itemMsg','Existing media will be kept unless you upload a replacement.');showView('editor')}else{showView('blog');$('postId').value=p.id;$('postTitle').value=p.title||'';$('excerpt').value=p.excerpt||'';$('content').value=p.content||'';$('cover').value=p.cover_image_url||'';$('postStatus').value=p.status||'draft';$('postOrder').value=p.sort_order??100;$('postHeading').textContent='Edit journal post'}}
+
+/* ---------- Upload & save ---------- */
+async function uploadFile(file){if(file.size>MAX_MB*1024*1024)throw Error(file.name+' exceeds '+MAX_MB+' MB.');const path=Date.now()+'-'+crypto.randomUUID()+'-'+file.name.replace(/[^a-zA-Z0-9._-]/g,'-');const {error}=await db.storage.from(BUCKET).upload(path,file,{upsert:false,contentType:file.type,cacheControl:'31536000'});if(error)throw error;return db.storage.from(BUCKET).getPublicUrl(path).data.publicUrl}
+async function pool(list,size,fn,onDone){let next=0,done=0;async function worker(){while(next<list.length){const i=next++;await fn(list[i],i);done++;onDone&&onDone(done,list.length)}}await Promise.all(Array.from({length:Math.min(size,list.length)},worker))}
+function progress(done,total,label){$('uploadProgressWrap').classList.remove('hidden');$('uploadProgressBar').style.width=Math.round(done/total*100)+'%';$('uploadProgressText').textContent=label+' '+done+' of '+total}
+async function saveAlbum(){const title=$('title').value.trim();if(!title)throw Error('Please enter an album name.');if(!album.entries.length)throw Error('Add at least one photograph to this album.');
+  // 1. Upload new files (4 at a time). Files already in storage are reused as-is.
+  const toUpload=album.entries.filter(e=>e.isNew&&e.file&&!e.url);
+  if(toUpload.length)await pool(toUpload,4,async e=>{e.url=await uploadFile(e.file)},(d,t)=>progress(d,t,'Uploading photograph'));
+  const cover=album.entries.find(e=>e.key===album.coverKey)||album.entries[0];
+  const layout=$('albumLayout').value||'landscape';
+  const details=(strip($('details').value)+' [[album-layout:'+layout+']] [[album-cover:'+cover.url+']]').trim();
+  const start=Number($('sortOrder').value||100),now=new Date().toISOString();
+  const base={category:'photography',collection:$('collection').value||null,title,description:$('description').value.trim(),details,video_url:null,status:$('status').value,updated_at:now};
+  // 2. Update existing photographs (metadata and order only — media_url is never changed).
+  const existing=album.entries.map((e,i)=>({e,i})).filter(x=>!x.e.isNew);
+  await pool(existing,6,async({e,i})=>{const r=await db.from('portfolio_items').update({...base,sort_order:start+i}).eq('id',e.row.id);if(r.error)throw r.error},(d,t)=>progress(d,t,'Updating photograph'));
+  // 3. Insert new photographs in batches.
+  const fresh=album.entries.map((e,i)=>({e,i})).filter(x=>x.e.isNew).map(({e,i})=>({...base,media_url:e.url,media_type:e.type||'image/jpeg',sort_order:start+i}));
+  for(let i=0;i<fresh.length;i+=50){const x=await db.from('portfolio_items').insert(fresh.slice(i,i+50));if(x.error)throw x.error;progress(Math.min(i+50,fresh.length),fresh.length,'Saving photograph')}
+  // 4. Photographs removed from the album: delete only the database row. The original file stays in storage.
+  if(album.removed.length){const r=await db.from('portfolio_items').delete().in('id',album.removed);if(r.error)throw r.error}
+  album.entries.forEach(e=>{e.isNew=false});
+  return base.status==='published'?'Album published — '+album.entries.length+' photographs.':'Album saved as a draft — '+album.entries.length+' photographs.'}
+async function saveSingle(){const title=$('title').value.trim();if(!title)throw Error('Please enter a title.');let url=existingMedia,type=existingMediaType;if(singleFile){progress(0,1,'Uploading');url=await uploadFile(singleFile);type=singleFile.type;progress(1,1,'Uploading')}
+  const row={category:$('category').value,collection:null,title,description:$('description').value.trim(),details:strip($('details').value),video_url:$('video').value.trim()||null,status:$('status').value,sort_order:Number($('sortOrder').value||100),media_url:url||null,media_type:type||null,updated_at:new Date().toISOString()};
+  const id=$('itemId').value,r=id?await db.from('portfolio_items').update(row).eq('id',id):await db.from('portfolio_items').insert(row);if(r.error)throw r.error;return row.status==='published'?'Published.':'Saved as a draft.'}
+$('saveItem').onclick=async()=>{const btn=$('saveItem');btn.disabled=true;say('itemMsg','Saving…');try{const msg=$('category').value==='photography'?await saveAlbum():await saveSingle();clearItem();say('itemMsg',msg);await loadAll()}catch(e){say('itemMsg',e.message||String(e))}finally{btn.disabled=false;$('uploadProgressWrap').classList.add('hidden')}};
+
+/* ---------- Journal ---------- */
+function clearPost(){['postId','postTitle','excerpt','content','cover'].forEach(id=>$(id).value='');$('postStatus').value='draft';$('postOrder').value='100';$('postHeading').textContent='Write a journal post';say('postMsg','')}
 $('newPost').onclick=clearPost;
-function slug(s){return s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/,'')}
-$('savePost').onclick=async()=>{say('postMsg','Saving…');try{let title=$('postTitle').value.trim(),content=$('content').value.trim();if(!title||!content)throw Error('Add a title and article content.');let status=$('postStatus').value,p={post_type:$('postType').value,title,slug:slug(title),excerpt:$('excerpt').value.trim(),content,cover_image_url:$('cover').value.trim()||null,status,published_at:status==='published'?new Date().toISOString():null,sort_order:Number($('postOrder').value||100),updated_at:new Date().toISOString()};let id=$('postId').value,r=id?await db.from('journal_posts').update(p).eq('id',id):await db.from('journal_posts').insert(p);if(r.error)throw r.error;say('postMsg',status==='published'?'Article published.':'Draft saved.');clearPost();loadAll()}catch(e){say('postMsg',e.message||String(e))}};
-function node(tag,text){let n=document.createElement(tag);n.textContent=text;return n}
-async function loadAll(){let [a,b]=await Promise.all([db.from('portfolio_items').select('*').order('sort_order',{ascending:true}).order('created_at',{ascending:false}),db.from('journal_posts').select('*').order('sort_order',{ascending:true}).order('created_at',{ascending:false})]);if(a.error||b.error){$('allItems').textContent=(a.error||b.error).message;return}items=a.data||[];posts=b.data||[];let all=[...items.map(x=>({...x,_kind:'item'})),...posts.map(x=>({...x,_kind:'post'}))].sort((x,y)=>(x.sort_order??100)-(y.sort_order??100));renderList(all,$('allItems'));renderList(all.slice(0,5),$('recentItems'))}
-function renderList(list,target){target.innerHTML='';if(!list.length){target.textContent='Nothing here yet. Add your first project.';return}list.forEach(p=>{let row=document.createElement('div');row.className='entry';let info=document.createElement('div');info.append(node('strong',p.title||'Untitled'),node('small',(p._kind==='item'?(labels[p.category]||p.category)+(p.collection?' · '+labels[p.collection]:''):'Blog · '+p.post_type)+' · '+p.status+' · Order '+(p.sort_order??100)));let actions=document.createElement('div');let edit=node('button','Edit'),del=node('button','Delete');edit.className='btn secondary';del.className='btn secondary danger';edit.onclick=()=>editEntry(p);del.onclick=async()=>{if(!confirm('Permanently delete this item?'))return;let r=p._kind==='item'?await db.from('portfolio_items').delete().eq('id',p.id):await db.from('journal_posts').delete().eq('id',p.id);if(r.error)alert(r.error.message);else loadAll()};actions.append(edit,del);row.append(info,actions);target.append(row)})}
-function editEntry(p){if(p._kind==='item'){showView('editor');$('itemId').value=p.id;$('category').value=p.category;updateFields();$('collection').value=p.collection||'';$('title').value=p.title||'';$('description').value=p.description||'';let lm=(p.details||'').match(/\[\[album-layout:(landscape|portrait|square|original)\]\]/);$('albumLayout').value=lm?lm[1]:'landscape';$('details').value=(p.details||'').replace(/\[\[album-layout:(landscape|portrait|square|original)\]\]/g,'').trim();$('video').value=p.video_url||'';$('status').value=p.status||'draft';$('sortOrder').value=p.sort_order??100;existingMedia=p.media_url;existingMediaType=p.media_type;$('editorTitle').textContent='Edit work';say('itemMsg','Existing media will be kept unless you upload a replacement.')}else{showView('blog');$('postId').value=p.id;$('postType').value=p.post_type||'journal';$('postTitle').value=p.title||'';$('excerpt').value=p.excerpt||'';$('content').value=p.content||'';$('cover').value=p.cover_image_url||'';$('postStatus').value=p.status||'draft';$('postOrder').value=p.sort_order??100;$('postHeading').textContent='Edit blog post'}window.scrollTo(0,0)}
+function slug(s){return s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+$('savePost').onclick=async()=>{say('postMsg','Saving…');try{const title=$('postTitle').value.trim(),content=$('content').value.trim();if(!title||!content)throw Error('Add a title and article content.');const status=$('postStatus').value,p={title,slug:slug(title),excerpt:$('excerpt').value.trim(),content,cover_image_url:$('cover').value.trim()||null,status,published_at:status==='published'?new Date().toISOString():null,sort_order:Number($('postOrder').value||100),updated_at:new Date().toISOString()};const id=$('postId').value,r=id?await db.from('journal_posts').update(p).eq('id',id):await db.from('journal_posts').insert(p);if(r.error)throw r.error;say('postMsg',status==='published'?'Article published.':'Draft saved.');clearPost();loadAll()}catch(e){say('postMsg',e.message||String(e))}};
+
+/* ---------- Content list (photography grouped into one row per album) ---------- */
+function node(tag,text,cls){const n=document.createElement(tag);n.textContent=text;if(cls)n.className=cls;return n}
+async function loadAll(){const [a,b]=await Promise.all([db.from('portfolio_items').select('*').order('sort_order',{ascending:true}).order('created_at',{ascending:false}),db.from('journal_posts').select('*').order('sort_order',{ascending:true}).order('created_at',{ascending:false})]);if(a.error||b.error){$('allItems').textContent=(a.error||b.error).message;return}
+  items=a.data||[];posts=b.data||[];const albums=new Map(),list=[];
+  items.forEach(x=>{if(isPhotoRow(x)){const k=albumKey(x);if(!albums.has(k)){const g={_kind:'album',rows:[],sort_order:x.sort_order};albums.set(k,g);list.push(g)}albums.get(k).rows.push(x)}else list.push({...x,_kind:'item'})});
+  posts.forEach(x=>list.push({...x,_kind:'post'}));list.sort((x,y)=>(x.sort_order??100)-(y.sort_order??100));
+  renderList(list,$('allItems'));renderList(list.slice(0,6),$('recentItems'))}
+function renderList(list,target){target.innerHTML='';if(!list.length){target.textContent='Nothing here yet. Add your first project.';return}
+  list.forEach(p=>{const row=document.createElement('div');row.className='entry';const info=document.createElement('div');info.className='info';const txt=document.createElement('div');
+    if(p._kind==='album'){const f=p.rows[0],pub=p.rows.filter(r=>r.status==='published').length,cu=p.rows.map(r=>getCover(r.details)).find(Boolean),c=p.rows.find(r=>r.media_url===cu)||p.rows.find(r=>r.media_url);if(c)info.append(imgEl(thumb(c.media_url,160),c.media_url));
+      txt.append(node('strong',f.title||'Untitled album'));const s=node('small','Photography album · '+(labels[f.collection]||'Photography')+' · '+p.rows.length+' photographs · Order '+(f.sort_order??100));s.append(node('span',pub===p.rows.length?'Published':pub?pub+' published / '+(p.rows.length-pub)+' draft':'Draft','badge'+(pub?' pub':'')));txt.append(s)}
+    else{const thumbUrl=p._kind==='item'?(p.media_type!=='application/pdf'&&p.media_url):p.cover_image_url;if(thumbUrl)info.append(imgEl(thumb(thumbUrl,160),thumbUrl));txt.append(node('strong',p.title||'Untitled'));const s=node('small',(p._kind==='item'?(labels[p.category]||p.category):'Journal')+' · Order '+(p.sort_order??100));s.append(node('span',p.status==='published'?'Published':'Draft','badge'+(p.status==='published'?' pub':'')));txt.append(s)}
+    info.append(txt);const actions=document.createElement('div');const edit=node('button',p._kind==='album'?'Edit album':'Edit','btn secondary small');edit.onclick=()=>editEntry(p);actions.append(edit);
+    if(p._kind!=='album'){const del=node('button','Delete','btn danger small');del.onclick=async()=>{if(!confirm('Permanently delete “'+(p.title||'this item')+'”?'))return;const r=p._kind==='item'?await db.from('portfolio_items').delete().eq('id',p.id):await db.from('journal_posts').delete().eq('id',p.id);if(r.error)alert(r.error.message);else loadAll()};actions.append(del)}
+    row.append(info,actions);target.append(row)})}
 $('refresh').onclick=loadAll;
-$('login').onclick=async()=>{say('loginMsg','Signing in…');try{let email=$('email').value.trim().toLowerCase();if(email!==ADMIN)throw Error('This email is not authorized.');let {error}=await db.auth.signInWithPassword({email,password:$('password').value});if(error)throw error;await checkSession()}catch(e){say('loginMsg',e.message||String(e))}};
-$('forgot').onclick=async()=>{try{let email=$('email').value.trim().toLowerCase();if(email!==ADMIN)throw Error('Enter your authorized admin email.');let {error}=await db.auth.resetPasswordForEmail(email);if(error)throw error;$('recovery').classList.remove('hidden');say('loginMsg','Check your email for the recovery code.')}catch(e){say('loginMsg',e.message)}};
-$('savePass').onclick=async()=>{try{let {error}=await db.auth.verifyOtp({email:$('email').value.trim(),token:$('code').value.trim(),type:'recovery'});if(error)throw error;let {error:e}=await db.auth.updateUser({password:$('newPass').value});if(e)throw e;say('recoveryMsg','Password updated. Sign in above.');$('recovery').classList.add('hidden')}catch(e){say('recoveryMsg',e.message)}};
-async function checkSession(){let {data:{session}}=await db.auth.getSession(),u=session?.user;if(u?.email?.toLowerCase()===ADMIN){$('loginView').classList.add('hidden');$('app').classList.remove('hidden');$('signedIn').textContent=u.email;showView('dashboard')}else{$('app').classList.add('hidden');$('loginView').classList.remove('hidden');if(u)await db.auth.signOut()}}
-db.auth.onAuthStateChange(()=>{setTimeout(checkSession,0)});$('logout').onclick=async()=>{await db.auth.signOut();location.reload()};updateFields();checkSession();
+
+/* ---------- Auth (unchanged behaviour) ---------- */
+$('login').onclick=async()=>{say('loginMsg','Signing in…');try{const email=$('email').value.trim().toLowerCase();if(email!==ADMIN)throw Error('This email is not authorized.');const {error}=await db.auth.signInWithPassword({email,password:$('password').value});if(error)throw error;await checkSession()}catch(e){say('loginMsg',e.message||String(e))}};
+$('password').addEventListener('keydown',e=>{if(e.key==='Enter')$('login').click()});
+$('forgot').onclick=async()=>{try{const email=$('email').value.trim().toLowerCase();if(email!==ADMIN)throw Error('Enter your authorized admin email.');const {error}=await db.auth.resetPasswordForEmail(email);if(error)throw error;$('recovery').classList.remove('hidden');say('loginMsg','Check your email for the recovery code.')}catch(e){say('loginMsg',e.message)}};
+$('savePass').onclick=async()=>{try{const {error}=await db.auth.verifyOtp({email:$('email').value.trim(),token:$('code').value.trim(),type:'recovery'});if(error)throw error;const {error:e}=await db.auth.updateUser({password:$('newPass').value});if(e)throw e;say('recoveryMsg','Password updated. Sign in above.');$('recovery').classList.add('hidden')}catch(e){say('recoveryMsg',e.message)}};
+let sessionShown=false;
+async function checkSession(){const {data:{session}}=await db.auth.getSession(),u=session?.user;if(u?.email?.toLowerCase()===ADMIN){$('loginView').classList.add('hidden');$('app').classList.remove('hidden');$('signedIn').textContent=u.email;if(!sessionShown){sessionShown=true;showView('dashboard')}}else{sessionShown=false;$('app').classList.add('hidden');$('loginView').classList.remove('hidden');if(u)await db.auth.signOut()}}
+db.auth.onAuthStateChange(()=>{setTimeout(checkSession,0)});$('logout').onclick=async()=>{await db.auth.signOut();location.reload()};
+window.addEventListener('beforeunload',e=>{if(album.entries.some(x=>x.isNew)){e.preventDefault();e.returnValue=''}});
+updateFields();checkSession();
 </script></body></html>
