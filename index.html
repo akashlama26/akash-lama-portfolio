@@ -537,6 +537,7 @@ section{scroll-margin-top:22px}
       }catch(e){}
       return '<div class="work-image"><iframe src="'+escapeHTML(embed)+'" title="'+escapeHTML(item.title)+'" loading="lazy" style="width:100%;height:100%;border:0" allowfullscreen></iframe></div>';
     }
+    if(item.media_url && item.media_type && item.media_type.startsWith("video/"))return '<div class="work-image"><video src="'+escapeHTML(item.media_url)+'" controls playsinline preload="metadata" style="width:100%;height:100%;object-fit:contain;background:#211c17"></video></div>';
     if(item.media_url && item.media_type!=="application/pdf")return '<div class="work-image"><img src="'+escapeHTML(item.media_url)+'" alt="'+escapeHTML(item.title)+'" loading="lazy"></div>';
     if(item.media_type==="application/pdf" && item.media_url)return '<div class="catalogue-placeholder"><span class="mono">SCREENPLAY PDF</span><a class="catalogue-label" href="'+escapeHTML(item.media_url)+'" target="_blank" rel="noopener">Read screenplay ↗</a></div>';
     return '<div class="catalogue-placeholder"><span class="mono">AKASH LAMA / SELECTED WORK</span><span class="catalogue-plus">✳</span></div>';
@@ -586,7 +587,7 @@ section{scroll-margin-top:22px}
       {title:"Screenwriting",category:"Original stories",media_url:"https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=92"}
     ];
     const visible=cards.concat(fallbacks.slice(0,Math.max(0,3-cards.length)));
-    container.innerHTML=visible.map(item=>'<a class="recent-project-card" href="#film"><div class="recent-project-image"><img src="'+escapeHTML(item.media_url)+'" alt="'+escapeHTML(item.title||"Selected project")+'" loading="lazy"></div><div class="recent-project-meta"><strong>'+escapeHTML(item.title||"Untitled project")+'</strong><span>'+escapeHTML(item.category||item.collection||"Selected work")+'</span></div></a>').join("");
+    container.innerHTML=visible.map(item=>'<a class="recent-project-card" href="#film"><div class="recent-project-image">'+(item.media_type&&item.media_type.startsWith("video/")?'<video src="'+escapeHTML(item.media_url)+'" muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>':'<img src="'+escapeHTML(item.media_url)+'" alt="'+escapeHTML(item.title||"Selected project")+'" loading="lazy">')+'</div><div class="recent-project-meta"><strong>'+escapeHTML(item.title||"Untitled project")+'</strong><span>'+escapeHTML(item.category||item.collection||"Selected work")+'</span></div></a>').join("");
   }
   async function loadManagedWork(){
     const film=document.getElementById("filmItems"),photos=document.getElementById("photoItems"),writing=document.getElementById("writingItems");
