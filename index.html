@@ -607,7 +607,7 @@ section{scroll-margin-top:22px}
       collectionOrder.forEach(key=>{if(!collectionNames[key])collectionNames[key]=key.replace(/[_-]+/g," ").replace(/\b\w/g,ch=>ch.toUpperCase())});
       collectionOrder.forEach(collection=>{
         const albums=new Map();
-        photoItems.filter(item=>item.collection===collection).forEach(item=>{
+        photoItems.filter(item=>(item.collection||"photography")===collection).forEach(item=>{
           const key=(item.title||"Untitled").trim().toLowerCase();
           if(!albums.has(key))albums.set(key,[]);
           albums.get(key).push(item);
